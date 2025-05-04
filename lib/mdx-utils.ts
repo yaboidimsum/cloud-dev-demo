@@ -1,12 +1,3 @@
-import { toString } from "mdast-util-to-string";
-import { visit } from "unist-util-visit";
-
-interface Heading {
-  id: string;
-  title: string;
-  level: number;
-}
-
 // Maximum length for heading titles before truncation
 const MAX_HEADING_LENGTH = 25;
 
@@ -60,34 +51,4 @@ export function extractHeadings(content: string) {
   }
 
   return headings;
-}
-
-// Alternative implementation using a proper MDX AST parser
-// This would be more robust but requires additional dependencies
-export async function extractHeadingsFromAST(mdxContent: any) {
-  const headings: Heading[] = [];
-
-  visit(mdxContent, "heading", (node) => {
-    const title = toString(node);
-    const id = title
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-");
-
-    headings.push({
-      id,
-      title,
-      level: node.depth,
-    });
-  });
-
-  return headings;
-}
-
-/**
- * Renders markdown content (placeholder - implement based on your actual needs)
- */
-export async function renderMarkdown(content: string) {
-  // Implement based on your markdown rendering needs
-  return content;
 }

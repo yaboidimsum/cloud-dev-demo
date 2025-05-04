@@ -12,13 +12,16 @@ interface Heading {
 
 interface TableOfContentsProps {
   headings: Heading[];
-  contentRef: React.RefObject<HTMLDivElement>;
+  contentRef: React.RefObject<HTMLDivElement>; // Keep if needed elsewhere, but not for highlighting logic here
+  currentId?: string | null; // Add currentId prop (optional)
 }
 
 export default function TableOfContents({
   headings,
-  contentRef,
+  contentRef, // Keep if needed
+  currentId, // Receive the currentId
 }: TableOfContentsProps) {
+  // ... (useEffect for headingsMapRef can remain if needed for other features) ...
   const headingsMapRef = useRef<Map<string, Heading>>(new Map());
 
   // Build a map of heading IDs to heading objects for quick lookup
@@ -37,18 +40,18 @@ export default function TableOfContents({
     <>
       {/* Desktop TOC */}
       <motion.div
-        className="hidden lg:block"
+        className="hidden lg:block" // Keep responsive class
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <div className="dark-blue:bg-[#192734] dark-blue:border-gray-700 rounded-lg border border-gray-200 bg-gray-100 p-4 dark:border-gray-800 dark:bg-gray-900">
           <h4 className="dark-blue:text-gray-400 mb-3 text-sm font-semibold text-gray-500 dark:text-gray-400">
-            Table of Contents (Experimental Feature)
+            On this page
           </h4>
           <nav
             className="overflow-y-auto"
-            style={{ maxHeight: "calc(100vh - 160px)" }}
+            style={{ maxHeight: "calc(100vh - 200px)" }} // Adjusted max height slightly
           >
             <ul className="space-y-2 text-sm">
               {headings.map((heading) => (
@@ -59,16 +62,23 @@ export default function TableOfContents({
                       ? ""
                       : heading.level === 2
                       ? "ml-3"
-                      : "ml-6"
+                      : "ml-6" // Indentation based on level
                   }`}
                 >
                   <a
-                    // onClick={() => scrollToHeading(heading.id)}
                     href={`#${heading.id}`}
-                    className={`w-full truncate text-left text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 `}
-                    title={heading.title.replace(/👉\s|--\s/g, "")} // Remove prefixes for the tooltip
+                    // Apply conditional styling based on currentId
+                    className={`block w-full truncate text-left transition-colors duration-200 ease-in-out ${
+                      currentId === heading.id
+                        ? "font-semibold text-blue-500 dark:text-blue-400" // Active state
+                        : "text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200" // Default state
+                    }`}
+                    title={heading.title.replace(/^(👉|--)\s*/, "").trim()} // Clean title for tooltip
                   >
-                    <span>{heading.title}</span>
+                    {/* Clean title for display */}
+                    <span>
+                      {heading.title.replace(/^(👉|--)\s*/, "").trim()}
+                    </span>
                   </a>
                 </li>
               ))}
