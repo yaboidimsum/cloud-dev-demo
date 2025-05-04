@@ -47,7 +47,7 @@ export default function TableOfContents({
       >
         <div className="dark-blue:bg-[#192734] dark-blue:border-gray-700 rounded-lg border border-gray-200 bg-gray-100 p-4 dark:border-gray-800 dark:bg-gray-900">
           <h4 className="dark-blue:text-gray-400 mb-3 text-sm font-semibold text-gray-500 dark:text-gray-400">
-            On this page
+            Table of Contents
           </h4>
           <nav
             className="overflow-y-auto"
