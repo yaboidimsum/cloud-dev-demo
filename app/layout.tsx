@@ -24,7 +24,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="dark-blue:bg-[#15202b] dark-blue:text-gray-200 flex min-h-screen bg-white text-gray-800 dark:bg-black dark:text-gray-200">
             <Sidebar />
-            <main className="ml-16 flex-1 overflow-auto p-4 md:p-6 lg:p-8">
+            <main className=" lg: ml-16 flex-1 overflow-auto p-4 md:p-6 lg:overflow-visible lg:p-8">
               {children}
             </main>
             <ThemeSwitcher />

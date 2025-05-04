@@ -18,6 +18,7 @@ import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
+import GitHubCalendar from "react-github-calendar";
 
 export default function Home() {
   const container = {
@@ -74,8 +75,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="mx-auto max-w-4xl pt-8">
-      <div className="mb-12">
+    <div className="mx-auto max-w-4xl pt-8 ">
+      <div className="mb-12 w-full">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -175,7 +176,7 @@ export default function Home() {
           </motion.div>
           <motion.div
             variants={item}
-            className="mb-12"
+            className="mb-12 w-full "
             whileInView={{
               opacity: [0, 1],
               y: [20, 0],
@@ -196,7 +197,7 @@ export default function Home() {
             }}
             viewport={{ once: true }}
           >
-            <Timeline />
+            {/* <Timeline /> */}
           </motion.div>
 
           <motion.div variants={item} className="mb-12">

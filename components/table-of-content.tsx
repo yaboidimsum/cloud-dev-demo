@@ -1,8 +1,7 @@
 "use client";
 
 import type React from "react";
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 
 interface Heading {
@@ -21,59 +20,144 @@ export default function TableOfContents({
   contentRef,
 }: TableOfContentsProps) {
   const [activeHeading, setActiveHeading] = useState<string>("");
+  const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(
+    new Set()
+  );
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const activeHeadingRef = useRef<string>(activeHeading);
+  const headingsMapRef = useRef<Map<string, Heading>>(new Map());
 
-  // Set up intersection observer to track which heading is in view
+  // Build a map of heading IDs to heading objects for quick lookup
+  useEffect(() => {
+    const map = new Map<string, Heading>();
+    headings.forEach((heading) => {
+      map.set(heading.id, heading);
+    });
+    headingsMapRef.current = map;
+  }, [headings]);
+
+  // Update ref when state changes
+  useEffect(() => {
+    activeHeadingRef.current = activeHeading;
+  }, [activeHeading]);
+
+  // Function to determine the most appropriate active heading
+  const determineActiveHeading = useCallback(() => {
+    if (visibleHeadings.size === 0) return;
+
+    // Convert visible headings to array and filter to those that exist in our headings list
+    const visibleHeadingsArray = Array.from(visibleHeadings)
+      .filter((id) => headingsMapRef.current.has(id))
+      .map((id) => headingsMapRef.current.get(id)!);
+
+    // Sort visible headings by level and then by their order in the original headings array
+    const orderedVisibleHeadings = visibleHeadingsArray.sort((a, b) => {
+      // First sort by level (h1 before h2)
+      if (a.level !== b.level) return a.level - b.level;
+
+      // Then sort by position in the document (using the original headings array order)
+      const aIndex = headings.findIndex((h) => h.id === a.id);
+      const bIndex = headings.findIndex((h) => h.id === b.id);
+      return aIndex - bIndex;
+    });
+
+    if (orderedVisibleHeadings.length > 0) {
+      setActiveHeading(orderedVisibleHeadings[0].id);
+    }
+  }, [visibleHeadings, headings]);
+
+  // Set up enhanced intersection observer
   useEffect(() => {
     if (!contentRef.current) return;
 
-    // Create an intersection observer to detect which heading is currently in view
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Get all entries that are intersecting
-        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+    // Clean up previous observer if it exists
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
 
-        // If we have visible entries, update the active heading
-        if (visibleEntries.length > 0) {
-          // Sort by Y position to get the topmost visible heading
-          const sortedEntries = visibleEntries.sort(
-            (a, b) => a.boundingClientRect.y - b.boundingClientRect.y
-          );
-          setActiveHeading(sortedEntries[0].target.id);
-        }
+    // Create a new intersection observer with improved options
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        // Update the set of visible headings
+        setVisibleHeadings((prev) => {
+          const newVisibleHeadings = new Set(prev);
+
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              newVisibleHeadings.add(entry.target.id);
+            } else {
+              newVisibleHeadings.delete(entry.target.id);
+            }
+          });
+
+          return newVisibleHeadings;
+        });
       },
       {
-        // These settings help detect when a heading is properly in view
-        rootMargin: "-80px 0px -70% 0px",
-        threshold: [0, 0.2, 0.5, 1],
+        // These settings are optimized for MDX content with your specific structure
+        rootMargin: "-10% 0px -70% 0px",
+        threshold: [0, 0.1, 0.5, 1],
       }
     );
 
-    // Observe all headings
-    const headingElements = contentRef.current.querySelectorAll("h1, h2, h3");
+    // Find all heading elements in the MDX content by their IDs
+    // This works with your existing MDX utils that add prefixes and truncate titles
+    const findHeadingElements = () => {
+      const elements: Element[] = [];
+
+      headings.forEach((heading) => {
+        const element = document.getElementById(heading.id);
+        if (element) {
+          elements.push(element);
+        }
+      });
+
+      return elements;
+    };
+
+    // Observe all heading elements
+    const headingElements = findHeadingElements();
+
+    // Log for debugging
+    console.log(
+      `Found ${headingElements.length} heading elements out of ${headings.length} headings`
+    );
+
     headingElements.forEach((element) => {
-      observer.observe(element);
+      if (observerRef.current) {
+        observerRef.current.observe(element);
+      }
     });
 
     return () => {
-      headingElements.forEach((element) => {
-        observer.unobserve(element);
-      });
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
     };
-  }, [contentRef]);
+  }, [contentRef, headings]);
+
+  // Update active heading when visible headings change
+  useEffect(() => {
+    determineActiveHeading();
+  }, [visibleHeadings, determineActiveHeading]);
 
   // Scroll to heading when clicking on TOC item
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      // Use a small timeout to ensure the DOM has updated
+      // Set active heading immediately for better UX
+      setActiveHeading(id);
+
+      // Scroll to the element
       setTimeout(() => {
+        const yOffset = -80; // Adjust offset to account for any fixed headers
+        const y =
+          element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
         window.scrollTo({
-          top: element.offsetTop - 80, // Adjust offset to account for any fixed headers
+          top: y,
           behavior: "smooth",
         });
-
-        // Set active heading manually to provide immediate feedback
-        setActiveHeading(id);
       }, 10);
     }
   };
@@ -104,15 +188,10 @@ export default function TableOfContents({
                 >
                   <button
                     onClick={() => scrollToHeading(heading.id)}
-                    className={`w-full truncate text-left transition-colors hover:text-blue-500 dark:hover:text-blue-400 ${
-                      activeHeading === heading.id
-                        ? "font-medium text-blue-500 dark:text-blue-400"
-                        : "dark-blue:text-gray-300 text-gray-700 dark:text-gray-300"
-                    }`}
+                    className={`w-full truncate text-left text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 `}
                     title={heading.title}
-                  >
-                    {heading.title}
-                  </button>
+                    // dangerouslySetInnerHTML={{ __html: heading.title }}
+                  />
                 </li>
               ))}
             </ul>
@@ -120,18 +199,21 @@ export default function TableOfContents({
         </details>
       </div>
 
-      {/* Desktop TOC (sticky) */}
+      {/* Desktop TOC */}
       <motion.div
-        className="sticky top-24 hidden self-start lg:block"
+        className="hidden lg:block"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        <div className="dark-blue:bg-[#192734] dark-blue:border-gray-700 toc-container max-h-[calc(100vh-140px)] overflow-y-auto rounded-lg border border-gray-200 bg-gray-100 p-4 dark:border-gray-800 dark:bg-gray-900">
+        <div className="dark-blue:bg-[#192734] dark-blue:border-gray-700 rounded-lg border border-gray-200 bg-gray-100 p-4 dark:border-gray-800 dark:bg-gray-900">
           <h4 className="dark-blue:text-gray-400 mb-3 text-sm font-semibold text-gray-500 dark:text-gray-400">
-            Table of Contents
+            Table of Contents (Experimental Feature)
           </h4>
-          <nav>
+          <nav
+            className="overflow-y-auto"
+            style={{ maxHeight: "calc(100vh - 160px)" }}
+          >
             <ul className="space-y-2 text-sm">
               {headings.map((heading) => (
                 <li
@@ -146,14 +228,10 @@ export default function TableOfContents({
                 >
                   <button
                     onClick={() => scrollToHeading(heading.id)}
-                    className={`w-full truncate text-left transition-colors hover:text-blue-500 dark:hover:text-blue-400 ${
-                      activeHeading === heading.id
-                        ? "font-medium text-blue-500 dark:text-blue-400"
-                        : "dark-blue:text-gray-300 text-gray-700 dark:text-gray-300"
-                    }`}
-                    title={heading.title}
+                    className={`w-full truncate text-left text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 `}
+                    title={heading.title.replace(/👉\s|--\s/g, "")} // Remove prefixes for the tooltip
                   >
-                    {heading.title}
+                    <span>{heading.title}</span>
                   </button>
                 </li>
               ))}

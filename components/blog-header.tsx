@@ -21,7 +21,7 @@ function BlogHeader({
   return (
     <header>
       <div>
-        <h1 className="mb-4 mt-6 text-5xl font-bold">{title}</h1>
+        <h1 className="mb-4 mt-6 text-2xl font-bold lg:text-5xl">{title}</h1>
         <div className="flex flex-col">
           {/* <p className="mb-4 text-gray-400">
             Published on <time dateTime={publishedOn}>{humanizedDate}</time>

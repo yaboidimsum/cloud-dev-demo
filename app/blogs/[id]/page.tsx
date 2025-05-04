@@ -1,11 +1,12 @@
+import type React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { loadBlogPost } from "@/app/helpers/file-helpers";
 
 import Link from "next/link";
-// import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import BlogHeader from "@/components/blog-header";
-import TableOfContents from "@/components/table-of-content";
+import ClientContent from "@/components/client-content";
+import { extractHeadings } from "@/lib/mdx-utils";
 
 // Custom components for MDX
 const components = {
@@ -55,16 +56,20 @@ export default async function ProjectDetail({
   const { id } = await params;
   const projectData = await loadBlogPost(id, `blogs`);
 
-  console.log(projectData);
-
   if (!projectData) {
     return <div>Blog not found</div>;
   }
 
   const { frontmatter, content } = projectData;
 
+  // Make sure extractHeadings returns the correct format for your TableOfContents
+  // It should return an array of { id: string, title: string, level: number }
+  const headings = extractHeadings(content);
+
+  console.log(headings);
+
   return (
-    <div className="mx-auto flex max-w-4xl flex-col pl-12 pt-8">
+    <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
       <Link
         href="/blogs"
         className="mb-8 inline-flex items-center text-gray-400 hover:text-white"
@@ -78,15 +83,11 @@ export default async function ProjectDetail({
           abstract={frontmatter.abstract}
           authorPict={frontmatter.authorPict}
         />
-        {/* <h1 className="mb-4 text-3xl font-bold">{frontmatter.title}</h1> */}
-        <div className="flex gap-16">
-          <article className="prose prose-invert max-w-none prose-headings:text-white prose-a:text-blue-400 prose-strong:text-white prose-code:text-white prose-pre:bg-gray-800">
-            {" "}
-            <MDXRemote source={content} components={components} />
-          </article>
-          {/* <TableOfContents headings={} contentRef={} key={} /> */}
-        </div>
+        <ClientContent headings={headings}>
+          <MDXRemote source={content} components={components} />
+        </ClientContent>
       </div>
+      <footer className="h-1000"></footer>
     </div>
   );
 }

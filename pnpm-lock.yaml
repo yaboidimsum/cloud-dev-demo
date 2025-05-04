@@ -23,6 +23,9 @@ dependencies:
   lucide-react:
     specifier: ^0.503.0
     version: 0.503.0(react@19.1.0)
+  mdast-util-to-string:
+    specifier: ^4.0.0
+    version: 4.0.0
   next:
     specifier: 15.2.4
     version: 15.2.4(react-dom@19.1.0)(react@19.1.0)
@@ -47,6 +50,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@4.1.5)
+  unist-util-visit:
+    specifier: ^5.0.0
+    version: 5.0.0
 
 devDependencies:
   '@eslint/eslintrc':
