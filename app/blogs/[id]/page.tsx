@@ -71,7 +71,7 @@ export default async function ProjectDetail({
   return (
     <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
       <Link
-        href="/blogs"
+        href="/blogs/"
         className="mb-8 inline-flex items-center text-gray-400 hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects

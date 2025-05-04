@@ -45,7 +45,7 @@ export default function ProjectCard({
   abstract,
   route,
 }: ProjectCardProps) {
-  const href = `/${route}/${slug}`;
+  const href = `/${route}/${slug}/`;
 
   let humanizedDate = "Unknown date";
   const parsedDate = new Date(publishedOn);
