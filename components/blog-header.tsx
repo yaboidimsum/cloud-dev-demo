@@ -1,0 +1,75 @@
+import React from "react";
+import { format } from "date-fns";
+import Image from "next/image";
+import { Eye, Timer, Heart } from "lucide-react";
+
+interface BlogHeaderProps {
+  title: string;
+  publishedOn: string;
+  abstract: string;
+  authorPict: string;
+}
+
+function BlogHeader({
+  title,
+  publishedOn,
+  abstract,
+  authorPict,
+}: BlogHeaderProps) {
+  const humanizedDate = format(new Date(publishedOn), "MMMM do, yyyy");
+
+  return (
+    <header>
+      <div>
+        <h1 className="mb-4 mt-6 text-5xl font-bold">{title}</h1>
+        <div className="flex flex-col">
+          {/* <p className="mb-4 text-gray-400">
+            Published on <time dateTime={publishedOn}>{humanizedDate}</time>
+          </p> */}
+          <p className="mb-4 text-justify text-gray-400">{abstract}</p>
+          <div className="my-6 flex gap-4">
+            <div className="h-12 w-12 object-fill">
+              <Image
+                src={authorPict}
+                width={192}
+                height={192}
+                alt="Author Profile"
+              />
+            </div>
+            <div className="flex flex-col">
+              <p className="text-lg font-semibold text-zinc-50">Kumo</p>
+              <time
+                className="text-base font-medium text-zinc-500"
+                dateTime={publishedOn}
+              >
+                {humanizedDate}
+              </time>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <hr className="text-zinc-800 dark:text-zinc-50" />
+            <div className="flex justify-between">
+              <div className="flex items-center gap-2 ">
+                <Eye size={16} />
+                <span> 0 Views</span>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex items-center gap-2 ">
+                  <Timer size={16} />
+                  <span> ~10 Minutes</span>
+                </div>
+                <div className="flex items-center gap-2 ">
+                  <Heart size={16} />
+                  <span> 0 Likes</span>
+                </div>
+              </div>
+            </div>
+            <hr className="text-zinc-800 dark:text-zinc-50" />
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default BlogHeader;

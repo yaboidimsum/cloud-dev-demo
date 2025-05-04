@@ -1,103 +1,404 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import {
+  Github,
+  Twitter,
+  X,
+  FileText,
+  MessageSquare,
+  Send,
+  Bookmark,
+  ArrowRight,
+  Linkedin,
+} from "lucide-react";
+import ContributionGraph from "@/components/contribution-graph";
+import Timeline from "@/components/timeline";
+import ProjectCard from "@/components/project-card";
+import AvailabilityIndicator from "@/components/availability-indicator";
+import { motion } from "framer-motion";
+import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+      },
+    },
+  };
+
+  const blogPosts = [
+    {
+      id: 1,
+      title: "2024 Retrospective: A Year of Growth and Learning",
+      excerpt:
+        "Looking back at 2024, the challenges I faced, and the lessons I learned as a developer.",
+      date: "Dec 31, 2024",
+      readTime: "5 min read",
+      slug: "2024-retrospective",
+    },
+    {
+      id: 2,
+      title: "Building a Portfolio with Next.js and Framer Motion",
+      excerpt:
+        "A deep dive into how I built this portfolio website using Next.js, Tailwind CSS, and Framer Motion.",
+      date: "Nov 15, 2024",
+      readTime: "8 min read",
+      slug: "building-portfolio-nextjs",
+    },
+    {
+      id: 3,
+      title: "The Power of Server Components in Next.js",
+      excerpt:
+        "Exploring the benefits and use cases of Server Components in Next.js applications.",
+      date: "Oct 5, 2024",
+      readTime: "6 min read",
+      slug: "server-components-nextjs",
+    },
+  ];
+
+  return (
+    <div className="mx-auto max-w-4xl pt-8">
+      <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.p
+            className="dark-blue:text-gray-400 mb-1 text-gray-500 dark:text-gray-400"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Hey! It&apos;s me 👋
+          </motion.p>
+          <motion.h1
+            className="mb-2 text-3xl font-bold tracking-wider"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.1,
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+            }}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            Dimas/Awan/Kumo
+          </motion.h1>
+          <motion.p
+            className="dark-blue:text-gray-400 mb-6 text-sm text-gray-500 dark:text-gray-500"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            @cloudimss
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="space-y-6"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <motion.p
+            variants={item}
+            className="mb-2 text-zinc-400 dark:text-zinc-500"
+          >
+            Yup! I&apos;m a{" "}
+            <span className="font-semibold text-zinc-800 dark:text-zinc-50">
+              Frontend Developer
+            </span>
+            . Big deal, right? But wait, there&apos;s more! I&apos;m not just a
+            developer, I&apos;m a{" "}
+            <span className="font-semibold text-zinc-800 dark:text-zinc-50 ">
+              Design Engineer
+            </span>
+            {/* . And if that wasn&apos;t enough, guess what? maybe{" "}
+            <span className="font-semibold">Freelancer</span>? Oh yeah,
+            I&apos;ve got that badge too! */}
+          </motion.p>
+
+          <motion.p
+            variants={item}
+            className="mb-6 text-zinc-400 dark:text-zinc-500"
+          >
+            I love both{" "}
+            <span className="font-semibold text-zinc-800 dark:text-zinc-50 ">
+              Development
+            </span>{" "}
+            and{" "}
+            <span className="font-semibold text-zinc-800 dark:text-zinc-50 ">
+              Design
+            </span>
+            , so. That means{" "}
+            <span className="font-semibold text-zinc-800 dark:text-zinc-50 ">
+              I can create beautiful and functional websites
+            </span>
+            . I&apos;m always looking for new opportunities to learn and grow.
+          </motion.p>
+
+          <motion.div variants={item} className="mb-12 flex flex-wrap gap-4">
+            <AvailabilityIndicator available={false} />
+            <motion.a
+              href="mailto:dprihadisetiawan@gmail.com"
+              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="mr-2">✉</span> Email Me
+            </motion.a>
+          </motion.div>
+          <motion.div variants={item}>
+            <AnimatedBeamDemoClient />
+          </motion.div>
+          <motion.div
+            variants={item}
+            className="mb-12"
+            whileInView={{
+              opacity: [0, 1],
+              y: [20, 0],
+              transition: { type: "spring", stiffness: 300, damping: 20 },
+            }}
+            viewport={{ once: true }}
+          >
+            <ContributionGraph />
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mb-12"
+            whileInView={{
+              opacity: [0, 1],
+              y: [20, 0],
+              transition: { type: "spring", stiffness: 300, damping: 20 },
+            }}
+            viewport={{ once: true }}
+          >
+            <Timeline />
+          </motion.div>
+
+          <motion.div variants={item} className="mb-12">
+            <p className="mb-4">
+              You can check these <span className="text-blue-400">links</span>{" "}
+              if you wish to
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {/* <Link
+                  href="#"
+                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Twitter className="mr-2 h-4 w-4" /> Twitter
+                </Link> */}
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  target="_blank"
+                  href="https://github.com/yaboidimsum"
+                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Github className="mr-2 h-4 w-4" /> Github
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  target="_blank"
+                  href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/"
+                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Linkedin className="mr-2 h-4 w-4" /> Linkedin
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  target="_blank"
+                  href="https://drive.google.com/file/d/18fWSuodXeFskMawdTBTcBlo3ICyi5CFr/view?usp=sharing"
+                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <FileText className="mr-2 h-4 w-4" /> Resume
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {/* <Link
+                  href="#"
+                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <MessageSquare className="mr-2 h-4 w-4" /> Discord
+                </Link> */}
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {/* <Link
+                  href="#"
+                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Send className="mr-2 h-4 w-4" /> Telegram
+                </Link> */}
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {/* <Link
+                  href="#"
+                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Bookmark className="mr-2 h-4 w-4" /> Peerfist
+                </Link> */}
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={item}>
+            <p className="mb-4">
+              Still not sure? Check out my{" "}
+              <Link href="/projects" className="text-blue-400 hover:underline">
+                Projects
+              </Link>
+            </p>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <ProjectCard
+                slug={`react-toast`}
+                title={`React Toast From Scratch`}
+                publishedOn={`2025-05-02T12:00:00-0400`}
+                src={`/portfolio/project-toast.png`}
+                abstract={`Typography is a fundamental aspect of any web page's design, shaping not only readability but also a site's overall personality. At the heart of this process is the CSS font-size property - a simple, yet incredibly versatile, tool that influences the visual hierarchy of our content.`}
+              />
+              <ProjectCard
+                slug={`react-wordle`}
+                title={`React Wordle Game`}
+                publishedOn={"2025-05-02T12:00:00-0400"}
+                src={`/portfolio/project-wordle.png`}
+                abstract={` Typography is a fundamental aspect of any web page's design, shaping not only readability but also a site's overall personality. At the heart of this process is the CSS font-size property - a simple, yet incredibly versatile, tool that influences the visual hierarchy of our content.
+`}
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mt-16"
+            whileInView={{
+              opacity: [0, 1],
+              y: [20, 0],
+              transition: { type: "spring", stiffness: 300, damping: 20 },
+            }}
+            viewport={{ once: true }}
+          >
+            {/* <div className="mb-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold">Latest Blog Posts</h2>
+              <Link
+                href="/blog"
+                className="flex items-center text-sm text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+              >
+                View all <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="space-y-6">
+              {blogPosts.map((post) => (
+                <motion.div
+                  key={post.id}
+                  className="dark-blue:border-gray-700 dark-blue:hover:border-gray-600 rounded-lg border border-gray-200 p-6 transition-all hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700"
+                  whileHover={{
+                    y: -5,
+                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
+                    transition: { type: "spring", stiffness: 300, damping: 15 },
+                  }}
+                >
+                  <Link href={`/blog/${post.slug}`}>
+                    <div className="flex flex-col">
+                      <div className="dark-blue:text-gray-400 mb-2 flex items-center text-sm text-gray-500 dark:text-gray-400">
+                        <span>{post.date}</span>
+                        <span className="mx-2">•</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      <h3 className="mb-2 text-xl font-semibold">
+                        {post.title}
+                      </h3>
+                      <p className="dark-blue:text-gray-300 mb-4 text-gray-600 dark:text-gray-300">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center text-sm text-blue-500 dark:text-blue-400">
+                        Read more <ArrowRight className="ml-1 h-4 w-4" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div> */}
+          </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
