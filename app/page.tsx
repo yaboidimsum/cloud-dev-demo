@@ -1,11 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Github,
-  FileText,
-  Linkedin,
-} from "lucide-react";
+import { Github, FileText, Linkedin } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
@@ -288,7 +284,7 @@ export default function Home() {
               </Link>
             </p>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <ProjectCard
                 slug={`react-toast`}
                 title={`React Toast From Scratch`}
@@ -304,7 +300,7 @@ export default function Home() {
                 abstract={` Typography is a fundamental aspect of any web page's design, shaping not only readability but also a site's overall personality. At the heart of this process is the CSS font-size property - a simple, yet incredibly versatile, tool that influences the visual hierarchy of our content.
 `}
               />
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div

@@ -52,7 +52,7 @@ const components = {
 const route = `blogs`;
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const { id } = await params;
+  const { id } = params;
   const blogpostData = await loadBlogPost(id, route);
 
   if (!blogpostData) {
@@ -75,7 +75,7 @@ export default async function ProjectDetail({
 }: {
   params: { id: string };
 }) {
-  const { id } = await params;
+  const { id } = params;
   const projectData = await loadBlogPost(id, route);
 
   if (!projectData) {
