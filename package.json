@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.9.2",
     "gray-matter": "^4.0.3",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.503.0",
     "mdast-util-to-string": "^4.0.0",
     "next": "15.2.4",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

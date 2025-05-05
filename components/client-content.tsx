@@ -3,6 +3,8 @@
 import type React from "react";
 import { useRef, useEffect, useState } from "react";
 import TableOfContents from "@/components/table-of-content";
+import Giscus from "@giscus/react";
+import { useTheme } from "@/context/theme-context";
 
 interface Heading {
   id: string;
@@ -19,10 +21,14 @@ export default function ClientBlogContent({
   children,
   headings,
 }: ClientBlogContentProps) {
+  const { theme } = useTheme();
+
   const contentRef = useRef<HTMLDivElement>(null);
   const [currentId, setCurrentId] = useState<string | null>(
     headings.length > 0 ? headings[0].id : null
   ); // Initialize with the first heading ID or null
+
+  console.log(currentId);
 
   // Add IDs to headings if missing and observe them
   useEffect(() => {
@@ -130,12 +136,28 @@ export default function ClientBlogContent({
             {/* Adjusted top offset, hide on smaller screens */}
             <TableOfContents
               headings={headings}
-              contentRef={contentRef} // Keep contentRef if needed for other purposes, but not strictly for highlighting
+              // contentRef={contentRef} // Keep contentRef if needed for other purposes, but not strictly for highlighting
               currentId={currentId} // Pass the current heading ID
             />
           </div>
         )}
       </div>
+      <Giscus
+        id="comments"
+        repo="yaboidimsum/cloud-dev-demo"
+        repoId="R_kgDOOkIpzw"
+        category="General"
+        categoryId="DIC_kwDOOkIpz84CpzVS"
+        mapping="pathname"
+        strict="0"
+        term="Welcome to @giscus/react component!"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="bottom"
+        theme={theme}
+        lang="en"
+        loading="lazy"
+      />
     </>
   );
 }

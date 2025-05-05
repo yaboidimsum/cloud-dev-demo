@@ -13,6 +13,7 @@ interface ProjectCardProps {
   abstract: string;
   src: string;
   route: string;
+  tags: Array<string>;
 }
 
 interface TextWithEllipsisProps {
@@ -44,6 +45,7 @@ export default function ProjectCard({
   src,
   abstract,
   route,
+  tags,
 }: ProjectCardProps) {
   const href = `/${route}/${slug}/`;
 
@@ -75,9 +77,25 @@ export default function ProjectCard({
             />
           </div>
           <div className="p-4">
-            <div className="flex items-baseline justify-between">
+            <div className="flex flex-col">
+              {tags ? (
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {tags?.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700 dark:bg-gray-700 dark:text-gray-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <></>
+              )}
               <h3 className="mb-1 font-medium">{title}</h3>
-              <time className="text-xs font-medium" dateTime={publishedOn}>
+            </div>
+            <div className="mb-4">
+              <time className="text-sm font-semibold" dateTime={publishedOn}>
                 {" "}
                 {humanizedDate}{" "}
               </time>

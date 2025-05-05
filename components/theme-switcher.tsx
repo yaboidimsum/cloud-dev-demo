@@ -1,18 +1,36 @@
 "use client";
 
-import React from "react";
-import { Moon, Sun, Twitter } from "lucide-react";
+import React, { useEffect } from "react";
+import { Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
+import Cookie from "js-cookie";
+
 import { useTheme } from "@/context/theme-context";
 
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-
   const id = React.useId();
+
+  // Sync DOM + cookie when theme changes
+  useEffect(() => {
+    if (!theme) return;
+
+    const root = document.documentElement;
+
+    // Toggle Tailwind's dark mode class
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+
+    // Store the theme in cookie
+    Cookie.set("color-theme", theme, { expires: 1000 });
+  }, [theme]);
 
   return (
     <motion.div
-      className="light:bg-white fixed bottom-6 right-6 flex space-x-2 rounded-full bg-gray-800 p-2 shadow-lg dark:bg-gray-800"
+      className="fixed bottom-6 right-6 flex space-x-2 rounded-full bg-white p-2 shadow-lg dark:bg-gray-800"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1, type: "spring", stiffness: 300, damping: 20 }}
@@ -41,16 +59,6 @@ export default function ThemeSwitcher() {
       >
         <Moon size={18} />
       </motion.button>
-
-      {/* <motion.button
-        className={`p-2 rounded-full ${theme === "dark-blue" ? "bg-blue-900 text-blue-200" : "text-gray-400"}`}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => setTheme("dark-blue")}
-        title="Twitter Dark Blue Mode"
-      >
-        <Twitter size={18} />
-      </motion.button> */}
     </motion.div>
   );
 }

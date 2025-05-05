@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface Heading {
@@ -12,17 +12,16 @@ interface Heading {
 
 interface TableOfContentsProps {
   headings: Heading[];
-  contentRef: React.RefObject<HTMLDivElement>; // Keep if needed elsewhere, but not for highlighting logic here
+  // contentRef: React.RefObject<HTMLDivElement>; // Keep if needed elsewhere, but not for highlighting logic here
   currentId?: string | null; // Add currentId prop (optional)
 }
 
 export default function TableOfContents({
   headings,
-  contentRef, // Keep if needed
   currentId, // Receive the currentId
 }: TableOfContentsProps) {
   // ... (useEffect for headingsMapRef can remain if needed for other features) ...
-  const headingsMapRef = useRef<Map<string, Heading>>(new Map());
+  // const headingsMapRef = useRef<Map<string, Heading>>(new Map());
 
   // Build a map of heading IDs to heading objects for quick lookup
   useEffect(() => {
@@ -30,7 +29,7 @@ export default function TableOfContents({
     headings.forEach((heading) => {
       map.set(heading.id, heading);
     });
-    headingsMapRef.current = map;
+    // headingsMapRef.current = map;
   }, [headings]);
 
   // If no headings, don't render anything

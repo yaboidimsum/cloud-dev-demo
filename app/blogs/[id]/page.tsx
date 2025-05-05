@@ -1,6 +1,7 @@
 import type React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { loadBlogPost } from "@/app/helpers/file-helpers";
+import Image from "next/image";
 
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -48,13 +49,34 @@ const components = {
   ),
 };
 
+const route = `blogs`;
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const { id } = await params;
+  const blogpostData = await loadBlogPost(id, route);
+
+  if (!blogpostData) {
+    return null;
+  }
+
+  const { frontmatter } = blogpostData;
+
+  return {
+    title: `${frontmatter.title}`,
+    description: `${frontmatter.abstract}`,
+    publishedOn: `${frontmatter.publishedOn}`,
+    readTime: `${frontmatter.readTime}`,
+    tags: `${frontmatter.tags}`,
+  };
+}
+
 export default async function ProjectDetail({
   params,
 }: {
   params: { id: string };
 }) {
   const { id } = await params;
-  const projectData = await loadBlogPost(id, `blogs`);
+  const projectData = await loadBlogPost(id, route);
 
   if (!projectData) {
     return <div>Blog not found</div>;
@@ -76,18 +98,36 @@ export default async function ProjectDetail({
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
       </Link>
-      <div>
-        <BlogHeader
-          title={frontmatter.title}
-          publishedOn={frontmatter.publishedOn}
-          abstract={frontmatter.abstract}
-          authorPict={frontmatter.authorPict}
-        />
-        <ClientContent headings={headings}>
+
+      {/* ✅ COVER IMAGE AT THE TOP */}
+      {frontmatter.src && (
+        <div className="h-100 relative mb-8 w-full overflow-hidden rounded-lg">
+          <Image
+            src={frontmatter.src}
+            alt={frontmatter.title}
+            fill
+            className="object-cover"
+            priority
+            lazyRoot="true"
+          />
+        </div>
+      )}
+
+      {/* ✅ BLOG HEADER */}
+      <BlogHeader
+        title={frontmatter.title}
+        publishedOn={frontmatter.publishedOn}
+        abstract={frontmatter.abstract}
+        authorPict={frontmatter.authorPict}
+      />
+
+      <ClientContent headings={headings}>
+        {content ? (
           <MDXRemote source={content} components={components} />
-        </ClientContent>
-      </div>
-      <footer className="h-1000"></footer>
+        ) : (
+          <span className="mt-100">Content will be added soon! ✨</span>
+        )}
+      </ClientContent>
     </div>
   );
 }
