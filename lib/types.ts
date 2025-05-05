@@ -9,7 +9,7 @@ export interface BlogFrontmatter {
   publishedOn: string;
   abstract: string;
   authorPict: string;
-  [key: string]: any;
+  [key: string]: string;
 }
 
 export interface BlogPost {

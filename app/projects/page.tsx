@@ -8,7 +8,7 @@ export default async function Projects() {
   const route = `projects`;
   const projectPost = await getBlogPostList(route);
 
-  console.log(projectPost);
+  // console.log(projectPost);
 
   return (
     <div className="mx-auto max-w-4xl pl-12 pt-8">

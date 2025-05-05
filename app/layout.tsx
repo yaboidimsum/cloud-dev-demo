@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/sidebar";
-import { ThemeProvider, useTheme } from "@/context/theme-context";
+import { ThemeProvider } from "@/context/theme-context";
 import ThemeSwitcher from "@/components/theme-switcher";
 import { cookies } from "next/headers";
 

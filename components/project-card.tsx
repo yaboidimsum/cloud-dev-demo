@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { Eye, Timer, Heart } from "lucide-react";
+import { Eye,  Heart } from "lucide-react";
 
 interface ProjectCardProps {
   slug: string;

@@ -88,7 +88,7 @@ export default async function ProjectDetail({
   // It should return an array of { id: string, title: string, level: number }
   const headings = extractHeadings(content);
 
-  console.log(headings);
+  // console.log(headings);
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">

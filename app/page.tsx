@@ -3,22 +3,14 @@
 import Link from "next/link";
 import {
   Github,
-  Twitter,
-  X,
   FileText,
-  MessageSquare,
-  Send,
-  Bookmark,
-  ArrowRight,
   Linkedin,
 } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
-import Timeline from "@/components/timeline";
 import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
-import GitHubCalendar from "react-github-calendar";
 
 export default function Home() {
   const container = {
@@ -43,36 +35,6 @@ export default function Home() {
       },
     },
   };
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "2024 Retrospective: A Year of Growth and Learning",
-      excerpt:
-        "Looking back at 2024, the challenges I faced, and the lessons I learned as a developer.",
-      date: "Dec 31, 2024",
-      readTime: "5 min read",
-      slug: "2024-retrospective",
-    },
-    {
-      id: 2,
-      title: "Building a Portfolio with Next.js and Framer Motion",
-      excerpt:
-        "A deep dive into how I built this portfolio website using Next.js, Tailwind CSS, and Framer Motion.",
-      date: "Nov 15, 2024",
-      readTime: "8 min read",
-      slug: "building-portfolio-nextjs",
-    },
-    {
-      id: 3,
-      title: "The Power of Server Components in Next.js",
-      excerpt:
-        "Exploring the benefits and use cases of Server Components in Next.js applications.",
-      date: "Oct 5, 2024",
-      readTime: "6 min read",
-      slug: "server-components-nextjs",
-    },
-  ];
 
   return (
     <div className="mx-auto max-w-4xl pt-8 ">

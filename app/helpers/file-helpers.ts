@@ -20,16 +20,12 @@ type BlogPost = BlogPostFrontmatter & {
   slug: string;
 };
 
-type Route = {
-  route: string;
-};
-
 export async function getBlogPostList(route: string) {
   const fileNames = await readDirectory(`/content/${route}/`);
 
   const blogPosts: BlogPost[] = [];
 
-  for (let fileName of fileNames) {
+  for (const fileName of fileNames) {
     const rawContent = await readFile(`/content/${route}/${fileName}`);
 
     const { data: frontmatter } = matter(rawContent);
@@ -48,7 +44,7 @@ export const loadBlogPost = React.cache(async (slug: string, route: string) => {
 
   try {
     rawContent = await readFile(`/content/${route}/${slug}.mdx`);
-  } catch (err) {
+  } catch {
     return null;
   }
 

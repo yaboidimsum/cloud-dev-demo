@@ -28,7 +28,7 @@ export default function ClientBlogContent({
     headings.length > 0 ? headings[0].id : null
   ); // Initialize with the first heading ID or null
 
-  console.log(currentId);
+  // console.log(currentId);
 
   // Add IDs to headings if missing and observe them
   useEffect(() => {

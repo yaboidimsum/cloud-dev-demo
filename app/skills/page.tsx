@@ -11,27 +11,22 @@ import {
   SiCss3,
   SiPytorch,
   SiPython,
-  SiNodedotjs,
-  SiPostgresql,
+
   SiReact,
   SiNextdotjs,
-  SiExpress,
+
   SiTailwindcss,
-  SiPrisma,
-  SiMongodb,
+
   SiFramer,
   SiGithub,
   SiNetlify,
   SiVercel,
-  SiUbuntu,
+
   SiPostman,
   SiFigma,
-  SiAdobephotoshop,
+
   SiSwr,
 } from "react-icons/si";
-import { FaDatabase, FaCode } from "react-icons/fa";
-import { BsFiletypeSql, BsCursorText } from "react-icons/bs";
-import { GiWaterDrop } from "react-icons/gi";
 
 export default function Skills() {
   const containerRef = useRef<HTMLDivElement>(null);
