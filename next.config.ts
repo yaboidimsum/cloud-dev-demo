@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Add the experimental section for outputFileTracingIncludes
+  experimental: {
+    outputFileTracingIncludes: {
+      "/**/*": ["./content/**/*"], // Include all files under ./content for all pages/routes
+    },
+  },
 };
 
 export default nextConfig;
