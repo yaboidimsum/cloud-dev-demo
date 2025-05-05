@@ -18,7 +18,6 @@ export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  session: never;
 }>) {
   const savedTheme = (await cookies()).get("color-theme");
   const themeValue = savedTheme?.value || "light";
