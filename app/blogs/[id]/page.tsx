@@ -52,12 +52,17 @@ const components = {
 
 const route = `blogs`;
 
+// Remove the separate interface definition
+// interface ProjectDetailPageProps {
+//   params: { id: string };
+//   // searchParams?: { [key: string]: string | string[] | undefined }; // Optional: Add if you use searchParams
+// }
+
+
 export async function generateMetadata({
   params,
-}: {
-  params: { id: string };
-}): Promise<Metadata | null> {
-  const { id } = await params;
+}: { params: { id: string } }): Promise<Metadata | null> { // Use inline type definition
+  const { id } = params; // Correct extraction
   const blogpostData = await loadBlogPost(id, route);
 
   if (!blogpostData) {
@@ -77,10 +82,8 @@ export async function generateMetadata({
 
 export default async function ProjectDetail({
   params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = await params;
+}: { params: { id: string } }) { // Use inline type definition
+  const { id } = params; // Correct extraction: Access id directly from params
   const projectData = await loadBlogPost(id, route);
 
   if (!projectData) {
@@ -113,7 +116,7 @@ export default async function ProjectDetail({
             fill
             className="object-cover"
             priority
-            lazyRoot="true"
+            // lazyRoot="true" // lazyRoot is not a standard prop for next/image
           />
         </div>
       )}

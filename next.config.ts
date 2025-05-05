@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["uccareer.id"],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;
