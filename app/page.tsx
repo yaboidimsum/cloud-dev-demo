@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Github, FileText, Linkedin } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
-import ProjectCard from "@/components/project-card";
+// import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
