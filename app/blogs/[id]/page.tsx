@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { loadBlogPost } from "@/app/helpers/file-helpers";
@@ -51,8 +52,12 @@ const components = {
 
 const route = `blogs`;
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const { id } = params;
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata | null> {
+  const { id } = await params;
   const blogpostData = await loadBlogPost(id, route);
 
   if (!blogpostData) {
@@ -64,9 +69,9 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: `${frontmatter.title}`,
     description: `${frontmatter.abstract}`,
-    publishedOn: `${frontmatter.publishedOn}`,
-    readTime: `${frontmatter.readTime}`,
-    tags: `${frontmatter.tags}`,
+    // publishedOn: `${frontmatter.publishedOn}`,
+    // readTime: `${frontmatter.readTime}`,
+    // tags: `${frontmatter.tags}`,
   };
 }
 
@@ -75,7 +80,7 @@ export default async function ProjectDetail({
 }: {
   params: { id: string };
 }) {
-  const { id } = params;
+  const { id } = await params;
   const projectData = await loadBlogPost(id, route);
 
   if (!projectData) {
