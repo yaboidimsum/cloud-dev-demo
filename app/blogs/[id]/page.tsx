@@ -74,6 +74,7 @@ export async function generateMetadata({
   const { frontmatter } = blogpostData;
 
   return {
+    metadataBase: new URL("https://cloudev.netlify.app/"),
     title: `${frontmatter.title}`,
     description: `${frontmatter.abstract}`,
     openGraph: {
