@@ -58,10 +58,12 @@ const route = `blogs`;
 //   // searchParams?: { [key: string]: string | string[] | undefined }; // Optional: Add if you use searchParams
 // }
 
-
 export async function generateMetadata({
   params,
-}: { params: { id: string } }): Promise<Metadata | null> { // Use inline type definition
+}: {
+  params: { id: string };
+}): Promise<Metadata | null> {
+  // Use inline type definition
   const { id } = params; // Correct extraction
   const blogpostData = await loadBlogPost(id, route);
 
@@ -74,6 +76,9 @@ export async function generateMetadata({
   return {
     title: `${frontmatter.title}`,
     description: `${frontmatter.abstract}`,
+    openGraph: {
+      images: `${frontmatter.src}`,
+    },
     // publishedOn: `${frontmatter.publishedOn}`,
     // readTime: `${frontmatter.readTime}`,
     // tags: `${frontmatter.tags}`,
@@ -82,7 +87,10 @@ export async function generateMetadata({
 
 export default async function ProjectDetail({
   params,
-}: { params: { id: string } }) { // Use inline type definition
+}: {
+  params: { id: string };
+}) {
+  // Use inline type definition
   const { id } = params; // Correct extraction: Access id directly from params
   const projectData = await loadBlogPost(id, route);
 
