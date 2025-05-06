@@ -1,13 +1,16 @@
+import type { Metadata } from "next";
 import type React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { loadBlogPost } from "@/app/helpers/file-helpers";
 import Image from "next/image";
-
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import BlogHeader from "@/components/blog-header";
 import ClientContent from "@/components/client-content";
 import { extractHeadings } from "@/lib/mdx-utils";
+import { Suspense } from "react";
+import BlogDetailSkeleton from "@/components/skeleton/blog-detail-skeleton";
+import ClientContentSkeleton from "@/components/skeleton/client-content-skeleton";
 
 // Custom components for MDX
 const components = {
@@ -51,8 +54,12 @@ const components = {
 
 const route = `projects`;
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const { id } = await params;
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata | null> {
+  const { id } = params;
   const blogpostData = await loadBlogPost(id, route);
 
   if (!blogpostData) {
@@ -62,20 +69,17 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   const { frontmatter } = blogpostData;
 
   return {
+    metadataBase: new URL("https://cloudev.netlify.app/"),
     title: `${frontmatter.title}`,
     description: `${frontmatter.abstract}`,
-    publishedOn: `${frontmatter.publishedOn}`,
-    readTime: `${frontmatter.readTime}`,
-    tags: `${frontmatter.tags}`,
+    openGraph: {
+      images: `${frontmatter.src}`,
+    },
   };
 }
 
-export default async function ProjectDetail({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = await params;
+// Blog content component that will be wrapped in Suspense
+async function BlogContent({ id }: { id: string }) {
   const projectData = await loadBlogPost(id, route);
 
   if (!projectData) {
@@ -83,37 +87,24 @@ export default async function ProjectDetail({
   }
 
   const { frontmatter, content } = projectData;
-
-  // Make sure extractHeadings returns the correct format for your TableOfContents
-  // It should return an array of { id: string, title: string, level: number }
   const headings = extractHeadings(content);
 
-  // console.log(headings);
-
   return (
-    <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
-      <Link
-        href="/projects/"
-        className="mb-8 inline-flex items-center text-gray-400 hover:text-white"
-      >
-        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
-      </Link>
-
-      {/* ✅ COVER IMAGE AT THE TOP */}
+    <>
+      {/* Cover image */}
       {frontmatter.src && (
         <div className="h-100 relative mb-8 w-full overflow-hidden rounded-lg">
           <Image
-            src={frontmatter.src}
+            src={frontmatter.src || "/placeholder.svg"}
             alt={frontmatter.title}
             fill
             className="object-cover"
             priority
-            lazyRoot="true"
           />
         </div>
       )}
 
-      {/* ✅ BLOG HEADER */}
+      {/* Blog header */}
       <BlogHeader
         title={frontmatter.title}
         publishedOn={frontmatter.publishedOn}
@@ -121,13 +112,34 @@ export default async function ProjectDetail({
         authorPict={frontmatter.authorPict}
       />
 
-      <ClientContent headings={headings}>
-        {content ? (
-          <MDXRemote source={content} components={components} />
-        ) : (
-          <span className="mt-100">Content will be added soon! ✨</span>
-        )}
-      </ClientContent>
+      <Suspense fallback={<ClientContentSkeleton />}>
+        <ClientContent headings={headings}>
+          {content ? (
+            <MDXRemote source={content} components={components} />
+          ) : (
+            <span className="mt-100">Content will be added soon! ✨</span>
+          )}
+        </ClientContent>
+      </Suspense>
+    </>
+  );
+}
+
+export default function ProjectDetail({ params }: { params: { id: string } }) {
+  const { id } = params;
+
+  return (
+    <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
+      <Link
+        href="/projects"
+        className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-600 dark:hover:text-white"
+      >
+        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
+      </Link>
+
+      <Suspense fallback={<BlogDetailSkeleton />}>
+        <BlogContent id={id} />
+      </Suspense>
     </div>
   );
 }
