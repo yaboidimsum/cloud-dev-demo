@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Github, FileText, Linkedin } from "lucide-react";
+import { Github, FileText, Linkedin, ArrowRight } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 // import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
+import ProjectCard from "@/components/project-card";
+import { getBlogPostList } from "./helpers/file-helpers";
 
 export default function Home() {
   const container = {
@@ -33,7 +35,7 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto pt-8 ">
+    <div className="mx-auto max-w-4xl pt-8 ">
       <div className="mb-12 w-full">
         <motion.div
           initial={{ opacity: 0 }}
@@ -276,86 +278,57 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div variants={item}>
+          {/* <motion.div variants={item}>
             <p className="mb-4">
               Still not sure? Check out my{" "}
               <Link href="/projects" className="text-blue-400 hover:underline">
                 Projects
               </Link>
-            </p>
+            </p> */}
 
-            {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <ProjectCard
-                slug={`react-toast`}
-                title={`React Toast From Scratch`}
-                publishedOn={`2025-05-02T12:00:00-0400`}
-                src={`/portfolio/project-toast.png`}
-                abstract={`Typography is a fundamental aspect of any web page's design, shaping not only readability but also a site's overall personality. At the heart of this process is the CSS font-size property - a simple, yet incredibly versatile, tool that influences the visual hierarchy of our content.`}
-              />
-              <ProjectCard
-                slug={`react-wordle`}
-                title={`React Wordle Game`}
-                publishedOn={"2025-05-02T12:00:00-0400"}
-                src={`/portfolio/project-wordle.png`}
-                abstract={` Typography is a fundamental aspect of any web page's design, shaping not only readability but also a site's overall personality. At the heart of this process is the CSS font-size property - a simple, yet incredibly versatile, tool that influences the visual hierarchy of our content.
-`}
-              />
+          {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {projectPosts.slice(0, 2).map(({ slug, ...delegated }) => (
+                <ProjectCard
+                  key={slug}
+                  slug={slug}
+                  route={routeProject}
+                  {...delegated}
+                />
+              ))}
             </div> */}
-          </motion.div>
+        </motion.div>
 
-          <motion.div
-            variants={item}
-            className="mt-16"
-            whileInView={{
-              opacity: [0, 1],
-              y: [20, 0],
-              transition: { type: "spring", stiffness: 300, damping: 20 },
-            }}
-            viewport={{ once: true }}
-          >
-            {/* <div className="mb-6 flex items-center justify-between">
+        <motion.div
+          variants={item}
+          className="mt-16"
+          whileInView={{
+            opacity: [0, 1],
+            y: [20, 0],
+            transition: { type: "spring", stiffness: 300, damping: 20 },
+          }}
+          viewport={{ once: true }}
+        >
+          {/* <div className="mb-6 flex items-center justify-between">
               <h2 className="text-2xl font-bold">Latest Blog Posts</h2>
               <Link
-                href="/blog"
+                href="/blogs"
                 className="flex items-center text-sm text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
               >
                 View all <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
-            </div>
+            </div> */}
 
-            <div className="space-y-6">
-              {blogPosts.map((post) => (
-                <motion.div
-                  key={post.id}
-                  className="dark-blue:border-gray-700 dark-blue:hover:border-gray-600 rounded-lg border border-gray-200 p-6 transition-all hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700"
-                  whileHover={{
-                    y: -5,
-                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
-                    transition: { type: "spring", stiffness: 300, damping: 15 },
-                  }}
-                >
-                  <Link href={`/blog/${post.slug}`}>
-                    <div className="flex flex-col">
-                      <div className="dark-blue:text-gray-400 mb-2 flex items-center text-sm text-gray-500 dark:text-gray-400">
-                        <span>{post.date}</span>
-                        <span className="mx-2">•</span>
-                        <span>{post.readTime}</span>
-                      </div>
-                      <h3 className="mb-2 text-xl font-semibold">
-                        {post.title}
-                      </h3>
-                      <p className="dark-blue:text-gray-300 mb-4 text-gray-600 dark:text-gray-300">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex items-center text-sm text-blue-500 dark:text-blue-400">
-                        Read more <ArrowRight className="ml-1 h-4 w-4" />
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
+          {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {blogPosts.slice(0, 2).map(({ slug, ...delegated }) => (
+                <ProjectCard
+                  key={slug}
+                  slug={slug}
+                  route={routeBlog}
+                  {...delegated}
+                />
               ))}
             </div> */}
-          </motion.div>
+          {/* </motion.div> */}
         </motion.div>
       </div>
     </div>

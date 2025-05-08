@@ -144,7 +144,7 @@ export default function ClientBlogContent({
               />
             </div>
             {showTOC ? (
-              <div className="fixed bottom-32 right-6">
+              <div className="fixed bottom-32 right-6 lg:hidden">
                 {" "}
                 {/* Adjusted top offset, hide on smaller screens */}
                 <TableOfContents
