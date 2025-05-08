@@ -93,7 +93,7 @@ async function BlogContent({ id }: { id: string }) {
     <>
       {/* Cover image */}
       {frontmatter.src && (
-        <div className="h-100 relative mb-8 w-full overflow-hidden rounded-lg">
+        <div className=" h-100 relative mb-8 w-full overflow-hidden rounded-lg">
           <Image
             src={frontmatter.src || "/placeholder.svg"}
             alt={frontmatter.title}

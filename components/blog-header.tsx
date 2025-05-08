@@ -1,7 +1,7 @@
 import React from "react";
 import { format } from "date-fns";
 import Image from "next/image";
-import { Eye, Timer, Heart } from "lucide-react";
+import { Eye, Clock, Heart } from "lucide-react";
 
 interface BlogHeaderProps {
   title: string;
@@ -55,7 +55,7 @@ function BlogHeader({
               </div>
               <div className="flex gap-4">
                 <div className="flex items-center gap-2 ">
-                  <Timer size={16} />
+                  <Clock size={16} />
                   <span> ~10 Minutes</span>
                 </div>
                 <div className="flex items-center gap-2 ">

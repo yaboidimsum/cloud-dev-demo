@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl pt-8 ">
+    <div className="max-w-4xl mx-auto pt-8 ">
       <div className="mb-12 w-full">
         <motion.div
           initial={{ opacity: 0 }}

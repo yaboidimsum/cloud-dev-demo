@@ -5,6 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import TableOfContents from "@/components/table-of-content";
 import Giscus from "@giscus/react";
 import { useTheme } from "@/context/theme-context";
+import { motion } from "framer-motion";
 
 interface Heading {
   id: string;
@@ -27,6 +28,7 @@ export default function ClientBlogContent({
   const [currentId, setCurrentId] = useState<string | null>(
     headings.length > 0 ? headings[0].id : null
   ); // Initialize with the first heading ID or null
+  const [showTOC, setShowTOC] = useState(false);
 
   // console.log(currentId);
 
@@ -131,15 +133,40 @@ export default function ClientBlogContent({
         </article>
         {/* Ensure TOC only renders if there are headings */}
         {headings.length > 0 && (
-          <div className="sticky top-24 mt-10 hidden w-72 lg:block">
-            {" "}
-            {/* Adjusted top offset, hide on smaller screens */}
-            <TableOfContents
-              headings={headings}
-              // contentRef={contentRef} // Keep contentRef if needed for other purposes, but not strictly for highlighting
-              currentId={currentId} // Pass the current heading ID
-            />
-          </div>
+          <>
+            <div className="hidden w-56 lg:sticky lg:top-24 lg:mt-10 lg:block">
+              {" "}
+              {/* Adjusted top offset, hide on smaller screens */}
+              <TableOfContents
+                headings={headings}
+                // contentRef={contentRef} // Keep contentRef if needed for other purposes, but not strictly for highlighting
+                currentId={currentId} // Pass the current heading ID
+              />
+            </div>
+            {showTOC ? (
+              <div className="fixed bottom-32 right-6">
+                {" "}
+                {/* Adjusted top offset, hide on smaller screens */}
+                <TableOfContents
+                  headings={headings}
+                  // contentRef={contentRef} // Keep contentRef if needed for other purposes, but not strictly for highlighting
+                  currentId={currentId} // Pass the current heading ID
+                />
+              </div>
+            ) : null}
+            <motion.button
+              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white fixed bottom-20 right-6 flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 lg:hidden"
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowTOC(!showTOC)}
+            >
+              Table of Content
+            </motion.button>
+          </>
         )}
       </div>
       <Giscus
@@ -158,6 +185,7 @@ export default function ClientBlogContent({
         lang="en"
         loading="lazy"
       />
+      <div className="mb-32"></div>
     </>
   );
 }

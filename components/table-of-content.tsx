@@ -39,7 +39,7 @@ export default function TableOfContents({
     <>
       {/* Desktop TOC */}
       <motion.div
-        className="hidden lg:block" // Keep responsive class
+        className=" lg:block" // Keep responsive class
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
