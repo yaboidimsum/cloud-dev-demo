@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Github, FileText, Linkedin, ArrowRight } from "lucide-react";
+import { Github, FileText, Linkedin } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 // import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
-import ProjectCard from "@/components/project-card";
-import { getBlogPostList } from "./helpers/file-helpers";
+// import ProjectCard from "@/components/project-card";
+// import { getBlogPostList } from "./helpers/file-helpers";
 
 export default function Home() {
   const container = {
