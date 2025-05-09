@@ -12,6 +12,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Kumo | Portfolio",
   description: "Web Developer, Full Stack Developer, and Freelancer",
+  icons: {
+    icon: "/favicon_io/favicon.ico",
+  },
 };
 
 export default async function RootLayout({

@@ -24,7 +24,7 @@ const components = {
     <h3 className="mb-2 mt-4 text-lg font-bold" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-4 text-gray-500" {...props} />
+    <p className="mb-4 dark:text-gray-300" {...props} />
   ),
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a className="text-blue-400 hover:underline" {...props} />

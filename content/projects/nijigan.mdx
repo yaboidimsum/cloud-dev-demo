@@ -1,8 +1,175 @@
 ---
 title: "NijiGAN Research"
-abstract: Typography is a fundamental aspect of any web page's design, shaping not only readability but also a site's overall personality. At the heart of this process is the CSS font-size property - a simple, yet incredibly versatile, tool that influences the visual hierarchy of our content.
+abstract: My first experience researching AI with my friends!
 publishedOn: "2025-05-02T12:00:00-0400"
 src: "/portfolio/nijigan-home.png"
 authorPict: "/kumo.png"
 authorName: ""
 ---
+
+# Link to the paper
+
+[NijiGAN Paper](https://arxiv.org/abs/2412.19455)
+
+# My Jobdesk
+
+<div align="justify">
+  It's a small team 😓 so we were having multiple roles despite it being given
+  separately, one role at the beginning. At first, I was tasked with an ablation
+  study in comparison analysis, but I got involved more in the roles I mentioned
+  below.
+</div>
+## 🔎 Comparison Analyst
+
+<div className="flex justify-center pb-10 pt-10">
+  <img
+    src="/portfolio/nijigan/ablation-study.png"
+    alt="Ablation Study"
+    className="w-fit"
+  />
+</div>
+
+<div align="justify">
+  This is my quoted real job desk 😁, I and
+  [Farah](https://www.linkedin.com/in/farah-dhia-fadhila/) were to search other
+  existing models to be compared later when our model is ready. It wasn't that
+  hard for me because we were expected to find them, run 'em, and see their
+  performances. But...
+
+The challenges appeared when we needed to handle outdated modules and packages,
+so we were not just running simply; we were fixing the existing code package and modules to the new
+one while maintaining the same functionality. It took us three weeks to maintain everything.
+
+</div>
+
+## ⚙️ Model Engineer
+
+<div className="flex justify-center pb-10 pt-10">
+  <img
+    src="/portfolio/nijigan/new-loss-function.jpg"
+    alt="Ablation Study"
+    className="w-fit"
+  />
+</div>
+<div align="justify">
+  The team mostly brainstormed the proposed idea, model, and architecture
+  together. I was involved in building some parts of the architecture by making
+  it modular and implementing loss functions. I also built the validation module
+  for NijiGAN, all utilizing the Pytorch framework.
+</div>
+## 💯 Mean Opinion Score Website
+
+<div className="flex justify-center pb-10 pt-10">
+  <img
+    src="/portfolio/nijigan/development-mos.jpg"
+    alt="Ablation Study"
+    className="w-fit"
+  />
+</div>
+<div align="justify">
+  So, on this MOS website, users will be shown randomly generated images from
+  the models in the ablation study, which is the UI's visual representation. The
+  details of the results can be seen in the paper. This part was pretty
+  challenging 💢 because at that time I didn't understand the concepts of Server
+  Side Rendering ☁️ and Client Side Rendering 👤, I was having a hard time
+  showing the generated images while also facing errors that I didn't really
+  understand 😭
+</div>
+
+# What did I learn?
+
+I learned many things, but the most important thing I got is summarized below.
+
+## 🤖 Encoder-Decoder
+
+<div align="justify">
+  Yea I learned about Encoder and Decoder that leads me to knowing more about
+  Autoencoder and Variational Autoencoder. Although our model is utilizing GAN,
+  this Encoder-Decoder was used before it was scrapped from the NijiGAN
+  architecture due to heavy load 😓. Thanks to
+  [Kevin](https://www.linkedin.com/in/kevin-putra-santoso/) for teaching me
+  this!
+</div>
+
+## ✨ Generative Adversarial Networks
+
+<div align="justify">
+  GAN is one of my favorites! Because the method is unique, I learned there are
+  2 neural networks, the Generator and the Discriminator, that are playing
+  MinMax Games. At first, the Generator will output a bad, unrealistic Image,
+  and the Discriminator will easily tackle the fake image, and as time goes by,
+   the Generator is getting good, and finally, the Discriminator cannot
+  differentiate which one is real or fake. Shout out to
+  [Kevin](https://www.linkedin.com/in/kevin-putra-santoso/) ((againnn)) for
+  teaching me this!
+</div>
+## 👩‍🔬Neural ODE Blocks
+<div align="justify">
+
+This one is pretty complicated because I am an IT person not a Math Person. A neural ordinary differential equation (Neural ODE) is a type of
+neural network architecture that combines concepts from ordinary differential equations
+(ODEs) and deep learning. I can't really explain the whole thing here so this is
+the paper for that! [NODE Paper](https://arxiv.org/abs/1806.07366)
+
+</div>
+
+## ⚡Server Side Rendering & Client Side Rendering
+
+<div align="justify">
+  One of the key takeaways from developing the MOS website was understanding the
+  importance of SSR (Server-Side Rendering) and CSR (Client-Side Rendering). I
+  realized that to make the image loading dynamic, SSR was essential so that the
+  image would change every time it was loaded. At the same time, I had to ensure
+  the tester's actions on the radio button were preserved, which could be
+  achieved with CSR. This was something I didn't fully grasp at the beginning,
+  but now, with this newfound knowledge, I feel much more confident and capable.
+</div>
+# Documentation
+
+This is some of our moments together💙
+
+- [Dimas](https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/)
+- [Farah](https://www.linkedin.com/in/farah-dhia-fadhila/)
+- [Kevin](https://www.linkedin.com/in/kevin-putra-santoso/)
+- [Adam](https://www.linkedin.com/in/adam-haidar-06b5671b4/)
+- [Elvara](https://www.linkedin.com/in/mariateresiaelvara/)
+- [Dwiyasa](https://www.linkedin.com/in/dwiyasa-nakula/)
+- [Rea](https://www.linkedin.com/in/jeany-aurellia/)
+
+<div className="flex flex-col items-center justify-center pb-10 pt-10">
+  <img
+    src="/portfolio/nijigan/team-photo-1.jpg"
+    alt="Ablation Study"
+    className="w-fit"
+  />
+  <img
+    src="/portfolio/nijigan/team-photo-2.jpg"
+    alt="Ablation Study"
+    className="w-fit"
+  />
+  <img
+    src="/portfolio/nijigan/team-photo-3.jpg"
+    alt="Ablation Study"
+    className="w-fit"
+  />
+  <img
+    src="/portfolio/nijigan/team-photo-4.jpg"
+    alt="Ablation Study"
+    className="w-fit"
+  />
+</div>
+
+# Conclusion
+
+<div align="justify">
+  Throughout this research journey, I’ve gained valuable insights into complex
+  model architectures, ranging from Encoder-Decoder frameworks to Generative
+  Adversarial Networks (GANs). One of the key highlights was working on the MOS
+  Website, where I learned the differences between Server-Side Rendering (SSR)
+  and Client-Side Rendering (CSR) in Next.js. Although I started with little
+  understanding, this experience sparked my enthusiasm to explore more about
+  frontend frameworks, especially Next.js. 🤍
+
+For closing, I improved my skills in PyTorch by contributing to developing validation modules for the NijiGAN project. We’ve submitted our work to ICCV 2025, and I’m hopeful it will be accepted and published. 🔥
+
+</div>
