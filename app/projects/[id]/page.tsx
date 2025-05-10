@@ -50,6 +50,8 @@ const components = {
       {...props}
     />
   ),
+  Image,
+  Link,
 };
 
 const route = `projects`;

@@ -50,6 +50,7 @@ const components = {
       {...props}
     />
   ),
+  Image,
 };
 
 const route = `blogs`;
