@@ -13,7 +13,7 @@ export default function Sidebar() {
     { name: "Home", href: "/", icon: Home },
     // { name: "Arts", href: "/arts", icon: Palette },
     { name: "Projects", href: "/projects", icon: PencilRuler },
-    { name: "Blogs", href: "/blogs", icon: BookOpen },
+    // { name: "Blogs", href: "/blogs", icon: BookOpen },
     { name: "Skills", href: "/skills", icon: Lightbulb },
     // { name: "Blog", href: "/blog", icon: BookOpen },
   ];

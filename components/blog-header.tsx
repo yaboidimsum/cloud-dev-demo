@@ -37,7 +37,9 @@ function BlogHeader({
               />
             </div>
             <div className="flex flex-col">
-              <p className="text-lg font-semibold text-zinc-50">Kumo</p>
+              <p className="text-lg font-semibold text-zinc-50 dark:text-zinc-50">
+                Kumo
+              </p>
               <time
                 className="text-base font-medium text-zinc-500"
                 dateTime={publishedOn}
