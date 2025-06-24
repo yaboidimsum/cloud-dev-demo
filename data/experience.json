@@ -1,0 +1,66 @@
+{
+  "workHistory": [
+    {
+      "title": "UI/UX Designer (Design System)",
+      "company": "Asuransi Astra",
+      "location": "Jakarta, Indonesia",
+      "period": "Aug 2024 - Feb 2025",
+      "workType": "Internship",
+      "description": [
+        "Enhanced and documented existing design systems of Astra Insurance.",
+        "Improved consistency and usability across platforms.",
+        "Created comprehensive guidelines and resources for team-wide reference."
+      ]
+    },
+    {
+      "title": "AI Researcher",
+      "company": "Smart City and Cyber Security Laboratory (KCKS)",
+      "location": "Surabaya, Indonesia",
+      "period": "Aug 2024 - Dec 2024",
+      "workType": "Contract",
+      "description": [
+        "Researching real-time style transfer techniques to apply artistic styles to real-life images using smaller model sizes than existing models.",
+        "Working on a research paper detailing the developed model and its applications.",
+        "Created a Mean Opinion Score (MOS) website for research purposes on image evaluation."
+      ]
+    },
+    {
+      "title": "Frontend Engineer",
+      "company": "Information Intelligent Management Laboratory",
+      "location": "Surabaya, Indonesia",
+      "period": "Apr 2024 - Aug 2024",
+      "workType": "Contract",
+      "description": [
+        "Worked on the migration of ERP ITS from a legacy truncated version to an updated iteration utilizing the Next.js framework.",
+        "Developed and applied specific logic, while ensuring seamless transition of existing features to the updated platform.",
+        "Built UI refinement and CSS styling for the enhanced iteration of ERP ITS.",
+        "Acquired proficiency in Object-Oriented Programming (OOP) principles through React.js implementation.",
+        "Collaborated with the established backend infrastructure to effectively deploy new functionalities."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Institut Teknologi Sepuluh Nopember",
+      "degree": "Computer Science",
+      "location": "Surabaya, Indonesia",
+      "period": "2021 - 2025",
+      "description": [
+        "Bachelor's degree in Computer Science with focus on web development and design.",
+        "Participated in various events, hackathons, and projects.",
+        "Maintained a GPA of 3.72/4.0."
+      ]
+    },
+    {
+      "institution": "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+      "degree": "Machine Learning Cohort",
+      "location": "Remote",
+      "period": "Feb 2024 - Jul 2024",
+      "description": [
+        "TensorFlow Mastery: Built and applied Neural Networks for image (CNNs), text (NLP), and even poetry generation.",
+        "End-to-End ML & Advanced DL: Diagnosed ML errors, implemented end-to-end, transfer, and multi-task learning, and utilized advanced techniques like Functional API and distributed training.",
+        "Generative AI & Certification: Understand Generative AI concepts including LLMs and responsible AI, and are prepared for the TensorFlow Developer Certificate Exam."
+      ]
+    }
+  ]
+}

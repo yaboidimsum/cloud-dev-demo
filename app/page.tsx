@@ -1,14 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { Github, FileText, Linkedin } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 // import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
+import Image from "next/image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 // import ProjectCard from "@/components/project-card";
 // import { getBlogPostList } from "./helpers/file-helpers";
+import experienceData from "@/data/experience.json";
 
 export default function Home() {
   const container = {
@@ -64,12 +66,20 @@ export default function Home() {
             Dimas/Awan/Kumo
           </motion.h1>
           <motion.p
-            className="dark-blue:text-gray-400 mb-6 text-sm text-gray-500 dark:text-gray-500"
+            className="dark-blue:text-gray-400 mb-6 text-lg text-gray-500 dark:text-gray-500"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            @cloudimss
+            {/* @cloudimss */}
+            Based in Surabaya, Indonesia{" "}
+            <Image
+              src="/indo-flag.png"
+              alt="Indonesia"
+              width={30}
+              height={40}
+              className="ml-1 inline-block"
+            />
           </motion.p>
         </motion.div>
 
@@ -130,10 +140,131 @@ export default function Home() {
             >
               <span className="mr-2">✉</span> Email Me
             </motion.a>
+            <motion.a
+              target="_blank"
+              href="https://github.com/yaboidimsum"
+              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="mr-2 h-4 w-4" /> Github
+            </motion.a>
+            <motion.a
+              target="_blank"
+              href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/"
+              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Linkedin className="mr-2 h-4 w-4" /> Linkedin
+            </motion.a>
+            <motion.a
+              target="_blank"
+              href="https://drive.google.com/file/d/18fWSuodXeFskMawdTBTcBlo3ICyi5CFr/view?usp=sharing"
+              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FileText className="mr-2 h-4 w-4" /> Resume
+            </motion.a>
           </motion.div>
           <motion.div variants={item}>
             <AnimatedBeamDemoClient />
           </motion.div>
+
+          <motion.div variants={item} className="mt-8">
+            <h2 className="mb-4 text-2xl font-bold">Experience</h2>
+            <Tabs defaultValue="work" className="w-full">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger
+                  value="work"
+                  className="transition-all duration-300 ease-in-out "
+                >
+                  Work History
+                </TabsTrigger>
+                <TabsTrigger
+                  value="education"
+                  className="transition-all duration-300 ease-in-out "
+                >
+                  Education
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent
+                value="work"
+                className="mt-4 transition-opacity duration-500 ease-in-out data-[state=active]:opacity-100 data-[state=inactive]:opacity-0"
+              >
+                <div className="space-y-4">
+                  {experienceData.workHistory.map((job, index) => (
+                    <div key={index} className="rounded-lg border p-4">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold">{job.title}</h3>
+                        <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+                          {job.workType}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-500">
+                        {job.company} • {job.period}
+                      </p>
+                      <p className="text-xs italic text-gray-500">
+                        {job.location}
+                      </p>
+                      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                        {job.description.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+              <TabsContent
+                value="education"
+                className="mt-4 transition-opacity duration-500 ease-in-out data-[state=active]:opacity-100 data-[state=inactive]:opacity-0"
+              >
+                <div className="space-y-4">
+                  {experienceData.education.map((edu, index) => (
+                    <div key={index} className="rounded-lg border p-4">
+                      <h3 className="font-semibold">{edu.institution}</h3>
+                      <p className="text-sm text-gray-500">
+                        {edu.degree} • {edu.period}
+                      </p>
+                      <p className="text-xs italic text-gray-500">
+                        {edu.location}
+                      </p>
+                      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                        {edu.description.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+            <p className="mt-4 text-center text-sm text-gray-500">
+              You can see more here{" "}
+              <a 
+                href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/" 
+                target="_blank" 
+                className="font-medium text-blue-500 hover:text-blue-600 hover:underline"
+              >
+                tehee :3
+              </a>
+            </p>
+          </motion.div>
+
           <motion.div
             variants={item}
             className="mb-12 w-full "
@@ -158,124 +289,6 @@ export default function Home() {
             viewport={{ once: true }}
           >
             {/* <Timeline /> */}
-          </motion.div>
-
-          <motion.div variants={item} className="mb-12">
-            <p className="mb-4">
-              You can check these <span className="text-blue-400">links</span>{" "}
-              if you wish to
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {/* <Link
-                  href="#"
-                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
-                  <Twitter className="mr-2 h-4 w-4" /> Twitter
-                </Link> */}
-              </motion.div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  target="_blank"
-                  href="https://github.com/yaboidimsum"
-                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
-                  <Github className="mr-2 h-4 w-4" /> Github
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  target="_blank"
-                  href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/"
-                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
-                  <Linkedin className="mr-2 h-4 w-4" /> Linkedin
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  target="_blank"
-                  href="https://drive.google.com/file/d/18fWSuodXeFskMawdTBTcBlo3ICyi5CFr/view?usp=sharing"
-                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
-                  <FileText className="mr-2 h-4 w-4" /> Resume
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {/* <Link
-                  href="#"
-                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
-                  <MessageSquare className="mr-2 h-4 w-4" /> Discord
-                </Link> */}
-              </motion.div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {/* <Link
-                  href="#"
-                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
-                  <Send className="mr-2 h-4 w-4" /> Telegram
-                </Link> */}
-              </motion.div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {/* <Link
-                  href="#"
-                  className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
-                  <Bookmark className="mr-2 h-4 w-4" /> Peerfist
-                </Link> */}
-              </motion.div>
-            </div>
           </motion.div>
 
           {/* <motion.div variants={item}>
