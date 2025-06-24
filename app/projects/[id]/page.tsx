@@ -12,6 +12,9 @@ import { Suspense } from "react";
 import BlogDetailSkeleton from "@/components/skeleton/blog-detail-skeleton";
 import ClientContentSkeleton from "@/components/skeleton/client-content-skeleton";
 
+// Add this import at the top with other imports
+// import ViewCounterTest from "@/components/view-counter-test";
+
 // Custom components for MDX
 const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -112,12 +115,17 @@ async function BlogContent({ id }: { id: string }) {
         publishedOn={frontmatter.publishedOn}
         abstract={frontmatter.abstract}
         authorPict={frontmatter.authorPict}
+        slug={id}
+        type="project"
       />
 
       <Suspense fallback={<ClientContentSkeleton />}>
         <ClientContent headings={headings}>
           {content ? (
-            <MDXRemote source={content} components={components} />
+            <>
+              <MDXRemote source={content} components={components} />
+              {/* <ViewCounterTest slug={id} type="project" /> */}
+            </>
           ) : (
             <span className="mt-100">Content will be added soon! ✨</span>
           )}

@@ -1,13 +1,18 @@
+"use client";
+
 import React from "react";
 import { format } from "date-fns";
 import Image from "next/image";
 import { Eye, Clock, Heart } from "lucide-react";
+import { useViewCounter } from "@/hooks/useViewCounter";
 
 interface BlogHeaderProps {
   title: string;
   publishedOn: string;
   abstract: string;
   authorPict: string;
+  slug: string;
+  type: "project" | "blog";
 }
 
 function BlogHeader({
@@ -15,17 +20,17 @@ function BlogHeader({
   publishedOn,
   abstract,
   authorPict,
+  slug,
+  type,
 }: BlogHeaderProps) {
   const humanizedDate = format(new Date(publishedOn), "MMMM do, yyyy");
+  const { views } = useViewCounter(slug, type);
 
   return (
     <header>
       <div>
         <h1 className="mb-4 mt-6 text-2xl font-bold lg:text-5xl">{title}</h1>
         <div className="flex flex-col">
-          {/* <p className="mb-4 text-gray-400">
-            Published on <time dateTime={publishedOn}>{humanizedDate}</time>
-          </p> */}
           <p className="mb-4 text-justify text-gray-400">{abstract}</p>
           <div className="my-6 flex gap-4">
             <div className="h-12 w-12 object-fill">
@@ -37,7 +42,7 @@ function BlogHeader({
               />
             </div>
             <div className="flex flex-col">
-              <p className="text-lg font-semibold text-zinc-50 dark:text-zinc-50">
+              <p className="text-lg font-semibold text-zinc-500 dark:text-zinc-50">
                 Kumo
               </p>
               <time
@@ -53,7 +58,7 @@ function BlogHeader({
             <div className="flex justify-between">
               <div className="flex items-center gap-2 ">
                 <Eye size={16} />
-                <span> 0 Views</span>
+                <span> {views !== null ? views : "..."} Views</span>
               </div>
               <div className="flex gap-4">
                 <div className="flex items-center gap-2 ">

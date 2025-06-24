@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { Eye,  Heart } from "lucide-react";
+import { useViewCounter } from "@/hooks/useViewCounter";
 
 interface ProjectCardProps {
   slug: string;
@@ -48,6 +49,7 @@ export default function ProjectCard({
   tags,
 }: ProjectCardProps) {
   const href = `/${route}/${slug}/`;
+  const { views } = useViewCounter(slug, "project");
 
   let humanizedDate = "Unknown date";
   const parsedDate = new Date(publishedOn);
@@ -105,11 +107,11 @@ export default function ProjectCard({
             </div>
             <div className="mt-2 flex flex-col gap-4">
               <hr className="text-zinc-800 dark:text-zinc-50" />
-              <div className="dark-blue:text-gray-400 flex  justify-between text-sm text-gray-500 dark:text-gray-400">
+              <div className="dark-blue:text-gray-400 flex justify-between text-sm text-gray-500 dark:text-gray-400">
                 <div className="flex gap-8">
                   <div className="flex items-center gap-2 ">
                     <Eye size={12} />
-                    <span className="text-sm"> 0 Views</span>
+                    <span className="text-sm"> {views !== null ? views : "..."} Views</span>
                   </div>
                   <div className="flex items-center gap-2 ">
                     <Heart size={12} />
