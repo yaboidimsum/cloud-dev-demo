@@ -135,11 +135,18 @@ async function BlogContent({ id }: { id: string }) {
   );
 }
 
+// Add this import
+import ViewTracker from "@/components/view-tracker";
+
+// Inside your ProjectDetail component, add this line before the return statement
 export default function ProjectDetail({ params }: { params: { id: string } }) {
   const { id } = params;
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
+      {/* Add this line */}
+      <ViewTracker slug={id} type="project" />
+      
       <Link
         href="/projects"
         className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-600 dark:hover:text-white"
