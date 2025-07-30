@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Lightbulb, PencilRuler } from "lucide-react";
+import { Home, Lightbulb, PencilRuler, IdCard } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,7 @@ export default function Sidebar() {
     { name: "Home", href: "/", icon: Home },
     // { name: "Arts", href: "/arts", icon: Palette },
     { name: "Projects", href: "/projects", icon: PencilRuler },
+    { name: "Cert", href: "/certificate", icon: IdCard },
     // { name: "Blogs", href: "/blogs", icon: BookOpen },
     { name: "Skills", href: "/skills", icon: Lightbulb },
     // { name: "Blog", href: "/blog", icon: BookOpen },

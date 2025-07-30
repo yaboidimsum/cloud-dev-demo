@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { Eye,  Heart } from "lucide-react";
+import { Eye, Heart } from "lucide-react";
 import { useViewCounter } from "@/hooks/useViewCounter";
 
 interface ProjectCardProps {
@@ -68,7 +68,7 @@ export default function ProjectCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <Link href={href}>
+      <Link prefetch={true} href={href}>
         <div className="dark-blue:border-gray-700 dark-blue:hover:border-gray-600 overflow-hidden rounded-lg border border-gray-200 transition-colors hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700">
           <div className="dark-blue:bg-[#192734] relative aspect-video bg-gray-100 dark:bg-gray-900">
             <Image
@@ -111,7 +111,10 @@ export default function ProjectCard({
                 <div className="flex gap-8">
                   <div className="flex items-center gap-2 ">
                     <Eye size={12} />
-                    <span className="text-sm"> {views !== null ? views : "..."} Views</span>
+                    <span className="text-sm">
+                      {" "}
+                      {views !== null ? views : "..."} Views
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 ">
                     <Heart size={12} />
