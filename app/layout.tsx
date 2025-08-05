@@ -18,14 +18,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kumo | Portfolio",
     description: "Hi! It's Awan your design and code partner",
-    images: [
-      {
-        url: "/open-graph.png",
-        width: 1200,
-        height: 630,
-        alt: "Kumo Portfolio",
-      },
-    ],
+    images: {
+      url: "/open-graph.png",
+      width: 1200,
+      height: 630,
+      alt: "Kumo Portfolio",
+    },
     type: "website",
   },
 };

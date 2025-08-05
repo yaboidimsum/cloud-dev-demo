@@ -79,6 +79,7 @@ export async function generateMetadata({
     description: `${frontmatter.abstract}`,
     openGraph: {
       images: `${frontmatter.src}`,
+      
     },
   };
 }
