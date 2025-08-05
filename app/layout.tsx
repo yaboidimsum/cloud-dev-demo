@@ -10,6 +10,7 @@ import { cookies } from "next/headers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cloudev.netlify.app/"),
   title: "Kumo | Portfolio",
   description: "Hi! It's Awan your design and code partner",
   icons: {
