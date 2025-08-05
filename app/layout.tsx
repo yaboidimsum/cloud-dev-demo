@@ -11,9 +11,22 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Kumo | Portfolio",
-  description: "UI/UX Designer, Frontend Developer, and Freelancer",
+  description: "Hi! It's Awan your design and code partner",
   icons: {
     icon: "/favicon_io/favicon.ico",
+  },
+  openGraph: {
+    title: "Kumo | Portfolio",
+    description: "Hi! It's Awan your design and code partner",
+    images: [
+      {
+        url: "/open-graph.png",
+        width: 1200,
+        height: 630,
+        alt: "Kumo Portfolio",
+      },
+    ],
+    type: "website",
   },
 };
 
@@ -36,7 +49,7 @@ export default async function RootLayout({
     >
       <body className={inter.className}>
         <ThemeProvider initialTheme={theme}>
-          <div className="dark-blue:bg-[#15202b] dark-blue:text-gray-200 flex min-h-screen bg-white text-gray-800 dark:bg-black dark:text-gray-200">
+          <div className="flex min-h-screen bg-white text-gray-800 dark:bg-[#08090A] dark:text-gray-200">
             <Sidebar />
             <main className=" lg: ml-16 flex-1 overflow-auto p-4 pt-0 md:p-6 lg:overflow-visible lg:p-8 ">
               {children}

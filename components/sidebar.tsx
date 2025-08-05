@@ -21,7 +21,7 @@ export default function Sidebar() {
 
   return (
     <motion.div
-      className="dark-blue:bg-[#15202b] dark-blue:border-gray-800 fixed bottom-0 left-0 top-0 z-10 flex w-16 flex-col items-center border-r border-gray-200 bg-white py-6 dark:border-gray-800 dark:bg-black"
+      className="= fixed bottom-0 left-0 top-0 z-10 flex w-16 flex-col items-center border-r border-gray-200 bg-white py-6 dark:border-gray-800 dark:bg-[#08090A]"
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}

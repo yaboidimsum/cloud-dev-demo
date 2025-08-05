@@ -130,7 +130,7 @@ export default function Home() {
             <AvailabilityIndicator available={false} />
             <motion.a
               href="mailto:dprihadisetiawan@gmail.com"
-              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              className=" flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -143,7 +143,7 @@ export default function Home() {
             <motion.a
               target="_blank"
               href="https://github.com/yaboidimsum"
-              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              className=" flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -156,7 +156,7 @@ export default function Home() {
             <motion.a
               target="_blank"
               href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/"
-              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              className=" flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -168,8 +168,8 @@ export default function Home() {
             </motion.a>
             <motion.a
               target="_blank"
-              href="https://drive.google.com/file/d/18fWSuodXeFskMawdTBTcBlo3ICyi5CFr/view?usp=sharing"
-              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              href="https://drive.google.com/file/d/1pyf10LZ7k23QzTy_yU1LeROUtuUdHPSh/view?usp=sharing"
+              className=" flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -187,7 +187,7 @@ export default function Home() {
           <motion.div variants={item} className="mt-8">
             <h2 className="mb-4 text-2xl font-bold">Experience</h2>
             <Tabs defaultValue="work" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
+              <TabsList className="grid w-full grid-cols-2 dark:bg-zinc-900">
                 <TabsTrigger
                   value="work"
                   className="transition-all duration-300 ease-in-out "
@@ -210,7 +210,7 @@ export default function Home() {
                     <div key={index} className="rounded-lg border p-4">
                       <div className="flex items-center justify-between">
                         <h3 className="font-semibold">{job.title}</h3>
-                        <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+                        <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-zinc-900 dark:text-gray-200">
                           {job.workType}
                         </span>
                       </div>
@@ -255,9 +255,9 @@ export default function Home() {
             </Tabs>
             <p className="mt-4 text-center text-sm text-gray-500">
               You can see more here{" "}
-              <a 
-                href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/"
+                target="_blank"
                 className="font-medium text-blue-500 hover:text-blue-600 hover:underline"
               >
                 tehee :3

@@ -11,20 +11,15 @@ import {
   SiCss3,
   SiPytorch,
   SiPython,
-
   SiReact,
   SiNextdotjs,
-
   SiTailwindcss,
-
   SiFramer,
   SiGithub,
   SiNetlify,
   SiVercel,
-
   SiPostman,
   SiFigma,
-
   SiSwr,
 } from "react-icons/si";
 
@@ -40,7 +35,7 @@ export default function Skills() {
   }) => {
     return (
       <motion.div
-        className="dark-blue:bg-[#1e2d3c] mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-gray-200 px-3 py-1.5 text-sm dark:bg-gray-800"
+        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-gray-200 px-3 py-1.5 text-sm dark:bg-zinc-900"
         whileHover={{
           y: -5,
           boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
@@ -95,11 +90,11 @@ export default function Skills() {
         >
           <p className="light:text-gray-700 dark-blue:text-gray-300 text-gray-800 dark:text-gray-300">
             My main Tech stack is{" "}
-            <span className="light:bg-gray-200 dark-blue:bg-[#1e2d3c] mx-1 inline-flex items-center rounded-md bg-gray-200 px-2 py-0.5 text-sm dark:bg-gray-800">
+            <span className="light:bg-gray-200 mx-1 inline-flex items-center rounded-md bg-gray-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiNextdotjs className="mr-1" /> NextJs
             </span>{" "}
             framework with{" "}
-            <span className="light:bg-gray-200 dark-blue:bg-[#1e2d3c] mx-1 inline-flex items-center rounded-md bg-gray-200 px-2 py-0.5 text-sm dark:bg-gray-800">
+            <span className="light:bg-gray-200 mx-1 inline-flex items-center rounded-md bg-gray-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiTailwindcss className="mr-1" /> TailwindCSS
             </span>{" "}
             CSS as a styling library for Frontend works
@@ -107,7 +102,7 @@ export default function Skills() {
 
           <p className="light:text-gray-700 dark-blue:text-gray-300 mt-4 text-gray-800 dark:text-gray-300">
             I also into Deep Learning stuff, I use{" "}
-            <span className="light:bg-gray-200 dark-blue:bg-[#1e2d3c] mx-1 inline-flex items-center rounded-md bg-gray-200 px-2 py-0.5 text-sm dark:bg-gray-800">
+            <span className="light:bg-gray-200 mx-1 inline-flex items-center rounded-md bg-gray-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiPytorch className="mr-1" /> Pytorch
             </span>{" "}
             framework for doing research. ❤️
