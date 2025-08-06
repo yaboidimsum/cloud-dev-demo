@@ -4,14 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { useViewCounter } from "@/hooks/useViewCounter";
 
 interface CertificateCardProps {
-  slug: string;
   title: string;
   publishedOn: string;
   src: string;
-  route: string;
   tags: Array<string>;
 }
 
@@ -38,15 +35,11 @@ export const TextWithEllipsis = ({
 };
 
 export default function CertificateCard({
-  slug,
   title,
   publishedOn,
   src,
-  route,
   tags,
 }: CertificateCardProps) {
-  const href = `/${route}/${slug}/`;
-  const { views } = useViewCounter(slug, "project");
 
   let humanizedDate = "Unknown date";
   const parsedDate = new Date(publishedOn);
