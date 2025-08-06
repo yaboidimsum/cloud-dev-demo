@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { Eye, Heart } from "lucide-react";
 import { useViewCounter } from "@/hooks/useViewCounter";
 
 interface CertificateCardProps {
