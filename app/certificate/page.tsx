@@ -2,13 +2,13 @@ import Link from "next/link";
 import React from "react";
 import { getBlogPostList } from "@/app/helpers/file-helpers";
 import { ArrowLeft } from "lucide-react";
-import ProjectCard from "@/components/project-card";
+import CertificateCard from "@/components/certificate-card";
 
 export default async function Certificates() {
   const route = `certificate`;
-  const projectPost = await getBlogPostList(route);
+  const certificatePost = await getBlogPostList(route);
 
-  // console.log(projectPost);
+  // console.log(certificatePost);
 
   return (
     <div className="mx-auto max-w-4xl pt-8">
@@ -24,13 +24,18 @@ export default async function Certificates() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {/* <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard /> */}
+        {/* <CertificateCard />
+        <CertificateCard />
+        <CertificateCard />
+        <CertificateCard /> */}
 
-        {projectPost.map(({ slug, ...delegated }) => (
-          <ProjectCard key={slug} slug={slug} route={route} {...delegated} />
+        {certificatePost.map(({ slug, ...delegated }) => (
+          <CertificateCard
+            key={slug}
+            slug={slug}
+            route={route}
+            {...delegated}
+          />
         ))}
       </div>
     </div>
