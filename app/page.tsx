@@ -127,7 +127,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div variants={item} className="mb-12 flex flex-wrap gap-4">
-            <AvailabilityIndicator available={false} />
+            <AvailabilityIndicator available={true} />
             <motion.a
               href="mailto:dprihadisetiawan@gmail.com"
               className=" flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"

@@ -155,7 +155,7 @@ export default function ClientBlogContent({
               </div>
             ) : null}
             <motion.button
-              className="dark-blue:bg-[#1e2d3c] dark-blue:hover:bg-[#263c4e] dark-blue:text-white fixed bottom-20 right-6 flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 lg:hidden"
+              className="fixed bottom-20 right-6 flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 lg:hidden"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",

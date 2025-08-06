@@ -44,8 +44,8 @@ export default function TableOfContents({
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        <div className="dark-blue:bg-[#192734] dark-blue:border-gray-700 rounded-lg border border-gray-200 bg-gray-100 p-4 dark:border-gray-800 dark:bg-gray-900">
-          <h4 className="dark-blue:text-gray-400 mb-3 text-sm font-semibold text-gray-500 dark:text-gray-400">
+        <div className="rounded-lg border border-gray-200 bg-gray-100 p-4 dark:border-zinc-800 dark:bg-zinc-900">
+          <h4 className="mb-3 text-sm font-semibold text-zinc-500 dark:text-zinc-500">
             Table of Contents
           </h4>
           <nav
@@ -69,7 +69,7 @@ export default function TableOfContents({
                     // Apply conditional styling based on currentId
                     className={`block w-full truncate text-left transition-colors duration-200 ease-in-out ${
                       currentId === heading.id
-                        ? "font-semibold text-blue-500 dark:text-blue-400" // Active state
+                        ? "font-semibold text-blue-600 dark:text-blue-500" // Active state
                         : "text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200" // Default state
                     }`}
                     title={heading.title.replace(/^(👉|--)\s*/, "").trim()} // Clean title for tooltip
