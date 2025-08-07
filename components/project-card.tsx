@@ -69,8 +69,8 @@ export default function ProjectCard({
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       <Link prefetch={true} href={href}>
-        <div className=" overflow-hidden rounded-lg border border-gray-200 transition duration-150 ease-in-out hover:border-gray-300 active:scale-[0.97] dark:border-zinc-800 dark:hover:border-zinc-700">
-          <div className=" relative aspect-video bg-gray-100 dark:bg-zinc-900">
+        <div className=" overflow-hidden rounded-lg border border-zinc-200 transition duration-150 ease-in-out hover:border-zinc-300 active:scale-[0.97] dark:border-zinc-800 dark:hover:border-zinc-700">
+          <div className=" relative aspect-video bg-zinc-100 dark:bg-zinc-900">
             <Image
               src={src}
               alt="Project thumbnail"
@@ -85,7 +85,7 @@ export default function ProjectCard({
                   {tags?.map((tag, index) => (
                     <span
                       key={index}
-                      className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700 dark:bg-zinc-800 dark:text-gray-200"
+                      className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs font-medium tracking-tighter text-zinc-700 dark:bg-zinc-800  dark:text-zinc-200"
                     >
                       {tag}
                     </span>
@@ -94,20 +94,23 @@ export default function ProjectCard({
               ) : (
                 <></>
               )}
-              <h3 className="mb-1 font-medium">{title}</h3>
+              <h3 className="mb-1 font-medium tracking-tighter">{title}</h3>
             </div>
             <div className="mb-4">
-              <time className="text-sm font-semibold" dateTime={publishedOn}>
+              <time
+                className="text-sm font-medium tracking-tighter"
+                dateTime={publishedOn}
+              >
                 {" "}
                 {humanizedDate}{" "}
               </time>
             </div>
-            <div className="text-sm text-gray-500 dark:text-zinc-400">
+            <div className="text-sm tracking-tighter text-zinc-500  dark:text-zinc-400">
               <TextWithEllipsis text={abstract} maxLength={10000} />
             </div>
             <div className="mt-2 flex flex-col gap-4">
               <hr className="text-zinc-800 dark:text-zinc-50" />
-              <div className="flex justify-between text-sm text-gray-500 dark:text-zinc-400">
+              <div className="flex justify-between text-sm tracking-tighter text-zinc-500  dark:text-zinc-400">
                 <div className="flex gap-8">
                   <div className="flex items-center gap-2 ">
                     <Eye size={12} />

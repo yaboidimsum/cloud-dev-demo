@@ -8,6 +8,8 @@ interface CertificateCardProps {
   title: string;
   publishedOn: string;
   src: string;
+  slug: string;
+  route: string;
   tags: Array<string>;
 }
 
@@ -39,7 +41,6 @@ export default function CertificateCard({
   src,
   tags,
 }: CertificateCardProps) {
-
   let humanizedDate = "Unknown date";
   const parsedDate = new Date(publishedOn);
   if (!isNaN(parsedDate.getTime())) {

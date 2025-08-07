@@ -18,16 +18,16 @@ import ClientContentSkeleton from "@/components/skeleton/client-content-skeleton
 // Custom components for MDX
 const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className="mb-4 mt-6 text-2xl font-bold" {...props} />
+    <h1 className="mb-4 mt-6 text-2xl font-semibold" {...props} />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="mb-3 mt-5 text-xl font-bold" {...props} />
+    <h2 className="mb-3 mt-5 text-xl font-semibold" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="mb-2 mt-4 text-lg font-bold" {...props} />
+    <h3 className="mb-2 mt-4 text-lg font-semibold" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-4 dark:text-gray-300" {...props} />
+    <p className="mb-4 dark:text-zinc-300" {...props} />
   ),
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a className="text-blue-400 hover:underline" {...props} />
@@ -43,13 +43,13 @@ const components = {
   ),
   code: (props: React.HTMLAttributes<HTMLElement>) => (
     <code
-      className="rounded bg-zinc-100 px-1 py-0.5 text-sm dark:bg-gray-800"
+      className="rounded bg-zinc-100 px-1 py-0.5 text-sm dark:bg-zinc-800"
       {...props}
     />
   ),
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
     <pre
-      className="mb-4 overflow-x-auto rounded-md bg-zinc-100 p-4 dark:bg-gray-800"
+      className="mb-4 overflow-x-auto rounded-md bg-zinc-100 p-4 dark:bg-zinc-800"
       {...props}
     />
   ),
@@ -79,7 +79,6 @@ export async function generateMetadata({
     description: `${frontmatter.abstract}`,
     openGraph: {
       images: `${frontmatter.src}`,
-      
     },
   };
 }
@@ -123,10 +122,10 @@ async function BlogContent({ id }: { id: string }) {
       <Suspense fallback={<ClientContentSkeleton />}>
         <ClientContent headings={headings}>
           {content ? (
-            <>
+            <div className="tracking-tighter">
               <MDXRemote source={content} components={components} />
               {/* <ViewCounterTest slug={id} type="project" /> */}
-            </>
+            </div>
           ) : (
             <span className="mt-100">Content will be added soon! ✨</span>
           )}
@@ -147,10 +146,10 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
     <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
       {/* Add this line */}
       <ViewTracker slug={id} type="project" />
-      
+
       <Link
         href="/projects"
-        className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center tracking-tighter text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
       </Link>

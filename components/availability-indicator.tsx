@@ -23,7 +23,7 @@ export default function AvailabilityIndicator({
 
   return (
     <motion.button
-      className={`flex items-center rounded-md px-4 py-2 text-sm ${
+      className={`flex items-center rounded-md px-4 py-2  text-sm tracking-tight ${
         available
           ? "dark-blue:bg-green-900/20 dark-blue:text-green-300 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
           : "dark-blue:bg-red-900/20 dark-blue:text-red-300 bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"

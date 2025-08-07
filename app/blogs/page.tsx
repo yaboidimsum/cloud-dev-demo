@@ -11,12 +11,12 @@ export default async function Projects() {
   // console.log(projectPost);
 
   return (
-    <div className="mx-auto max-w-4xl pt-8">
+    <div className="mx-auto max-w-4xl pt-8 transition duration-300 ease-in-out">
       <Link
         href="/"
-        className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center tracking-tight text-zinc-400  hover:text-zinc-600 dark:hover:text-white"
       >
-        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+        <ArrowLeft className="mr-2 h-4 w-4 " /> Back to Home
       </Link>
 
       <h1 className="mb-8 text-3xl font-bold">Blogs</h1>

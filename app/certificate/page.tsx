@@ -14,13 +14,12 @@ export default async function Certificates() {
     <div className="mx-auto max-w-4xl pt-8">
       <Link
         href="/"
-        className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center tracking-tighter text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
       </Link>
       <div className="mb-8 flex items-center gap-2">
-        <h1 className="text-3xl font-bold">Certificates</h1>
-        <span className="text-md text-zinc-400">(under construction 🚧🚨)</span>
+        <h1 className="text-3xl font-medium tracking-tighter">Certificates</h1>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

@@ -21,7 +21,7 @@ export default function Sidebar() {
 
   return (
     <motion.div
-      className="= fixed bottom-0 left-0 top-0 z-10 flex w-16 flex-col items-center border-r border-gray-200 bg-white py-6 dark:border-gray-800 dark:bg-[#08090A]"
+      className="= fixed bottom-0 left-0 top-0 z-10 flex w-16 flex-col items-center border-r border-zinc-200 bg-white py-6 dark:border-zinc-800 dark:bg-[#08090A]"
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -46,11 +46,11 @@ export default function Sidebar() {
           <Link
             href={item.href}
             className={cn(
-              "mb-4 flex w-full flex-col items-center justify-center p-3 text-xs transition-colors",
+              "mb-4 flex w-full flex-col items-center justify-center p-3 text-xs tracking-tight transition-colors",
               pathname === item.href ||
                 (item.href !== "/" && pathname.startsWith(item.href))
-                ? "dark-blue:text-white text-gray-900 dark:text-white"
-                : "dark-blue:hover:text-gray-300 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+                ? "dark-blue:text-white text-zinc-900 dark:text-white"
+                : "dark-blue:hover:text-zinc-300 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
             )}
           >
             <item.icon className="mb-1 h-5 w-5" />

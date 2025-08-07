@@ -29,9 +29,13 @@ function BlogHeader({
   return (
     <header>
       <div>
-        <h1 className="mb-4 mt-6 text-2xl font-bold lg:text-5xl">{title}</h1>
+        <h1 className="mb-4 mt-6 text-2xl font-bold tracking-tighter  lg:text-5xl">
+          {title}
+        </h1>
         <div className="flex flex-col">
-          <p className="mb-4 text-justify text-gray-400">{abstract}</p>
+          <p className="mb-4 text-justify tracking-tighter  text-gray-500">
+            {abstract}
+          </p>
           <div className="my-6 flex gap-4">
             <div className="h-12 w-12 object-fill">
               <Image
@@ -41,22 +45,22 @@ function BlogHeader({
                 alt="Author Profile"
               />
             </div>
-            <div className="flex flex-col">
-              <p className="text-lg font-semibold text-zinc-500 dark:text-zinc-50">
+            <div className="flex flex-col ">
+              <p className="text-lg font-semibold tracking-tighter text-zinc-500 dark:text-zinc-50">
                 Kumo
               </p>
               <time
-                className="text-base font-medium text-zinc-500"
+                className="text-base font-medium tracking-tighter text-zinc-500"
                 dateTime={publishedOn}
               >
                 {humanizedDate}
               </time>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 tracking-tighter">
             <hr className="text-zinc-800 dark:text-zinc-50" />
             <div className="flex justify-between">
-              <div className="flex items-center gap-2 ">
+              <div className="flex items-center gap-2  ">
                 <Eye size={16} />
                 <span> {views !== null ? views : "..."} Views</span>
               </div>

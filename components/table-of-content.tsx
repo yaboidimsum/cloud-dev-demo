@@ -44,7 +44,7 @@ export default function TableOfContents({
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        <div className="rounded-lg border border-gray-200 bg-gray-100 p-4 dark:border-zinc-800 dark:bg-zinc-900">
+        <div className="rounded-lg border border-gray-200 bg-gray-100 p-4 tracking-tighter dark:border-zinc-800 dark:bg-zinc-900">
           <h4 className="mb-3 text-sm font-semibold text-zinc-500 dark:text-zinc-500">
             Table of Contents
           </h4>
