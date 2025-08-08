@@ -35,7 +35,7 @@ export default function Skills() {
   }) => {
     return (
       <motion.div
-        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-200 px-3 py-1.5 text-sm tracking-tighter dark:bg-zinc-900"
+        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-300 px-3 py-1.5 text-sm tracking-tighter dark:bg-zinc-900"
         whileHover={{
           y: -5,
           boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
@@ -66,7 +66,7 @@ export default function Skills() {
     <div className="mx-auto max-w-4xl pt-8" ref={containerRef}>
       <div className="mb-12">
         <motion.h1
-          className="mb-2 text-center text-3xl font-bold tracking-tighter"
+          className="mb-2 text-center text-3xl font-medium tracking-tighter"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -89,12 +89,12 @@ export default function Skills() {
           transition={{ delay: 0.3 }}
         >
           <p className="light:text-zinc-700 dark-blue:text-zinc-300 tracking-tighter text-zinc-800 dark:text-zinc-300">
-            My main Tech stack is{" "}
-            <span className="light:bg-zinc-200 mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
+            My main tech stack is{" "}
+            <span className="light:bg-zinc-300 mx-1 inline-flex items-center rounded-md bg-zinc-300 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiNextdotjs className="mr-1" /> NextJs
             </span>{" "}
             framework with{" "}
-            <span className="light:bg-zinc-200 mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
+            <span className="light:bg-zinc-300 mx-1 inline-flex items-center rounded-md bg-zinc-300 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiTailwindcss className="mr-1" /> TailwindCSS
             </span>{" "}
             CSS as a styling library for Frontend works
@@ -102,7 +102,7 @@ export default function Skills() {
 
           <p className="light:text-zinc-700 dark-blue:text-zinc-300 mt-4 tracking-tighter text-zinc-800 dark:text-zinc-300">
             I also into Deep Learning stuff, I use{" "}
-            <span className="light:bg-zinc-200 mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
+            <span className="light:bg-zinc-300 mx-1 inline-flex items-center rounded-md bg-zinc-300 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiPytorch className="mr-1" /> Pytorch
             </span>{" "}
             framework for doing research. ❤️

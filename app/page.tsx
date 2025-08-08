@@ -130,7 +130,7 @@ export default function Home() {
             <AvailabilityIndicator available={true} />
             <motion.a
               href="mailto:dprihadisetiawan@gmail.com"
-              className=" flex items-center rounded-md bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+              className=" flex items-center rounded-md border-[1.5px] border-zinc-300 bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -147,7 +147,7 @@ export default function Home() {
             <motion.a
               target="_blank"
               href="https://github.com/yaboidimsum"
-              className=" flex items-center rounded-md bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+              className=" flex items-center rounded-md border-[1.5px] border-zinc-300 bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -160,7 +160,7 @@ export default function Home() {
             <motion.a
               target="_blank"
               href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/"
-              className=" flex items-center rounded-md bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+              className=" flex items-center rounded-md border-[1.5px] border-zinc-300 bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -173,7 +173,7 @@ export default function Home() {
             <motion.a
               target="_blank"
               href="https://drive.google.com/file/d/13rLLhzWqK3bxZ6si2HfLw-zGffVKlMqn/view?usp=sharing"
-              className=" flex items-center rounded-md bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+              className=" flex items-center rounded-md border-[1.5px] border-zinc-300 bg-zinc-200 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -193,7 +193,7 @@ export default function Home() {
               Experience
             </h2>
             <Tabs defaultValue="work" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 dark:bg-zinc-900">
+              <TabsList className="grid w-full grid-cols-2 border-zinc-400 bg-zinc-200 dark:bg-zinc-900">
                 <TabsTrigger
                   value="work"
                   className="tracking-tighter transition-all duration-300  ease-in-out "
@@ -213,10 +213,13 @@ export default function Home() {
               >
                 <div className="space-y-4">
                   {experienceData.workHistory.map((job, index) => (
-                    <div key={index} className="rounded-lg border p-4">
+                    <div
+                      key={index}
+                      className="rounded-lg border-[1.5px] border-zinc-300 bg-zinc-100 p-4 dark:border-zinc-900 dark:bg-zinc-950"
+                    >
                       <div className="flex items-center justify-between">
                         <h3 className="font-medium">{job.title}</h3>
-                        <span className="rounded-full bg-zinc-100 px-2 py-1 text-xs font-medium tracking-tighter text-zinc-800 dark:bg-zinc-900  dark:text-zinc-200">
+                        <span className="rounded-full bg-zinc-200 px-2 py-1 text-xs font-medium tracking-tighter text-zinc-800 dark:bg-zinc-900  dark:text-zinc-200">
                           {job.workType}
                         </span>
                       </div>
@@ -241,7 +244,10 @@ export default function Home() {
               >
                 <div className="space-y-4">
                   {experienceData.education.map((edu, index) => (
-                    <div key={index} className="rounded-lg border p-4">
+                    <div
+                      key={index}
+                      className="rounded-lg border-[1.5px] border-zinc-300 bg-zinc-100 p-4 dark:border-zinc-900 dark:bg-zinc-950"
+                    >
                       <h3 className="font-medium">{edu.institution}</h3>
                       <p className="text-sm text-zinc-500">
                         {edu.degree} • {edu.period}

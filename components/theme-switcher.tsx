@@ -30,7 +30,7 @@ export default function ThemeSwitcher() {
 
   return (
     <motion.div
-      className="fixed bottom-6 right-6 flex space-x-2 rounded-full bg-white p-2 shadow-lg dark:bg-zinc-900"
+      className="fixed bottom-6 right-6 flex space-x-2 rounded-full p-2 shadow-lg dark:bg-zinc-900"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1, type: "spring", stiffness: 300, damping: 20 }}
@@ -50,7 +50,7 @@ export default function ThemeSwitcher() {
 
       <motion.button
         className={`rounded-full p-2 ${
-          theme === "dark" ? "bg-zinc-800 text-gray-200" : "text-zinc-400"
+          theme === "dark" ? "bg-zinc-800 text-zinc-200" : "text-zinc-400"
         }`}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

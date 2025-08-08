@@ -69,7 +69,7 @@ export default function ProjectCard({
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       <Link prefetch={true} href={href}>
-        <div className=" overflow-hidden rounded-lg border border-zinc-200 transition duration-150 ease-in-out hover:border-zinc-300 active:scale-[0.97] dark:border-zinc-800 dark:hover:border-zinc-700">
+        <div className=" overflow-hidden rounded-lg border border-zinc-300 transition duration-150 ease-in-out hover:border-zinc-300 active:scale-[0.97] dark:border-zinc-800 dark:hover:border-zinc-700">
           <div className=" relative aspect-video bg-zinc-100 dark:bg-zinc-900">
             <Image
               src={src}
@@ -85,7 +85,7 @@ export default function ProjectCard({
                   {tags?.map((tag, index) => (
                     <span
                       key={index}
-                      className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs font-medium tracking-tighter text-zinc-700 dark:bg-zinc-800  dark:text-zinc-200"
+                      className="rounded-full bg-zinc-300 px-2 py-0.5 text-xs font-medium tracking-tighter text-zinc-700 dark:bg-zinc-800  dark:text-zinc-200"
                     >
                       {tag}
                     </span>

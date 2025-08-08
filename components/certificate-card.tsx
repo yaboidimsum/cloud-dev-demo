@@ -59,8 +59,8 @@ export default function CertificateCard({
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       <div>
-        <div className=" overflow-hidden rounded-lg border border-gray-200 transition duration-150 ease-in-out hover:border-gray-300 active:scale-[0.97] dark:border-zinc-800 dark:hover:border-zinc-700">
-          <div className=" relative aspect-video bg-gray-100 dark:bg-zinc-900">
+        <div className=" overflow-hidden rounded-lg border border-zinc-300 transition duration-150 ease-in-out hover:border-zinc-300 active:scale-[0.97] dark:border-zinc-800 dark:hover:border-zinc-700">
+          <div className=" relative aspect-video bg-zinc-100 dark:bg-zinc-900">
             <Image
               src={src}
               alt="Project thumbnail"
@@ -75,7 +75,7 @@ export default function CertificateCard({
                   {tags?.map((tag, index) => (
                     <span
                       key={index}
-                      className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700 dark:bg-zinc-800 dark:text-gray-200"
+                      className="rounded-full bg-zinc-300 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
                     >
                       {tag}
                     </span>
