@@ -23,8 +23,9 @@ export default async function Projects() {
         🍎 Apple Developer Academy Challenge (Cohort 2026)
       </h1>
       <p>
-        Get ready! This section will highlight some of the new challenges I'll
-        be facing in the academy next year. Stay tuned for more details.
+        Get ready! This section will highlight some of the new challenges
+        I&apos;ll be facing in the academy next year. Stay tuned for more
+        details.
       </p>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
