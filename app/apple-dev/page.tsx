@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
-import { getBlogPostList } from "@/app/helpers/file-helpers";
+// import { getBlogPostList } from "@/app/helpers/file-helpers";
 import { ArrowLeft } from "lucide-react";
 import ProjectCard from "@/components/project-card";
 
 export default async function Projects() {
-  const route = `apple-dev`;
-  const projectPost = await getBlogPostList(route);
+  // const route = `apple-dev`;
+  // const projectPost = await getBlogPostList(route);
 
   // console.log(projectPost);
 
@@ -34,9 +34,9 @@ export default async function Projects() {
         <ProjectCard />
         <ProjectCard /> */}
 
-        {projectPost.map(({ slug, ...delegated }) => (
+        {/* {projectPost.map(({ slug, ...delegated }) => (
           <ProjectCard key={slug} slug={slug} route={route} {...delegated} />
-        ))}
+        ))} */}
       </div>
     </div>
   );
