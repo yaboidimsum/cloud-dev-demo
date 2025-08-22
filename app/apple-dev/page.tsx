@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 // import { getBlogPostList } from "@/app/helpers/file-helpers";
 import { ArrowLeft } from "lucide-react";
-import ProjectCard from "@/components/project-card";
+// import ProjectCard from "@/components/project-card";
 
 export default async function Projects() {
   // const route = `apple-dev`;
