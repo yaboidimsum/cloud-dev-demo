@@ -23,9 +23,9 @@ export default function AvailabilityIndicator({
 
   return (
     <motion.button
-      className={`flex items-center rounded-md px-4 py-2  text-sm tracking-tight ${
+      className={`text-medium flex items-center rounded-md px-4  py-2 text-sm tracking-tight ${
         available
-          ? "  bg-green-200 text-green-800 dark:bg-green-900/30 dark:text-green-300"
+          ? "  bg-green-400/90 text-white dark:bg-green-900/30 dark:text-green-300"
           : " bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"
       }`}
       whileHover={{
@@ -39,13 +39,13 @@ export default function AvailabilityIndicator({
         <span
           className={`inline-block h-2 w-2 rounded-full ${
             available
-              ? "bg-green-500 dark:bg-green-400"
+              ? "bg-white dark:bg-green-400"
               : "bg-red-500 dark:bg-red-400"
           }`}
         ></span>
         {available && (
           <span
-            className={`absolute inset-0 top-1.5 h-2 w-2 animate-ping rounded-full bg-green-400 dark:bg-green-300 ${
+            className={`absolute inset-0 top-1.5 h-2 w-2 animate-ping rounded-full bg-white dark:bg-green-300 ${
               isBlinking ? "opacity-75" : "opacity-0"
             }`}
           ></span>

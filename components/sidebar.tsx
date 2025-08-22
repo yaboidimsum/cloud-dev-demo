@@ -1,6 +1,13 @@
 "use client";
 
-import { Home, Lightbulb, PencilRuler, IdCard } from "lucide-react";
+import {
+  Home,
+  Lightbulb,
+  PencilRuler,
+  IdCard,
+  Apple,
+  PaintBucket,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -11,12 +18,11 @@ export default function Sidebar() {
 
   const navItems = [
     { name: "Home", href: "/", icon: Home },
-    // { name: "Arts", href: "/arts", icon: Palette },
     { name: "Projects", href: "/projects", icon: PencilRuler },
+    { name: "Apple Dev", href: "/apple-dev", icon: Apple },
     { name: "Cert", href: "/certificate", icon: IdCard },
-    // { name: "Blogs", href: "/blogs", icon: BookOpen },
+    { name: "Arts", href: "/art", icon: PaintBucket },
     { name: "Skills", href: "/skills", icon: Lightbulb },
-    // { name: "Blog", href: "/blog", icon: BookOpen },
   ];
 
   return (
@@ -46,7 +52,7 @@ export default function Sidebar() {
           <Link
             href={item.href}
             className={cn(
-              "mb-4 flex w-full flex-col items-center justify-center p-3 text-xs tracking-tight transition-colors",
+              "mb-4 flex w-full flex-col items-center justify-center p-3 text-center text-xs tracking-tight transition-colors",
               pathname === item.href ||
                 (item.href !== "/" && pathname.startsWith(item.href))
                 ? "dark-blue:text-white text-zinc-900 dark:text-white"

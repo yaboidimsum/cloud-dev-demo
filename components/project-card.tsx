@@ -80,12 +80,12 @@ export default function ProjectCard({
           </div>
           <div className="p-4">
             <div className="flex flex-col">
-              {tags ? (
+              {tags ? (/*  */
                 <div className="mb-4 flex flex-wrap gap-2">
                   {tags?.map((tag, index) => (
                     <span
                       key={index}
-                      className="rounded-full bg-zinc-300 px-2 py-0.5 text-xs font-medium tracking-tighter text-zinc-700 dark:bg-zinc-800  dark:text-zinc-200"
+                      className="rounded-full bg-zinc-100/50 px-2 py-0.5 text-xs font-medium tracking-tighter text-zinc-700 dark:bg-zinc-800  dark:text-zinc-200"
                     >
                       {tag}
                     </span>
