@@ -3,7 +3,7 @@ import React from "react";
 // import { getBlogPostList } from "@/app/helpers/file-helpers";
 import { ArrowLeft } from "lucide-react";
 // import ProjectCard from "@/components/project-card";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import AppleLocation from "@/components/apple-location";
 
 export default async function Projects() {
