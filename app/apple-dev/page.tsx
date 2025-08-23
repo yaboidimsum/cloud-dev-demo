@@ -3,6 +3,8 @@ import React from "react";
 // import { getBlogPostList } from "@/app/helpers/file-helpers";
 import { ArrowLeft } from "lucide-react";
 // import ProjectCard from "@/components/project-card";
+import { motion } from "framer-motion";
+import AppleLocation from "@/components/apple-location";
 
 export default async function Projects() {
   // const route = `apple-dev`;
@@ -18,14 +20,16 @@ export default async function Projects() {
       >
         <ArrowLeft className="mr-2 h-4 w-4 tracking-tighter" /> Back to Home
       </Link>
-
-      <h1 className="mb-8 text-3xl font-medium tracking-tighter">
-        🍎 Apple Developer Academy Challenge (Cohort 2026)
-      </h1>
+      <div className="flex flex-col gap-2">
+        <AppleLocation text="Apple Developer Academy @ Central Jakarta" />
+        <h1 className="mb-8 text-3xl font-medium tracking-tighter">
+          Apple Developer Academy Challenge (Cohort 2026)
+        </h1>
+      </div>
       <p>
         Get ready! This section will highlight some of the new challenges
         I&apos;ll be facing in the academy next year. Stay tuned for more
-        details.
+        details. 🏗️🚧🧐
       </p>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
