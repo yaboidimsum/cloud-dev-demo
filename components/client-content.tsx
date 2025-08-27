@@ -127,7 +127,7 @@ export default function ClientBlogContent({
       <div className="flex w-full items-start gap-4">
         <article
           ref={contentRef}
-          className="prose prose-invert max-w-none flex-1 prose-headings:scroll-mt-20 prose-headings:text-white prose-a:text-blue-400 prose-strong:text-white prose-code:text-white prose-pre:bg-gray-800" // Added flex-1 and scroll-mt-20
+          className="prose prose-invert max-w-none flex-1 prose-headings:scroll-mt-20 prose-headings:text-white prose-a:text-blue-400 prose-strong:text-white prose-code:text-white prose-pre:bg-zinc-800" // Added flex-1 and scroll-mt-20
         >
           {children}
         </article>
@@ -155,7 +155,7 @@ export default function ClientBlogContent({
               </div>
             ) : null}
             <motion.button
-              className="fixed bottom-20 right-6 flex items-center rounded-md bg-gray-200 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 lg:hidden"
+              className="fixed bottom-20 right-6 flex items-center rounded-md bg-zinc-100 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 lg:hidden"
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
