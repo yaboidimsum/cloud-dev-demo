@@ -10,11 +10,10 @@ export default function BlogsLoading() {
       >
         <ArrowLeft className="mr-2 h-4 w-4 " /> Back to Home
       </Link>
-
-      <h1 className="mb-8 text-3xl font-medium tracking-tighter">
-        🍎 Apple Developer Academy Challenge (Cohort 2026)
-      </h1>
-
+      <div className="flex flex-col gap-2">
+        <div className="mb-6 h-4 w-16 animate-pulse rounded bg-zinc-200 dark:bg-zinc-900" />
+        <div className="mb-6 h-4 w-24 animate-pulse rounded bg-zinc-200 dark:bg-zinc-900" />
+      </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Generate 6 skeleton cards */}
         {[...Array(6)].map((_, index) => (
