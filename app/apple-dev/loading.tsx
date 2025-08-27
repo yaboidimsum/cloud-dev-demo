@@ -11,8 +11,8 @@ export default function BlogsLoading() {
         <ArrowLeft className="mr-2 h-4 w-4 " /> Back to Home
       </Link>
       <div className="flex flex-col gap-2">
-        <div className="mb-6 h-16 w-40 animate-pulse rounded bg-zinc-200 dark:bg-zinc-900" />
-        <div className="mb-6 h-16 w-96 animate-pulse rounded bg-zinc-200 dark:bg-zinc-900" />
+        <div className="mb-6 h-8 w-40 animate-pulse rounded bg-zinc-200 dark:bg-zinc-900" />
+        <div className="mb-6 h-8 w-96 animate-pulse rounded bg-zinc-200 dark:bg-zinc-900" />
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Generate 6 skeleton cards */}
