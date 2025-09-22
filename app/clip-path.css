@@ -1,0 +1,17 @@
+.button {
+  transition: transform 0.16s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hold-overlay {
+  clip-path: inset(0px 100% 0px 0px);
+  transition: clip-path 0.2s ease-out;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button:active .hold-overlay {
+  clip-path: inset(0px 0px 0px 0px);
+  transition: clip-path 2s linear;
+}
