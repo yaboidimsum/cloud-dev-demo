@@ -15,3 +15,35 @@
   clip-path: inset(0px 0px 0px 0px);
   transition: clip-path 2s linear;
 }
+
+/* Reveal Darkside and Lightside Div */
+
+.image-reveal {
+  animation: reveal 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes reveal {
+  0% {
+    transform: scale(0.5);
+    clip-path: inset(0 0 100% 0); /* hidden (bottom) */
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1); /* scale up */
+    clip-path: inset(0 0 100% 0); /* still hidden */
+  }
+  50% {
+    transform: scale(1.5);
+    clip-path: inset(0 0 0 0); /* fully revealed */
+  }
+  75% {
+    transform: scale(2);
+    clip-path: inset(100% 0 0 0); /* hidden again */
+  }
+  100% {
+    transform: scale(2.5); /* shrink back */
+    clip-path: inset(100% 0 0 0); /* stay hidden */
+    opacity: 1; /* fades out smoothly before restart */
+  }
+}

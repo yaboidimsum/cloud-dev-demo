@@ -3,10 +3,10 @@ import React from "react";
 import { ArrowLeft } from "lucide-react";
 import ArtCard from "@/components/art-card";
 import ClipPathButton from "@/components/arts/clip-path-button";
+import DivClipPathButton from "@/components/arts/div-transition";
 import { Trash } from "lucide-react";
 
 export default async function Arts() {
-
   return (
     <div className="mx-auto max-w-4xl pt-8">
       <Link
@@ -31,6 +31,12 @@ export default async function Arts() {
               variant="danger"
             />
           }
+          tags={["CSS", "clip-path"]}
+        />
+        <ArtCard
+          publishedOn="2025-09-23T12:00:00-0400"
+          title="Clip-path with Transform using CSS"
+          src={<DivClipPathButton text="Peek a Boo! 👻" variant="primary" />}
           tags={["CSS", "clip-path"]}
         />
       </div>
