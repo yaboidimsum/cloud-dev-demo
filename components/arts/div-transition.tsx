@@ -1,5 +1,4 @@
 import "@/app/clip-path.css";
-import { ReactNode } from "react";
 
 interface DivClipPathProps {
   text: string;
