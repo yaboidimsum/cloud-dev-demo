@@ -6,9 +6,6 @@ import ClipPathButton from "@/components/arts/clip-path-button";
 import { Trash } from "lucide-react";
 
 export default async function Arts() {
-  const route = `certificate`;
-
-  // console.log(certificatePost);
 
   return (
     <div className="mx-auto max-w-4xl pt-8">
