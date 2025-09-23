@@ -1,6 +1,5 @@
 "use client";
 import textReveal from "@/app/text-reveal.module.css";
-import { useState } from "react";
 
 interface CustomCSSProperties extends React.CSSProperties {
   [key: `--${string}`]: string | number;
