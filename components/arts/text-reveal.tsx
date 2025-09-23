@@ -15,14 +15,12 @@ export default function TextReveal({
   text,
   placeholder = "Placeholder text",
 }: TextRevealProp) {
-  const [reset, setReset] = useState(0);
-
   // Use placeholder if text is empty/undefined
   const displayText = text && text.trim().length > 0 ? text : placeholder;
 
   return (
     <div>
-      <div className={textReveal.box} key={reset}>
+      <div className={textReveal.box}>
         <h1 className={textReveal.h1}>
           {displayText.split("").map((char, index) => (
             <span

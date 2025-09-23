@@ -6,7 +6,6 @@ import ClipPathButton from "@/components/arts/clip-path-button";
 import DivClipPathButton from "@/components/arts/div-transition";
 import TextReveal from "@/components/arts/text-reveal";
 import { Trash } from "lucide-react";
-import CardPopHover from "@/components/arts/card-pop-hover";
 
 export default async function Arts() {
   return (
