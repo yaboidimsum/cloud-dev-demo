@@ -19,7 +19,7 @@ export default function Sidebar() {
   const navItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "Projects", href: "/projects", icon: PencilRuler },
-    // { name: "Apple Dev", href: "/apple-dev", icon: Apple },
+    { name: "Apple Dev", href: "/apple-dev", icon: Apple },
     { name: "Cert", href: "/certificate", icon: IdCard },
     { name: "Arts", href: "/art", icon: PaintBucket },
     { name: "Skills", href: "/skills", icon: Lightbulb },
