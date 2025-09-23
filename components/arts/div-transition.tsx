@@ -1,4 +1,4 @@
-import "@/app/clip-path.css";
+import clipPath from "@/app/clip-path.module.css";
 
 interface DivClipPathProps {
   text: string;
@@ -35,7 +35,7 @@ export default function DivClipPathButton({
 
   return (
     <div
-      className={`image-reveal relative flex h-10 w-fit items-center gap-2 rounded-md ${bg} ${textColor} px-6 font-medium `}
+      className={`${clipPath.imageReveal} relative flex h-10 w-fit items-center gap-2 rounded-md ${bg} ${textColor} px-6 font-medium `}
     >
       {text}
     </div>

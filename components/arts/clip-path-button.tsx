@@ -1,4 +1,4 @@
-import "@/app/clip-path.css";
+import clipPath from "@/app/clip-path.module.css";
 import { ReactNode } from "react";
 
 interface ClipPathProps {
@@ -39,15 +39,18 @@ export default function ClipPathButton({
   const { bg, text: textColor } = variantStyles[variant];
 
   return (
-    <button className="button relative flex h-10 w-fit items-center gap-2 rounded-full bg-[#f6f5f5] px-6 font-medium text-[#21201c] transition-transform duration-150 hover:cursor-pointer">
-      <div
-        className={`active:duration-[2000ms] hold-overlay absolute inset-0 flex items-center justify-center gap-2 rounded-full ${bg} ${textColor}`}
-      >
-        {logo}
-        {textAfter ? textAfter : textBefore}
-      </div>
-      {logo}
-      {textBefore}
-    </button>
+    <button
+  className={`${clipPath.button} relative flex h-10 w-fit items-center gap-2 rounded-full bg-[#f6f5f5] px-6 font-medium text-[#21201c] transition-transform duration-150 hover:cursor-pointer`}
+>
+  <div
+    className={`${clipPath.holdOverlay} absolute inset-0 flex items-center justify-center gap-2 rounded-full ${bg} ${textColor} active:duration-[2000ms]`}
+  >
+    {logo}
+    {textAfter ? textAfter : textBefore}
+  </div>
+  {logo}
+  {textBefore}
+</button>
+
   );
 }
