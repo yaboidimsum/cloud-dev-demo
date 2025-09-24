@@ -6,9 +6,9 @@ import ClipPathButton from "@/components/arts/clip-path-button";
 import DivClipPathButton from "@/components/arts/div-transition";
 import TextReveal from "@/components/arts/text-reveal";
 import CardPopHover from "@/components/arts/card-pop-hover";
-import SmoothButton from "@/components/arts/BasicFramerButton/basic-framer-button";
+// import SmoothButton from "@/components/arts/BasicFramerButton/basic-framer-button";
 import { Trash } from "lucide-react";
-import Toaster from "@/components/arts/toast-pop";
+// import Toaster from "@/components/arts/toast-pop";
 
 export default async function Arts() {
   return (
