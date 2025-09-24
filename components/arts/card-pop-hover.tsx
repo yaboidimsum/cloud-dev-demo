@@ -3,7 +3,7 @@ import cardPopHover from "@/app/card-pop-hover.module.css";
 export default function CardPopHover() {
   return (
     <a href="#" className={`${cardPopHover.card}`}>
-      <h1 className="pt-2 font-semibold">Hover Me!</h1>
+      <h1 className="pt-2 font-medium text-zinc-800">Hover Me!</h1>
       <div className={`${cardPopHover.cardDescription}`}>
         <h3 className={`${cardPopHover.cardTitle}`}>Project Title</h3>
         <p className={`${cardPopHover.cardSubtitle}`}>Hire me please!</p>

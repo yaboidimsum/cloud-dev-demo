@@ -5,7 +5,10 @@ import ArtCard from "@/components/art-card";
 import ClipPathButton from "@/components/arts/clip-path-button";
 import DivClipPathButton from "@/components/arts/div-transition";
 import TextReveal from "@/components/arts/text-reveal";
+import CardPopHover from "@/components/arts/card-pop-hover";
+import SmoothButton from "@/components/arts/BasicFramerButton/basic-framer-button";
 import { Trash } from "lucide-react";
+import Toaster from "@/components/arts/toast-pop";
 
 export default async function Arts() {
   return (
@@ -32,25 +35,37 @@ export default async function Arts() {
               variant="danger"
             />
           }
-          tags={["CSS", "clip-path"]}
+          tags={["css", "clip-path"]}
         />
         <ArtCard
           publishedOn="2025-09-23T12:00:00-0400"
           title="Text Reveal with CSS"
           src={<TextReveal text="tvcarchase94" placeholder="Animation" />}
-          tags={["CSS", "keyframes"]}
+          tags={["css", "keyframes"]}
         />
         <ArtCard
           publishedOn="2025-09-23T12:00:00-0400"
           title="Clip-path with Transform using CSS"
           src={<DivClipPathButton text="Peek a Boo! 👻" variant="primary" />}
-          tags={["CSS", "clip-path"]}
+          tags={["css", "clip-path"]}
+        />
+        <ArtCard
+          publishedOn="2025-09-24T12:00:00-0400"
+          title="Card Hover"
+          src={<CardPopHover />}
+          tags={["css", "transitions"]}
         />
         {/* <ArtCard
           publishedOn="2025-09-24T12:00:00-0400"
           title="Card Hover"
-          src={<CardPopHover />}
-          tags={["CSS", "transitions"]}
+          src={<Toaster />}
+          tags={["css", "transitions"]}
+        />
+        <ArtCard
+          publishedOn="2025-09-24T12:00:00-0400"
+          title="Button with Framer Motion"
+          src={<SmoothButton />}
+          tags={["spring-animation", "framer-motion"]}
         /> */}
       </div>
     </div>
