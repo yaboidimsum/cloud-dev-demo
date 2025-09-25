@@ -27,7 +27,7 @@ export default function DynamicDrawer() {
         <div ref={ref} className={`${DynamicDrawerStyle.inner}`}>
           <h1>Blonde (Sunday 1994)</h1>
           <p>
-            You found someone new this summer and I've got the luck of a suicide
+            You found someone new this summer and I&apos;ve got the luck of a suicide
             bomber
           </p>
           {showExtraContent ? (
