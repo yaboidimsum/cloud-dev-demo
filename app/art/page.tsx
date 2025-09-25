@@ -62,7 +62,7 @@ export default async function Arts() {
           src={<Toaster />}
           tags={["css", "transitions"]}
         />
-        {/* <ArtCard
+       {/* <ArtCard
           publishedOn="2025-09-24T12:00:00-0400"
           title="Button with Framer Motion"
           src={<SmoothButton />}
@@ -72,8 +72,8 @@ export default async function Arts() {
           publishedOn="2025-09-24T12:00:00-0400"
           title="Button with Framer Motion"
           src={<DynamicDrawer />}
-          tags={["spring-animation", "framer-motion"]} */}
-        />
+          tags={["spring-animation", "framer-motion"]} 
+        /> */}
       </div>
     </div>
   );
