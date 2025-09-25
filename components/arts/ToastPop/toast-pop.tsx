@@ -1,6 +1,6 @@
 "use client";
 
-import ToastPop from "@/app/toast-pop.module.css";
+import ToastPop from "./toast-pop.module.css";
 import { useState, useEffect } from "react";
 
 interface ToasterPopProp {

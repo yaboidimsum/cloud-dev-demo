@@ -1,4 +1,4 @@
-import cardPopHover from "@/app/card-pop-hover.module.css";
+import cardPopHover from "./card-pop-hover.module.css";
 
 export default function CardPopHover() {
   return (

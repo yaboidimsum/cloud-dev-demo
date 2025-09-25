@@ -1,4 +1,4 @@
-import clipPath from "@/app/clip-path.module.css";
+import clipPath from "./clip-path.module.css";
 
 interface DivClipPathProps {
   text: string;

@@ -1,14 +1,15 @@
 import Link from "next/link";
-import React from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Trash } from "lucide-react";
 import ArtCard from "@/components/art-card";
-import ClipPathButton from "@/components/arts/clip-path-button";
-import DivClipPathButton from "@/components/arts/div-transition";
-import TextReveal from "@/components/arts/text-reveal";
-import CardPopHover from "@/components/arts/card-pop-hover";
-// import SmoothButton from "@/components/arts/BasicFramerButton/basic-framer-button";
-import { Trash } from "lucide-react";
-// import Toaster from "@/components/arts/toast-pop";
+import {
+  ClipPathButton,
+  DivClipPathButton,
+  TextReveal,
+  CardPopHover,
+  // SmoothButton,
+  Toaster,
+  // DynamicDrawer,
+} from "@/components/arts";
 
 export default async function Arts() {
   return (
@@ -55,18 +56,24 @@ export default async function Arts() {
           src={<CardPopHover />}
           tags={["css", "transitions"]}
         />
-        {/* <ArtCard
-          publishedOn="2025-09-24T12:00:00-0400"
-          title="Card Hover"
+        <ArtCard
+          publishedOn="2025-09-25T12:00:00-0400"
+          title="Smooth Toast"
           src={<Toaster />}
           tags={["css", "transitions"]}
         />
-        <ArtCard
+        {/* <ArtCard
           publishedOn="2025-09-24T12:00:00-0400"
           title="Button with Framer Motion"
           src={<SmoothButton />}
           tags={["spring-animation", "framer-motion"]}
-        /> */}
+        />
+        <ArtCard
+          publishedOn="2025-09-24T12:00:00-0400"
+          title="Button with Framer Motion"
+          src={<DynamicDrawer />}
+          tags={["spring-animation", "framer-motion"]} */}
+        />
       </div>
     </div>
   );
