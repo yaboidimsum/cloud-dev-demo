@@ -8,8 +8,8 @@ import {
   CardPopHover,
   SmoothButton,
   Toaster,
-  DynamicDrawer,
-  FeedbackPopOver,
+  // DynamicDrawer,
+  // FeedbackPopOver,
 } from "@/components/arts";
 
 export default async function Arts() {
