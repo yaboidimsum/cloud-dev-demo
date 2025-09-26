@@ -5,3 +5,4 @@ export { default as CardPopHover } from "./CardPopHover/card-pop-hover";
 export { default as SmoothButton } from "./BasicFramerButton/basic-framer-button";
 export { default as Toaster } from "./ToastPop/toast-pop";
 export { default as DynamicDrawer } from "./DynamicDrawer/dynamic-drawer";
+export { default as FeedbackPopOver } from "./FeedbackPopOver/feedback-pop-over";

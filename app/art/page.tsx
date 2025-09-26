@@ -6,9 +6,10 @@ import {
   DivClipPathButton,
   TextReveal,
   CardPopHover,
-  // SmoothButton,
+  SmoothButton,
   Toaster,
-  // DynamicDrawer,
+  DynamicDrawer,
+  FeedbackPopOver,
 } from "@/components/arts";
 
 export default async function Arts() {
@@ -27,7 +28,7 @@ export default async function Arts() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <ArtCard
           publishedOn="2025-09-18T12:00:00-0400"
-          title="Clip-path Animation using CSS"
+          title="Clip-path Animation"
           src={
             <ClipPathButton
               textBefore="Hold to Delete"
@@ -40,13 +41,13 @@ export default async function Arts() {
         />
         <ArtCard
           publishedOn="2025-09-23T12:00:00-0400"
-          title="Text Reveal with CSS"
+          title="Text Reveal"
           src={<TextReveal text="tvcarchase94" placeholder="Animation" />}
           tags={["css", "keyframes"]}
         />
         <ArtCard
           publishedOn="2025-09-23T12:00:00-0400"
-          title="Clip-path with Transform using CSS"
+          title="Clip-path with Transform"
           src={<DivClipPathButton text="Peek a Boo! 👻" variant="primary" />}
           tags={["css", "clip-path"]}
         />
@@ -62,17 +63,23 @@ export default async function Arts() {
           src={<Toaster />}
           tags={["css", "transitions"]}
         />
-       {/* <ArtCard
+        <ArtCard
           publishedOn="2025-09-24T12:00:00-0400"
-          title="Button with Framer Motion"
+          title="Smooth Motion Button"
           src={<SmoothButton />}
+          tags={["spring-animation", "framer-motion"]}
+        />
+        {/* <ArtCard
+          publishedOn="2025-09-24T12:00:00-0400"
+          title="Dynamic Drawer"
+          src={<DynamicDrawer />}
           tags={["spring-animation", "framer-motion"]}
         />
         <ArtCard
           publishedOn="2025-09-24T12:00:00-0400"
-          title="Button with Framer Motion"
-          src={<DynamicDrawer />}
-          tags={["spring-animation", "framer-motion"]} 
+          title="Feedback Pop Over"
+          src={<FeedbackPopOver />}
+          tags={["spring-animation", "framer-motion", "animate-presence"]}
         /> */}
       </div>
     </div>

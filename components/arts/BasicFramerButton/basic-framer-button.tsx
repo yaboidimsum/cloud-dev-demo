@@ -14,7 +14,7 @@ const animations = {
 const buttonCopy = {
   idle: "Cancel Subscription",
   loading: <Spinner size={16} color="rgba(255, 255, 255, 0.65)" />,
-  success: "Nice Try 😇",
+  success: "Nice Try :)",
 } as const;
 
 type ButtonState = keyof typeof buttonCopy; // "idle" | "loading" | "success"

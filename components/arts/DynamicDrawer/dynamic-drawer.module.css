@@ -1,11 +1,12 @@
 .element {
-  background: white;
   border-radius: 16px;
   width: 320px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04);
 }
 
 .inner {
@@ -21,8 +22,10 @@
 }
 
 .button {
-  background: white;
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 14px;
+  background: #fff;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04);
 }
