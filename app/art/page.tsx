@@ -8,7 +8,7 @@ import {
   CardPopHover,
   SmoothButton,
   Toaster,
-  // DynamicDrawer,
+  DynamicDrawer,
   // FeedbackPopOver,
 } from "@/components/arts";
 
@@ -64,18 +64,18 @@ export default async function Arts() {
           tags={["css", "transitions"]}
         />
         <ArtCard
-          publishedOn="2025-09-24T12:00:00-0400"
+          publishedOn="2025-09-26T12:00:00-0400"
           title="Smooth Motion Button"
           src={<SmoothButton />}
           tags={["spring-animation", "framer-motion"]}
         />
-        {/* <ArtCard
-          publishedOn="2025-09-24T12:00:00-0400"
+        <ArtCard
+          publishedOn="2025-09-27T12:00:00-0400"
           title="Dynamic Drawer"
           src={<DynamicDrawer />}
           tags={["spring-animation", "framer-motion"]}
         />
-        <ArtCard
+        {/* <ArtCard
           publishedOn="2025-09-24T12:00:00-0400"
           title="Feedback Pop Over"
           src={<FeedbackPopOver />}
