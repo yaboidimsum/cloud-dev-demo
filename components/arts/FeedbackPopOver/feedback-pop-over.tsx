@@ -46,7 +46,9 @@ export default function FeedbackComponentCSS() {
   }, [open, formState]);
 
   return (
-    <div className={`${FeedbackPopOverStyle.feedbackWrapper}`}>
+    <div
+      className={`${FeedbackPopOverStyle.feedbackWrapper} sm:scale-100 scale-75`}
+    >
       <motion.button
         layoutId="wrapper"
         onClick={() => {
