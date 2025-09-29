@@ -9,7 +9,8 @@ import {
   SmoothButton,
   Toaster,
   DynamicDrawer,
-  // FeedbackPopOver,
+  // TrashAnimation,
+  FeedbackPopOver,
 } from "@/components/arts";
 
 export default async function Arts() {
@@ -75,12 +76,13 @@ export default async function Arts() {
           src={<DynamicDrawer />}
           tags={["spring-animation", "framer-motion"]}
         />
-        {/* <ArtCard
+        <ArtCard
           publishedOn="2025-09-24T12:00:00-0400"
           title="Feedback Pop Over"
           src={<FeedbackPopOver />}
           tags={["spring-animation", "framer-motion", "animate-presence"]}
-        /> */}
+        />
+        {/* <TrashAnimation /> */}
       </div>
     </div>
   );
