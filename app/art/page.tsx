@@ -77,7 +77,7 @@ export default async function Arts() {
           tags={["spring-animation", "framer-motion"]}
         />
         <ArtCard
-          publishedOn="2025-09-24T12:00:00-0400"
+          publishedOn="2025-09-29T12:00:00-0400"
           title="Feedback Pop Over"
           src={<FeedbackPopOver />}
           tags={["spring-animation", "framer-motion", "animate-presence"]}
