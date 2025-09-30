@@ -144,7 +144,7 @@ export default function MultiStepComponent() {
             className={`${MultiStepCardStyle.actions} scale-80`}
           >
             <button
-              className={`${MultiStepCardStyle.secondaryButton} ${MultiStepCardStyle.disabledButton} ease active:scale-97 transform cursor-pointer duration-150`}
+              className={`${MultiStepCardStyle.secondaryButton} ${MultiStepCardStyle.button} ease active:scale-97 transform cursor-pointer duration-150`}
               disabled={currentStep === 0}
               onClick={() => {
                 setDirectionForward(false);
@@ -158,7 +158,7 @@ export default function MultiStepComponent() {
               Back
             </button>
             <button
-              className={`${MultiStepCardStyle.primaryButton} ${MultiStepCardStyle.disabledButton} ease active:scale-97 transform cursor-pointer duration-150`}
+              className={`${MultiStepCardStyle.primaryButton} ${MultiStepCardStyle.button} ease active:scale-97 transform cursor-pointer duration-150`}
               disabled={currentStep === 2}
               onClick={() => {
                 setDirectionForward(true);
