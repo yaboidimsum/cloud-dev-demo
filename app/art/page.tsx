@@ -11,6 +11,7 @@ import {
   DynamicDrawer,
   // TrashAnimation,
   FeedbackPopOver,
+  MultiStepCard,
 } from "@/components/arts";
 
 export default async function Arts() {
@@ -82,7 +83,18 @@ export default async function Arts() {
           src={<FeedbackPopOver />}
           tags={["spring-animation", "framer-motion", "animate-presence"]}
         />
-        {/* <TrashAnimation /> */}
+        <ArtCard
+          publishedOn="2025-09-30T12:00:00-0400"
+          title="Dynamic Multi-Step"
+          src={<MultiStepCard />}
+          tags={["spring-animation", "framer-motion"]}
+        />
+        {/* <ArtCard
+          publishedOn="2025-09-29T12:00:00-0400"
+          title="Feedback Pop Over"
+          src={<TrashAnimation />}
+          tags={["spring-animation", "framer-motion", "animate-presence"]}
+        /> */}
       </div>
     </div>
   );

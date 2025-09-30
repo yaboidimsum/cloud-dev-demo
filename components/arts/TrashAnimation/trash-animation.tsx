@@ -41,7 +41,7 @@ export default function TrashAnimation() {
         initial={false}
         animate={{ opacity: hide ? 0 : 1 }}
         transition={{ duration: 0.13 }}
-        className="relative flex h-[500px] flex-col items-center justify-center"
+        className="relative flex h-[300px] flex-col items-center justify-center"
       >
         <ul className="grid grid-cols-2 gap-4">
           <AnimatePresence>
@@ -107,7 +107,7 @@ export default function TrashAnimation() {
                     >
                       <motion.img
                         layoutId={`image-${image}`}
-                        className="rounded-xl"
+                        className="cursor-pointer rounded-xl"
                         alt="A guy"
                         src={`https://animations-on-the-web-git-how-i-use-3066e1-emilkowalski-s-team.vercel.app/how-i-use-framer-motion/why-framer-motion/${image}.webp`}
                         height={100}
@@ -158,7 +158,7 @@ export default function TrashAnimation() {
                       setReadyToRemove(true);
                     }
                   }}
-                  className="flex w-12 flex-col items-center gap-[1px] rounded-lg bg-[#F9F9F8] pb-1 pt-[6px] text-[10px] font-medium text-[#8D8D86] hover:bg-[#FFF7F7] hover:text-[#E5484D]"
+                  className="ease active:scale-97 flex w-12 transform cursor-pointer flex-col items-center gap-[1px] rounded-lg bg-[#F9F9F8] pb-1 pt-[6px] text-[10px] font-medium text-[#8D8D86] duration-150 hover:bg-[#FFF7F7] hover:text-[#E5484D]"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +196,7 @@ export default function TrashAnimation() {
           ) : null}
         </AnimatePresence>
         {readyToRemove ? (
-          <div className="absolute bottom-10 flex flex-col gap-2">
+          <div className="ease active:scale-97 absolute bottom-10 flex transform cursor-pointer cursor-pointer flex-col gap-2 duration-150">
             <button
               onClick={() => {
                 if (readyToRemove) {
@@ -205,7 +205,7 @@ export default function TrashAnimation() {
                   setReadyToRemove(true);
                 }
               }}
-              className="flex h-8 w-[200px] items-center justify-center gap-[15px] rounded-full bg-[#FF3F40] text-center text-[13px] font-semibold text-[#FFFFFF]"
+              className="flex h-8 w-[200px] cursor-pointer items-center justify-center gap-[15px] rounded-full bg-[#FF3F40] text-center text-[13px] font-semibold text-[#FFFFFF]"
             >
               Trash {imagesToRemove.length} Collectibles
             </button>

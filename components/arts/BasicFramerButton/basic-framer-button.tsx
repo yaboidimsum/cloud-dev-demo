@@ -25,7 +25,7 @@ export default function SmoothButton() {
   return (
     <div className={`${BasicFramerButton.outerWrapper}`}>
       <button
-        className={`${BasicFramerButton.blueButton} cursor-pointer`}
+        className={`${BasicFramerButton.blueButton} ease active:scale-97 transform cursor-pointer duration-150`}
         disabled={buttonState !== "idle"}
         onClick={() => {
           // This code is just a placeholder

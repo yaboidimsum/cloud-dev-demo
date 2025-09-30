@@ -7,3 +7,4 @@ export { default as Toaster } from "./ToastPop/toast-pop";
 export { default as DynamicDrawer } from "./DynamicDrawer/dynamic-drawer";
 export { default as FeedbackPopOver } from "./FeedbackPopOver/feedback-pop-over";
 export { default as TrashAnimation } from "./TrashAnimation/trash-animation";
+export { default as MultiStepCard } from "./MultiStepCard/multi-step-card";
