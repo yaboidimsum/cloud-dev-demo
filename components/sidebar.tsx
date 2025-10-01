@@ -30,7 +30,7 @@ export default function Sidebar() {
       className="= fixed bottom-0 left-0 top-0 z-10 flex w-16 flex-col items-center border-r border-zinc-200 bg-white py-6 dark:border-zinc-800 dark:bg-[#08090A]"
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      // transition={{ type: "spring", stiffness: 16, damping: 20 }}
     >
       {navItems.map((item, index) => (
         <motion.div
@@ -38,14 +38,18 @@ export default function Sidebar() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
-            delay: index * 0.1,
             type: "spring",
             stiffness: 300,
             damping: 20,
           }}
           whileHover={{
             scale: 1.1,
-            transition: { type: "spring", stiffness: 300, damping: 10 },
+            // transition={{
+            //   delay: index * 0.1,
+            //   type: "spring",
+            //   stiffness: 300,
+            //   damping: 20,
+            // }}
           }}
           whileTap={{ scale: 0.95 }}
         >
