@@ -8,3 +8,5 @@ export { default as DynamicDrawer } from "./DynamicDrawer/dynamic-drawer";
 export { default as FeedbackPopOver } from "./FeedbackPopOver/feedback-pop-over";
 export { default as TrashAnimation } from "./TrashAnimation/trash-animation";
 export { default as MultiStepCard } from "./MultiStepCard/multi-step-card";
+export { default as InteractiveGraph } from "./InteractiveGraph/interactive-graph";
+export { default as InteractiveGraphAlt } from "./InteractiveGraph/interactive-graph-alt";

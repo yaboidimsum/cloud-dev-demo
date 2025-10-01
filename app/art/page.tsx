@@ -12,6 +12,7 @@ import {
   // TrashAnimation,
   FeedbackPopOver,
   MultiStepCard,
+  InteractiveGraphAlt,
 } from "@/components/arts";
 
 export default async function Arts() {
@@ -89,12 +90,12 @@ export default async function Arts() {
           src={<MultiStepCard />}
           tags={["spring-animation", "framer-motion"]}
         />
-        {/* <ArtCard
-          publishedOn="2025-09-29T12:00:00-0400"
-          title="Feedback Pop Over"
-          src={<TrashAnimation />}
-          tags={["spring-animation", "framer-motion", "animate-presence"]}
-        /> */}
+        <ArtCard
+          publishedOn="2025-10-01T12:00:00-0400"
+          title="Interactive Graph"
+          src={<InteractiveGraphAlt />}
+          tags={["clip-path", "framer-motion"]}
+        />
       </div>
     </div>
   );
