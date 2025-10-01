@@ -32,7 +32,7 @@ export default function Sidebar() {
       animate={{ x: 0, opacity: 1 }}
       // transition={{ type: "spring", stiffness: 16, damping: 20 }}
     >
-      {navItems.map((item, index) => (
+      {navItems.map((item) => (
         <motion.div
           key={item.name}
           initial={{ opacity: 0, x: -20 }}
