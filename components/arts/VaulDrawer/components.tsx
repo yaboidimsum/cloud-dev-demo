@@ -3,12 +3,12 @@ import {
   BannedIcon,
   DangerIcon,
   FaceIDIcon,
-  LockIcon,
+  // LockIcon,
   PassIcon,
-  PhraseIcon,
-  RecoveryPhraseIcon,
+  // PhraseIcon,
+  // RecoveryPhraseIcon,
   ShieldIcon,
-  WarningIcon,
+  // WarningIcon,
 } from "./icons";
 import clsx from "clsx";
 import {
