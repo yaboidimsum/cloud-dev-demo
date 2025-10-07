@@ -101,7 +101,7 @@ export default async function Arts() {
           publishedOn="2025-10-07T12:00:00-0400"
           title="Interactable Trash"
           src={<TrashAnimation />}
-          tags={["clip-path", "framer-motion"]}
+          tags={["spring-animation", "framer-motion"]}
         />
         {/* <ArtCard
           publishedOn="2025-10-08T12:00:00-0400"
