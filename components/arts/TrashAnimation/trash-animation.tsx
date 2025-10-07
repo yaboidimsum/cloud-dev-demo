@@ -41,7 +41,7 @@ export default function TrashAnimation() {
         initial={false}
         animate={{ opacity: hide ? 0 : 1 }}
         transition={{ duration: 0.13 }}
-        className="relative flex h-[300px] flex-col items-center justify-center"
+        className="scale-85 relative flex min-h-full flex-col items-center justify-center"
       >
         <ul className="grid grid-cols-2 gap-4">
           <AnimatePresence>
@@ -131,7 +131,7 @@ export default function TrashAnimation() {
                 bounce: 0,
                 type: "spring",
               }}
-              className="absolute bottom-8 flex gap-1 rounded-xl p-1 shadow-[0_0_0_1px_rgba(0,0,0,0.08),0px_8px_8px_-8px_rgba(0,0,0,0.16)] will-change-transform"
+              className="absolute bottom-2 flex gap-1 rounded-xl p-1 shadow-[0_0_0_1px_rgba(0,0,0,0.08),0px_8px_8px_-8px_rgba(0,0,0,0.16)] will-change-transform"
             >
               <div className="flex w-full justify-between gap-1">
                 <button className="flex w-12 flex-col items-center gap-[1px] rounded-lg bg-[#F9F9F8] pb-1 pt-[6px] text-[10px] font-medium text-[#8D8D86]">
@@ -196,7 +196,7 @@ export default function TrashAnimation() {
           ) : null}
         </AnimatePresence>
         {readyToRemove ? (
-          <div className="ease active:scale-97 absolute bottom-10 flex transform cursor-pointer cursor-pointer flex-col gap-2 duration-150">
+          <div className="ease active:scale-97 absolute pt-50 flex transform cursor-pointer flex-col gap-2 duration-150">
             <button
               onClick={() => {
                 if (readyToRemove) {

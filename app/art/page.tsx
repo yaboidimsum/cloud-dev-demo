@@ -9,10 +9,11 @@ import {
   SmoothButton,
   Toaster,
   DynamicDrawer,
-  // TrashAnimation,
   FeedbackPopOver,
   MultiStepCard,
   InteractiveGraphAlt,
+  TrashAnimation,
+  // VaulDrawer,
 } from "@/components/arts";
 
 export default async function Arts() {
@@ -96,6 +97,18 @@ export default async function Arts() {
           src={<InteractiveGraphAlt />}
           tags={["clip-path", "framer-motion"]}
         />
+        <ArtCard
+          publishedOn="2025-10-07T12:00:00-0400"
+          title="Interactable Trash"
+          src={<TrashAnimation />}
+          tags={["clip-path", "framer-motion"]}
+        />
+        {/* <ArtCard
+          publishedOn="2025-10-08T12:00:00-0400"
+          title="Dynamic Drawer"
+          src={<VaulDrawer />}
+          tags={["spring-animation", "framer-motion"]}
+        /> */}
       </div>
     </div>
   );
