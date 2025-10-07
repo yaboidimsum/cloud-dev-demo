@@ -6,6 +6,7 @@ import Sidebar from "@/components/sidebar";
 import { ThemeProvider } from "@/context/theme-context";
 import ThemeSwitcher from "@/components/theme-switcher";
 import { cookies } from "next/headers";
+import LenisProvider from "@/context/LenisProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,17 +47,19 @@ export default async function RootLayout({
       lang="en"
       className={`scroll-smooth ${theme === "dark" ? "dark" : "light"}`}
     >
-      <body className={inter.className}>
-        <ThemeProvider initialTheme={theme}>
-          <div className="flex min-h-screen bg-white text-gray-800 dark:bg-[#08090A] dark:text-gray-200">
-            <Sidebar />
-            <main className=" lg: ml-16 flex-1 overflow-auto p-4 pt-0 md:p-6 lg:overflow-visible lg:p-8 ">
-              {children}
-            </main>
-            <ThemeSwitcher />
-          </div>
-        </ThemeProvider>
-      </body>
+      <LenisProvider>
+        <body className={inter.className}>
+          <ThemeProvider initialTheme={theme}>
+            <div className="flex min-h-screen bg-white text-gray-800 dark:bg-[#08090A] dark:text-gray-200">
+              <Sidebar />
+              <main className=" lg: ml-16 flex-1 overflow-auto p-4 pt-0 md:p-6 lg:overflow-visible lg:p-8 ">
+                {children}
+              </main>
+              <ThemeSwitcher />
+            </div>
+          </ThemeProvider>
+        </body>
+      </LenisProvider>
     </html>
   );
 }
