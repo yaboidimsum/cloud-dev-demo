@@ -6,7 +6,7 @@ import { Spinner } from "./Spinner";
 import { useOnClickOutside } from "usehooks-ts";
 import FeedbackPopOverStyle from "./feedback-pop-over.module.css";
 
-export default function FeedbackComponentCSS() {
+export default function FeedbackPopOver() {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState("idle");
   const [feedback, setFeedback] = useState("");

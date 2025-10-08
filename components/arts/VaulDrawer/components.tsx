@@ -32,7 +32,7 @@ export function Button({ children, onClick }: ButtonProps) {
   return (
     <button
       data-vaul-no-drag=""
-      className="focus-visible:shadow-focus-ring-button flex h-12 w-full items-center gap-[15px] rounded-[16px] bg-[#F7F8F9] px-4 text-[17px] font-semibold text-[#222222] transition-transform focus:scale-95 active:scale-95 md:font-medium"
+      className="focus-visible:shadow-focus-ring-button flex h-12 w-full cursor-pointer items-center gap-[15px] rounded-[16px] bg-[#F7F8F9] px-4 text-[17px] font-semibold text-[#222222] transition-transform focus:scale-95 active:scale-95 md:font-medium"
       onClick={onClick}
     >
       {children}
@@ -56,7 +56,7 @@ export function SecondaryButton({
     <button
       data-vaul-no-drag=""
       className={clsx(
-        "focus-visible:shadow-focus-ring-button flex h-12 w-full items-center justify-center gap-[15px] rounded-full text-center text-[19px] font-semibold transition-transform focus:scale-95 active:scale-95 md:font-medium",
+        "focus-visible:shadow-focus-ring-button flex h-12 w-full cursor-pointer items-center  justify-center gap-[15px] rounded-full text-center text-[19px] font-semibold transition-transform focus:scale-95 active:scale-95 md:font-medium",
         className
       )}
       onClick={onClick}
@@ -120,13 +120,13 @@ export function Phrase({ setView }: ViewProps) {
       <div className="mt-7 flex gap-4">
         <SecondaryButton
           onClick={() => setView("default")}
-          className="bg-[#F0F2F4] text-[#222222]"
+          className="cursor-pointer bg-[#F0F2F4] text-[#222222]"
         >
           Cancel
         </SecondaryButton>
         <SecondaryButton
           onClick={() => setView("default")}
-          className="bg-[#4DAFFF] text-[#FFFFFF]"
+          className="cursor-pointer bg-[#4DAFFF] text-[#FFFFFF]"
         >
           <FaceIDIcon />
           Reveal
@@ -164,13 +164,13 @@ export function Key({ setView }: ViewProps) {
       <div className="mt-7 flex gap-4">
         <SecondaryButton
           onClick={() => setView("default")}
-          className="bg-[#F0F2F4] text-[#222222]"
+          className="cursor-pointer bg-[#F0F2F4] text-[#222222]"
         >
           Cancel
         </SecondaryButton>
         <SecondaryButton
           onClick={() => setView("default")}
-          className="bg-[#4DAFFF] text-[#FFFFFF]"
+          className="cursor-pointer bg-[#4DAFFF] text-[#FFFFFF]"
         >
           <FaceIDIcon />
           Reveal
@@ -193,13 +193,13 @@ export function RemoveWallet({ setView }: ViewProps) {
         <div className="mt-7 flex gap-4">
           <SecondaryButton
             onClick={() => setView("default")}
-            className="bg-[#F0F2F4] text-[#222222]"
+            className="cursor-pointer bg-[#F0F2F4] text-[#222222]"
           >
             Cancel
           </SecondaryButton>
           <SecondaryButton
             onClick={() => setView("default")}
-            className="bg-[#FF3F40] text-[#FFFFFF]"
+            className="cursor-pointer bg-[#FF3F40] text-[#FFFFFF]"
           >
             Continue
           </SecondaryButton>
@@ -228,7 +228,7 @@ export function DefaultView({ setView }: ViewProps) {
           View Recovery Keywords
         </Button>
         <button
-          className="focus-visible:shadow-focus-ring-button flex h-12 w-full items-center gap-[15px] rounded-[16px] bg-[#FFF0F0] px-4 text-[17px] font-semibold text-[#FF3F40] transition-transform focus:scale-95 active:scale-95 md:font-medium"
+          className="focus-visible:shadow-focus-ring-button flex h-12 w-full cursor-pointer items-center gap-[15px] rounded-[16px] bg-[#FFF0F0] px-4 text-[17px] font-semibold text-[#FF3F40] transition-transform focus:scale-95 active:scale-95 md:font-medium"
           onClick={() => setView("remove")}
         >
           <ShieldAlert />

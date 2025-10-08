@@ -55,7 +55,7 @@ export default function FamilyDrawer() {
         className="focus-visible:shadow-focus-ring-button cursor-pointer rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-black antialiased transition-colors hover:bg-[#F9F9F8] md:font-medium"
         onClick={() => setIsOpen(true)}
       >
-        Try it out
+        Dynamic Drawer
       </button>
       <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
         <Drawer.Portal>
@@ -80,7 +80,7 @@ export default function FamilyDrawer() {
               <Drawer.Close asChild>
                 <button
                   data-vaul-no-drag=""
-                  className="focus-visible:shadow-focus-ring-button absolute right-8 top-7 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-[#F7F8F9] text-[#949595] transition-transform focus:scale-95 active:scale-75"
+                  className="focus-visible:shadow-focus-ring-button absolute right-8 top-7 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-[#F7F8F9] text-[#949595] transition-transform focus:scale-95 active:scale-75"
                 >
                   <CloseIcon />
                 </button>

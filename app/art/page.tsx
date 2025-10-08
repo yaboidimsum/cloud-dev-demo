@@ -13,7 +13,7 @@ import {
   MultiStepCard,
   InteractiveGraphAlt,
   TrashAnimation,
-  // VaulDrawer,
+  VaulDrawer,
 } from "@/components/arts";
 
 export default async function Arts() {
@@ -103,12 +103,12 @@ export default async function Arts() {
           src={<TrashAnimation />}
           tags={["spring-animation", "framer-motion"]}
         />
-        {/* <ArtCard
+        <ArtCard
           publishedOn="2025-10-08T12:00:00-0400"
           title="Dynamic Drawer"
           src={<VaulDrawer />}
           tags={["spring-animation", "framer-motion"]}
-        /> */}
+        />
       </div>
     </div>
   );

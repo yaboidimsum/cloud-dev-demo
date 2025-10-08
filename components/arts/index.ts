@@ -11,3 +11,4 @@ export { default as MultiStepCard } from "./MultiStepCard/multi-step-card";
 export { default as InteractiveGraph } from "./InteractiveGraph/interactive-graph";
 export { default as InteractiveGraphAlt } from "./InteractiveGraph/interactive-graph-alt";
 export { default as VaulDrawer } from "./VaulDrawer/vaul-drawer";
+export { default as DynamicWaitingList } from "./DynamicWaitingList/dynamic-waiting-list";
