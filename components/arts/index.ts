@@ -12,3 +12,6 @@ export { default as InteractiveGraph } from "./InteractiveGraph/interactive-grap
 export { default as InteractiveGraphAlt } from "./InteractiveGraph/interactive-graph-alt";
 export { default as VaulDrawer } from "./VaulDrawer/vaul-drawer";
 export { default as DynamicWaitingList } from "./DynamicWaitingList/dynamic-waiting-list";
+export { default as Waveform } from "./WavelengthBar/apple-music-bar";
+export { default as PhoneCall } from "./WavelengthBar/phone-call";
+export { default as DynamicIsland } from "./WavelengthBar/dynamic-island";
