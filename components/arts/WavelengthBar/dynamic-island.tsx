@@ -13,7 +13,7 @@ import PhoneCallIncoming from "./phone-call-incoming";
 // and ensure the component compiles without error when using variantKey.
 
 interface VariantsMap {
-  [key: string]: any;
+  [key: string]: number | object;
 }
 
 // 1. FIX: Define BOUNCE_VARIANTS with an index signature

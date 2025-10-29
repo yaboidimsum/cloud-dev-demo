@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const PhoneSVG = ({ className }: { className?: string }) => (
@@ -65,7 +65,7 @@ const Wavelength = () => {
 };
 
 export default function DynamicIslandCall() {
-  const [view, setView] = useState<"incoming" | "active">("incoming");
+  const [view] = useState<"incoming" | "active">("incoming");
   const [seconds, setSeconds] = useState(0);
 
   // FIX 2: Ensure the timer only runs in the "active" state

@@ -6,20 +6,20 @@ export default function BatteryIndicator() {
   const batteryLevel: number = 20; // can be dynamic
 
   // Determine color and label
-  let color = "";
+  // let color = "";
   let label = "";
 
   if (batteryLevel <= 20) {
-    color = "red-400";
+    // color = "red-400";
     label = "Low Battery";
   } else if (batteryLevel <= 80) {
-    color = "yellow-400";
+    // color = "yellow-400";
     label = "Battery Percentage";
   } else if (batteryLevel <= 90) {
-    color = "green-400";
+    // color = "green-400";
     label = "Battery Percentage";
   } else {
-    color = "green-400";
+    // color = "green-400";
     label = "Full Battery";
   }
 

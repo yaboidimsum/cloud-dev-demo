@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, easeInOut, easeOut, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { Spinner } from "./Spinner";
 import { useOnClickOutside } from "usehooks-ts";
@@ -9,8 +9,7 @@ import FeedbackPopOverStyle from "./feedback-pop-over.module.css";
 export default function DynamicWaitingList() {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState("idle");
-  const [submitted, setSubmitted] = useState(false);
-  const [feedback, setFeedback] = useState("");
+  // const [feedback, setFeedback] = useState("");
   const ref = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(ref as React.RefObject<HTMLElement>, () => setOpen(false));
@@ -53,7 +52,7 @@ export default function DynamicWaitingList() {
         onClick={() => {
           setOpen(true);
           setFormState("idle");
-          setFeedback("");
+          // setFeedback("");
         }}
         key="button"
         className={`${FeedbackPopOverStyle.feedbackButton} cursor-pointer`}
