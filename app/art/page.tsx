@@ -14,6 +14,7 @@ import {
   InteractiveGraphAlt,
   TrashAnimation,
   VaulDrawer,
+  DynamicIsland,
 } from "@/components/arts";
 
 export default async function Arts() {
@@ -107,6 +108,12 @@ export default async function Arts() {
           publishedOn="2025-10-08T12:00:00-0400"
           title="Dynamic Drawer"
           src={<VaulDrawer />}
+          tags={["spring-animation", "framer-motion"]}
+        />
+        <ArtCard
+          publishedOn="2025-10-29T12:00:00-0400"
+          title="Dynamic Island"
+          src={<DynamicIsland />}
           tags={["spring-animation", "framer-motion"]}
         />
       </div>
