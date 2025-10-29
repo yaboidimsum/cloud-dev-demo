@@ -1,4 +1,4 @@
-import { DynamicWaitingList, Waveform, PhoneCall, DynamicIsland } from "@/components/arts";
+import { DynamicIsland } from "@/components/arts";
 
 export default async function Experimental() {
   return (
