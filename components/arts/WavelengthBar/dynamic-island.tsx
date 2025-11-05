@@ -181,7 +181,7 @@ export default function DynamicIsland() {
   const animationCustom = ANIMATION_VARIANTS[variantKey] ?? {};
 
   return (
-    <div className=" h-[300px] pt-4 scale-100">
+    <div className=" h-[200px] pt-4">
       <div className="relative flex h-full w-full flex-col justify-between">
         <motion.div
           layout
@@ -222,7 +222,7 @@ export default function DynamicIsland() {
           </motion.div>
         </motion.div>
 
-        <div className="pointer-events-none absolute left-1/2 top-0 flex h-[200px] w-[300px] -translate-x-1/2 items-start justify-center">
+        <div className="pointer-events-none absolute left-1/2 top-0 flex h-[200px] w-full -translate-x-1/2 items-start justify-center">
           <AnimatePresence
             mode="popLayout"
             // 5. USE the safely resolved custom animation object
@@ -238,11 +238,11 @@ export default function DynamicIsland() {
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="flex w-[500px] flex-wrap justify-center gap-4">
+        <div className="scale-80 flex w-full flex-wrap justify-center gap-2">
           {["idle", "music", "battery", "call", "call2"].map((v) => (
             <button
               type="button"
-              className="ease h-10 w-32 cursor-pointer rounded-full bg-white px-2.5 py-1.5 text-sm font-medium capitalize text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300/50 transition hover:bg-gray-50 active:scale-95"
+              className="ease h-10 w-16 cursor-pointer rounded-full bg-white px-2.5 py-1.5 text-sm font-medium capitalize text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300/50 transition hover:bg-gray-50 active:scale-95"
               onClick={() => {
                 // Set the variant key to be 'oldView-newView'
                 setVariantKey(`${view}-${v}`);

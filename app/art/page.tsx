@@ -16,6 +16,7 @@ import {
   VaulDrawer,
   DynamicIsland,
 } from "@/components/arts";
+import NavSearchBar from "@/components/arts/NavSearchBar/nav-search-bar";
 
 export default async function Arts() {
   return (
@@ -116,6 +117,12 @@ export default async function Arts() {
           src={<DynamicIsland />}
           tags={["spring-animation", "framer-motion"]}
         />
+        <ArtCard
+          publishedOn="2025-10-29T12:00:00-0400"
+          title="NavSearchBar"
+          src={<NavSearchBar />}
+          tags={["spring-animation", "framer-motion"]}
+        />{" "}
       </div>
     </div>
   );
