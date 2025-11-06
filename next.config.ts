@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["uccareer.id"],
+    domains: ["uccareer.id", "images.genius.com", "i.scdn.co", "scontent-cgk2-2.cdninstagram.com", "i.scdn.co"],
   },
   typescript: {
     ignoreBuildErrors: true,
