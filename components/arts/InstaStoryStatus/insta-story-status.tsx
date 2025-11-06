@@ -64,7 +64,7 @@ export default function InstaStoryStatus({
 
   return (
     <motion.div
-      className="relative flex flex-col items-center justify-center gap-3 cursor-pointer select-none transition-transform duration-300 ease-out"
+      className="relative flex cursor-pointer select-none flex-col items-center justify-center gap-3 transition-transform duration-300 ease-out"
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
@@ -90,7 +90,7 @@ export default function InstaStoryStatus({
         {/* --- FLOATING CARD --- */}
         <motion.div
           variants={itemVariants}
-          className="absolute -top-7 z-20 flex w-fit flex-col items-center justify-center rounded-xl bg-white px-3 py-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
+          className="absolute -top-7 z-20 flex w-fit flex-col items-center justify-center rounded-xl bg-white px-3 py-1.5 shadow-[0_4px_12px_rgba(0,0,0,0.45)]"
           style={{
             transformOrigin: "left center",
           }}
@@ -102,31 +102,44 @@ export default function InstaStoryStatus({
 
             {/* Text container */}
             <div className="relative h-5 w-[90px] overflow-hidden">
+              {/* Fade mask */}
               <div
                 className="pointer-events-none absolute inset-0 z-10"
                 style={{
                   background: `
-                    linear-gradient(to right,
-                      rgba(255,255,255,1) 0%,
-                      rgba(255,255,255,0) 6%,
-                      rgba(255,255,255,0) 94%,
-                      rgba(255,255,255,1) 100%)
-                  `,
+        linear-gradient(to right,
+          rgba(255,255,255,1) 0%,
+          rgba(255,255,255,0) 5%,
+          rgba(255,255,255,0) 90%,
+          rgba(255,255,255,1) 100%)
+      `,
                 }}
               />
+
+              {/* Seamless marquee */}
               <motion.div
-                className="absolute whitespace-nowrap text-[12px] font-semibold"
+                className="absolute flex whitespace-nowrap text-[12px] font-semibold"
                 animate={{
-                  x: ["100%", "3px", "3px", "-100%"],
+                  // move one full "copy" left, pause, then continue
+                  // x: ["0%", "-33.333%", "-33.333%", "-66.666%"],
+                  x: ["0%", "-32.333%", "-32.333%", "-66.666%"],
                 }}
                 transition={{
-                  duration: 8,
+                  duration: 8, // 8s per full loop = snappy but readable
                   ease: "linear",
-                  times: [0, 0.35, 0.65, 1],
+                  times: [0, 0.4, 0.6, 1], // pause at 40–50%
                   repeat: Infinity,
                 }}
               >
-                {title}
+                <span className="pr-[16px] text-black will-change-transform">
+                  {title}
+                </span>
+                <span className="pr-[16px] text-black will-change-transform">
+                  {title}
+                </span>
+                <span className="pr-[16px] text-black will-change-transform">
+                  {title}
+                </span>
               </motion.div>
             </div>
           </div>
