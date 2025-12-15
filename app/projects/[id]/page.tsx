@@ -11,6 +11,8 @@ import { extractHeadings } from "@/lib/mdx-utils";
 import { Suspense } from "react";
 import BlogDetailSkeleton from "@/components/skeleton/blog-detail-skeleton";
 import ClientContentSkeleton from "@/components/skeleton/client-content-skeleton";
+import rehypeHighlight from "rehype-highlight";
+import hljs from "highlight.js";
 
 // Add this import at the top with other imports
 // import ViewCounterTest from "@/components/view-counter-test";
@@ -57,6 +59,12 @@ const components = {
   Link,
 };
 
+const options = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  },
+};
 const route = `projects`;
 
 export async function generateMetadata({
@@ -123,7 +131,11 @@ async function BlogContent({ id }: { id: string }) {
         <ClientContent headings={headings}>
           {content ? (
             <div className="tracking-tighter">
-              <MDXRemote source={content} components={components} />
+              <MDXRemote
+                source={content}
+                components={components}
+                options={options}
+              />
               {/* <ViewCounterTest slug={id} type="project" /> */}
             </div>
           ) : (

@@ -7,6 +7,7 @@ import Giscus from "@giscus/react";
 import { useTheme } from "@/context/theme-context";
 import { motion } from "framer-motion";
 
+
 interface Heading {
   id: string;
   title: string;
