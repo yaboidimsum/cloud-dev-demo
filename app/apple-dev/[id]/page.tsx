@@ -160,3 +160,17 @@
 //     </div>
 //   );
 // }
+
+import React from "react";
+
+type Props = { params: { id: string } };
+
+export default async function Page({ params }: Props) {
+  const { id } = params;
+  return (
+    <main>
+      <h1>Apple dev: {id}</h1>
+      {/* render content for the id */}
+    </main>
+  );
+}
