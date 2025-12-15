@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowUp, ArrowDown, Check } from "lucide-react";
+import { ArrowDown, Check } from "lucide-react";
 
 export default function MergeCards() {
   const [merged, setMerged] = useState(false);
