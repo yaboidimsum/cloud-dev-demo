@@ -31,7 +31,8 @@ export default function ContributionGraph() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        <div className={theme === "dark-blue" ? "dark-blue-calendar" : " "}>
+        {/* FIX: Cast theme as string to allow comparison with "dark-blue" */}
+        <div className={(theme as string) === "dark-blue" ? "dark-blue-calendar" : " "}>
           <GitHubCalendar
             username={username}
             blockSize={12}

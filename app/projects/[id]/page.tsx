@@ -70,9 +70,9 @@ const route = `projects`;
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata | null> {
-  const { id } = params;
+  const { id } = await params;
   const blogpostData = await loadBlogPost(id, route);
 
   if (!blogpostData) {
@@ -151,8 +151,12 @@ async function BlogContent({ id }: { id: string }) {
 import ViewTracker from "@/components/view-tracker";
 
 // Inside your ProjectDetail component, add this line before the return statement
-export default function ProjectDetail({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function ProjectDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
