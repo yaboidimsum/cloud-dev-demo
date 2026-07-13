@@ -11,6 +11,7 @@ import { extractHeadings } from "@/lib/mdx-utils";
 import { Suspense } from "react";
 import BlogDetailSkeleton from "@/components/skeleton/blog-detail-skeleton";
 import ClientContentSkeleton from "@/components/skeleton/client-content-skeleton";
+import ViewTracker from "@/components/view-tracker";
 
 // Custom components for MDX
 const components = {
@@ -111,8 +112,8 @@ async function BlogContent({ id }: { id: string }) {
         publishedOn={frontmatter.publishedOn}
         abstract={frontmatter.abstract}
         authorPict={frontmatter.authorPict}
-        slug={""}
-        type={"project"}
+        slug={id}
+        type="blog"
       />
 
       <Suspense fallback={<ClientContentSkeleton />}>
@@ -137,9 +138,10 @@ export default async function ProjectDetail({
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
+      <ViewTracker slug={id} type="blog" />
       <Link
         href="/blogs"
-        className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-650 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blogs
       </Link>
