@@ -290,18 +290,6 @@ export default function Home() {
             <ContributionGraph />
           </motion.div>
 
-          <motion.div
-            variants={item}
-            className="mb-12"
-            whileInView={{
-              opacity: [0, 1],
-              y: [20, 0],
-              transition: { type: "spring", stiffness: 300, damping: 20 },
-            }}
-            viewport={{ once: true }}
-          >
-            {/* <Timeline /> */}
-          </motion.div>
 
           {/* <motion.div variants={item}>
             <p className="mb-4">

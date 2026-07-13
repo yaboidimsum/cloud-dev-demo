@@ -14,8 +14,6 @@ import ClientContentSkeleton from "@/components/skeleton/client-content-skeleton
 import rehypeHighlight from "rehype-highlight";
 // import hljs from "highlight.js";
 
-// Add this import at the top with other imports
-// import ViewCounterTest from "@/components/view-counter-test";
 
 // Custom components for MDX
 const components = {
@@ -136,7 +134,6 @@ async function BlogContent({ id }: { id: string }) {
                 components={components}
                 options={options}
               />
-              {/* <ViewCounterTest slug={id} type="project" /> */}
             </div>
           ) : (
             <span className="mt-100">Content will be added soon! ✨</span>
