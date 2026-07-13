@@ -6,6 +6,7 @@ import TableOfContents from "@/components/table-of-content";
 import Giscus from "@giscus/react";
 import { useTheme } from "@/context/theme-context";
 import { motion } from "framer-motion";
+import { Drawer } from "vaul";
 
 
 interface Heading {
@@ -136,37 +137,39 @@ export default function ClientBlogContent({
         {headings.length > 0 && (
           <>
             <div className="hidden w-56 lg:sticky lg:top-24 lg:mt-10 lg:block">
-              {" "}
               {/* Adjusted top offset, hide on smaller screens */}
               <TableOfContents
                 headings={headings}
-                // contentRef={contentRef} // Keep contentRef if needed for other purposes, but not strictly for highlighting
                 currentId={currentId} // Pass the current heading ID
               />
             </div>
-            {showTOC ? (
-              <div className="fixed bottom-32 right-6 lg:hidden">
-                {" "}
-                {/* Adjusted top offset, hide on smaller screens */}
-                <TableOfContents
-                  headings={headings}
-                  // contentRef={contentRef} // Keep contentRef if needed for other purposes, but not strictly for highlighting
-                  currentId={currentId} // Pass the current heading ID
-                />
-              </div>
-            ) : null}
-            <motion.button
-              className="fixed bottom-20 right-6 flex items-center rounded-md bg-zinc-100 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 lg:hidden"
-              whileHover={{
-                y: -5,
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                transition: { type: "spring", stiffness: 300, damping: 15 },
-              }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowTOC(!showTOC)}
-            >
-              Table of Content
-            </motion.button>
+
+            <Drawer.Root open={showTOC} onOpenChange={setShowTOC}>
+              <Drawer.Trigger asChild>
+                <motion.button
+                  className="fixed bottom-20 right-6 z-40 flex items-center gap-1.5 rounded-full bg-zinc-900/95 px-4 py-2.5 text-xs font-medium tracking-tight text-white shadow-lg backdrop-blur-md border border-zinc-800/80 hover:bg-zinc-800 active:scale-95 lg:hidden"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  📖 Table of Contents
+                </motion.button>
+              </Drawer.Trigger>
+              <Drawer.Portal>
+                <Drawer.Overlay className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm" />
+                <Drawer.Content className="fixed bottom-0 left-0 right-0 z-50 mt-24 flex flex-col rounded-t-[32px] bg-zinc-50 dark:bg-zinc-950 p-6 border-t border-zinc-200 dark:border-zinc-900 max-h-[82vh] outline-none">
+                  <div className="mx-auto mb-4 h-1.5 w-12 shrink-0 rounded-full bg-zinc-300 dark:bg-zinc-800" />
+                  <Drawer.Title className="mb-4 text-sm font-semibold text-zinc-900 dark:text-zinc-50">
+                    Table of Contents
+                  </Drawer.Title>
+                  <div className="overflow-y-auto pb-8">
+                    <TableOfContents
+                      headings={headings}
+                      currentId={currentId}
+                      onItemClick={() => setShowTOC(false)}
+                    />
+                  </div>
+                </Drawer.Content>
+              </Drawer.Portal>
+            </Drawer.Root>
           </>
         )}
       </div>

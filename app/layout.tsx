@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "highlight.js/styles/github-dark.css";
 import Sidebar from "@/components/sidebar";
 import { ThemeProvider } from "@/context/theme-context";
 import ThemeSwitcher from "@/components/theme-switcher";
@@ -46,13 +47,14 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`scroll-smooth ${theme === "dark" ? "dark" : "light"}`}
+      suppressHydrationWarning
     >
       <LenisProvider>
         <body className={inter.className}>
           <ThemeProvider initialTheme={theme}>
             <div className="flex min-h-screen bg-white text-gray-800 dark:bg-[#08090A] dark:text-gray-200">
               <Sidebar />
-              <main className=" lg: ml-16 flex-1 overflow-auto p-4 pt-0 md:p-6 lg:overflow-visible lg:p-8 ">
+              <main className="flex-1 overflow-auto p-4 pt-0 pb-28 md:p-6 md:pb-28 lg:overflow-visible lg:p-8 lg:pb-28">
                 {children}
               </main>
               <ThemeSwitcher />

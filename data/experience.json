@@ -1,9 +1,66 @@
 {
   "workHistory": [
     {
+      "title": "Product Development Engineer & iOS Developer",
+      "company": "Apple Developer Academy @ UC, Jakarta",
+      "location": "Jakarta, Indonesia",
+      "period": "Feb 2026 - Present",
+      "workType": "Part-time",
+      "description": [
+        "Selected as 1 of 100 scholarship awardees for the 1st Cohort at the Apple Developer Academy @ UC Jakarta.",
+        "Hitch (iOS Developer): Designed Swift 6.2 MVVM architecture with MapKit, Contacts, and Dynamic Type accessibility.",
+        "OatsnNads (Product Engineer): Conducted user research using R.U.J.A.K framework and sliced reusable SwiftUI components.",
+        "Workit (iOS Developer): Applied Apple Human Interface Guidelines (HIG) and implemented NavigationStack views.",
+        "Xplore T9 (Researcher): Researched local tower challenges and developed multi-team solution concepts."
+      ]
+    },
+    {
+      "title": "I'm the product",
+      "company": "Glorious Gone",
+      "location": "Dema, Trench Continent",
+      "period": "Aug 2003 - Present",
+      "workType": "Self-employed",
+      "description": [
+        "Beyond code, I enjoy learning music and art :D I love tweepop, dreampop, and midwest emo!"
+      ]
+    },
+    {
+      "title": "Design Engineer",
+      "company": "Avalon AI Group (PT. Automasi Visi Analitika Optima)",
+      "location": "Surabaya, Indonesia",
+      "period": "May 2025 - Present",
+      "workType": "Part-time",
+      "description": [
+        "Designed digital products for Avalon’s clients and internal systems.",
+        "Engineered digital products in collaboration with the research team."
+      ]
+    },
+    {
+      "title": "Web Designer",
+      "company": "Engramind",
+      "location": "Jakarta, Indonesia",
+      "period": "May 2025 - Jul 2025",
+      "workType": "Part-time",
+      "description": [
+        "Designed and developed a cohesive visual identity for the Engramind website, including a comprehensive design system.",
+        "Built and prototyped the Engramind website to ensure a seamless user experience."
+      ]
+    },
+    {
+      "title": "Web Developer",
+      "company": "Software House TC",
+      "location": "Surabaya, East Java, Indonesia",
+      "period": "May 2024 - Jul 2025",
+      "workType": "Contract",
+      "description": [
+        "Developed a standard design system to streamline projects.",
+        "Created visual mockups to fulfill client requests, focusing on technology-related solutions."
+      ]
+    },
+    {
       "title": "UI/UX Designer (Design System)",
       "company": "Asuransi Astra",
-      "location": "Jakarta, Indonesia",
+      "location": "Surabaya, East Java, Indonesia",
       "period": "Aug 2024 - Feb 2025",
       "workType": "Internship",
       "description": [
@@ -15,7 +72,7 @@
     {
       "title": "AI Researcher",
       "company": "Smart City and Cyber Security Laboratory (KCKS)",
-      "location": "Surabaya, Indonesia",
+      "location": "Surabaya, East Java, Indonesia",
       "period": "Aug 2024 - Dec 2024",
       "workType": "Contract",
       "description": [
@@ -27,7 +84,7 @@
     {
       "title": "Frontend Engineer",
       "company": "Information Intelligent Management Laboratory",
-      "location": "Surabaya, Indonesia",
+      "location": "Surabaya, East Java, Indonesia",
       "period": "Apr 2024 - Aug 2024",
       "workType": "Contract",
       "description": [
@@ -37,18 +94,108 @@
         "Acquired proficiency in Object-Oriented Programming (OOP) principles through React.js implementation.",
         "Collaborated with the established backend infrastructure to effectively deploy new functionalities."
       ]
+    },
+    {
+      "title": "Machine Learning Cohort",
+      "company": "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+      "location": "Surabaya, East Java, Indonesia",
+      "period": "Feb 2024 - Jul 2024",
+      "workType": "Seasonal",
+      "description": [
+        "TensorFlow Application Skills: Mastered TensorFlow for various projects, created Neural Networks, enhanced image tasks with Convolution, processed text with NLP, trained models for original poetry.",
+        "End-to-End Machine Learning Workflow: Diagnosed ML errors, prioritized directions, compared with human-level performance, applied end-to-end, transfer, and multi-task learning.",
+        "Advanced Deep Learning Techniques with TensorFlow: Used Functional API, learned distributed training, created computer vision models, explored generative deep learning.",
+        "Understanding Key Concepts in Generative AI: Learned basic concepts, Large Language Models, responsible AI with Google Cloud.",
+        "Preparation for TensorFlow Developer Certificate Exam: Created software with TensorFlow, understood ML/DL principles, applied for image, text, and Time Series tasks."
+      ]
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "Alpha Academy",
+      "location": "Surabaya, East Java, Indonesia",
+      "period": "Jan 2024 - Apr 2024",
+      "workType": "Contract",
+      "description": [
+        "Led frontend implementation of Alpha Academy website, bridging design to code seamlessly.",
+        "Developed key logic and features vital for the Alpha Academy website's functionality.",
+        "Collaborated closely with CTO, UI/UX Designer, and Backend Developer to drive cohesive development.",
+        "Actively engaged in discussions to align development strategies and enhance project outcomes.",
+        "Expanded frontend expertise, particularly in Next.js and Tailwind CSS, through collaborative learning within the team."
+      ]
+    },
+    {
+      "title": "Ruangguru Engineering Academy AI Mastery Bootcamp Batch 1",
+      "company": "Skill Academy by Ruangguru",
+      "location": "Surabaya, East Java, Indonesia",
+      "period": "Aug 2023 - Oct 2023",
+      "workType": "Apprenticeship",
+      "description": [
+        "Mastered Python fundamentals for ML/DL, including data wrangling with Pandas.",
+        "Built a solid foundation in Linear Algebra and Calculus for ML/DL.",
+        "Implemented Deep Learning models with PyTorch, gaining hands-on experience.",
+        "Explored Computer Vision techniques like CNNs for image tasks.",
+        "Delved into NLP with Transformers, covering translation, summarization, sentiment analysis, and built a Real-world NLP app."
+      ]
+    },
+    {
+      "title": "User Experience Designer",
+      "company": "Alpha Academy",
+      "location": "Surabaya, East Java, Indonesia",
+      "period": "Oct 2022 - Jan 2023",
+      "workType": "Contract",
+      "description": [
+        "Designed the flow and main features of the Alpha Academy website, guiding its conceptualization and implementation process.",
+        "Crafted a responsive layout capable of adapting seamlessly across various breakpoints thus ensuring optimal user experience.",
+        "Established and maintained cohesive design systems for the Alpha Academy Website thus fostering brand consistency and usability.",
+        "Enhanced existing features and design elements of Alpha Academy through continuous improvement efforts.",
+        "Collaborated closely with the IT team to coordinate the development phases of the Alpha Academy website."
+      ]
+    },
+    {
+      "title": "Internal Affairs Intern",
+      "company": "Himpunan Mahasiswa Teknik Computer-Informatika ITS",
+      "location": "Surabaya, Indonesia",
+      "period": "Nov 2022 - Dec 2022",
+      "workType": "Internship",
+      "description": [
+        "Manage internal events, including the Congratulations and Birthday Post and the annual event known as 'TC Gathering'.",
+        "Collaborate with other interns and student leaders to ensure that events run smoothly and are well-received by the Informatics Family.",
+        "Support the Internal Affairs team in their efforts to build a stronger, more inclusive community for students of Informatics.",
+        "Represent the Informatics Family in a positive and professional manner."
+      ]
+    },
+    {
+      "title": "User Experience Academy",
+      "company": "COMPFEST",
+      "location": "Jakarta, Indonesia",
+      "period": "Aug 2022 - Sep 2022",
+      "workType": "Apprenticeship",
+      "description": [
+        "Trained and worked as a team at User Experience Academy, learned about UX research, writing, design, and usability testing for three weeks. Followed by solving a case study as a final project at the end of the training.",
+        "Collaborated and worked with Data Science, Software Engineering, and Startup teams to solve the final case study at the last event of COMPFEST 14."
+      ]
     }
   ],
   "education": [
     {
-      "institution": "Institut Teknologi Sepuluh Nopember",
-      "degree": "Computer Science",
-      "location": "Surabaya, Indonesia",
-      "period": "2021 - 2025",
+      "institution": "Apple Developer Academy | Indonesia",
+      "degree": "Junior Developer (Apple Platform), Computer Software and Media Applications",
+      "location": "Jakarta, Indonesia",
+      "period": "Nov 2025 - Nov 2026",
       "description": [
-        "Bachelor's degree in Computer Science with focus on web development and design.",
-        "Participated in various events, hackathons, and projects.",
-        "Maintained a GPA of 3.72/4.0."
+        "Selected as 1 of 100 scholarship awardees for the 1st Cohort at the Apple Developer Academy @ UC Jakarta.",
+        "Fully-funded, 10-month scholarship program from Apple Inc. designed to empower the national economy by creating world-class developers for the app ecosystem."
+      ]
+    },
+    {
+      "institution": "Institut Teknologi Sepuluh Nopember (ITS)",
+      "degree": "Bachelor of Technology - BTech, Computer Science",
+      "location": "Surabaya, Indonesia",
+      "period": "Aug 2021 - Aug 2025",
+      "description": [
+        "Maintained a GPA of 3.73/4.00.",
+        "Actively contributed as a Web Developer to events such as Schematics ITS, UKM EXPO, and ITS EXPO, enhancing skills in web development and project collaboration.",
+        "Engaged in research focused on Deep Learning, particularly in Computer Vision, deepening expertise in artificial intelligence and machine learning."
       ]
     },
     {
@@ -60,6 +207,25 @@
         "TensorFlow Mastery: Built and applied Neural Networks for image (CNNs), text (NLP), and even poetry generation.",
         "End-to-End ML & Advanced DL: Diagnosed ML errors, implemented end-to-end, transfer, and multi-task learning, and utilized advanced techniques like Functional API and distributed training.",
         "Generative AI & Certification: Understand Generative AI concepts including LLMs and responsible AI, and are prepared for the TensorFlow Developer Certificate Exam."
+      ]
+    },
+    {
+      "institution": "SMA Labschool Cibubur",
+      "degree": "IPA, Natural Science",
+      "location": "Cibubur, Indonesia",
+      "period": "2018 - 2021",
+      "description": [
+        "Focus on Natural Science (IPA) curriculum.",
+        "Developed skills in design tools (Figma) and collaboration suites."
+      ]
+    },
+    {
+      "institution": "SMP Labschool Cibubur",
+      "degree": "Junior High School",
+      "location": "Cibubur, Indonesia",
+      "period": "Aug 2015 - Aug 2018",
+      "description": [
+        "Junior high school academic curriculum."
       ]
     }
   ]

@@ -39,25 +39,27 @@ export default function ThemeSwitcher() {
         layoutId={id}
       >
         <motion.button
-          className={`cursor-pointer rounded-full p-2 ${
+          className={`cursor-pointer rounded-full p-2 transition-transform duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 ${
             theme === "light" ? "bg-amber-200 text-amber-800" : "text-zinc-400"
           }`}
-          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setTheme("light")}
           title="Light Mode"
+          aria-label="Switch to Light Mode"
+          aria-pressed={theme === "light"}
         >
           <Sun size={18} />
         </motion.button>
 
         <motion.button
-          className={`cursor-pointer rounded-full p-2 ${
+          className={`cursor-pointer rounded-full p-2 transition-transform duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 ${
             theme === "dark" ? "bg-zinc-800 text-zinc-200" : "text-zinc-400"
           }`}
-          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setTheme("dark")}
           title="Dark Mode"
+          aria-label="Switch to Dark Mode"
+          aria-pressed={theme === "dark"}
         >
           <Moon size={18} />
         </motion.button>

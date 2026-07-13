@@ -11,6 +11,8 @@ import { extractHeadings } from "@/lib/mdx-utils";
 import { Suspense } from "react";
 import BlogDetailSkeleton from "@/components/skeleton/blog-detail-skeleton";
 import ClientContentSkeleton from "@/components/skeleton/client-content-skeleton";
+import rehypeHighlight from "rehype-highlight";
+import CopyablePre from "@/components/copyable-pre";
 
 // Custom components for MDX
 const components = {
@@ -44,13 +46,15 @@ const components = {
       {...props}
     />
   ),
-  pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
-    <pre
-      className="mb-4 overflow-x-auto rounded-md bg-zinc-100 p-4 dark:bg-gray-800"
-      {...props}
-    />
-  ),
+  pre: CopyablePre,
   Image,
+};
+
+const options = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  },
 };
 
 const route = `blogs`;
@@ -118,7 +122,7 @@ async function BlogContent({ id }: { id: string }) {
       <Suspense fallback={<ClientContentSkeleton />}>
         <ClientContent headings={headings}>
           {content ? (
-            <MDXRemote source={content} components={components} />
+            <MDXRemote source={content} components={components} options={options} />
           ) : (
             <span className="mt-100">Content will be added soon! ✨</span>
           )}

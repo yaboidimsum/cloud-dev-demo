@@ -16,6 +16,7 @@ import rehypeHighlight from "rehype-highlight";
 
 // Add this import at the top with other imports
 // import ViewCounterTest from "@/components/view-counter-test";
+import CopyablePre from "@/components/copyable-pre";
 
 // Custom components for MDX
 const components = {
@@ -49,12 +50,7 @@ const components = {
       {...props}
     />
   ),
-  pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
-    <pre
-      className="mb-4 overflow-x-auto rounded-md bg-zinc-100 p-4 dark:bg-zinc-800"
-      {...props}
-    />
-  ),
+  pre: CopyablePre,
   Image,
   Link,
 };

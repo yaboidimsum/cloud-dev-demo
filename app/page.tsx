@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Github, FileText, Linkedin } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 // import ProjectCard from "@/components/project-card";
@@ -13,6 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import experienceData from "@/data/experience.json";
 
 export default function Home() {
+  const [showAllWork, setShowAllWork] = useState(false);
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -212,7 +214,10 @@ export default function Home() {
                 className="mt-4 transition-opacity duration-500 ease-in-out data-[state=active]:opacity-100 data-[state=inactive]:opacity-0"
               >
                 <div className="space-y-4">
-                  {experienceData.workHistory.map((job, index) => (
+                  {(showAllWork
+                    ? experienceData.workHistory
+                    : experienceData.workHistory.slice(0, 5)
+                  ).map((job, index) => (
                     <div
                       key={index}
                       className="rounded-lg border-[1.5px]  border-zinc-50/100 bg-zinc-50/60 p-4 dark:border-zinc-900 dark:bg-zinc-950"
@@ -236,6 +241,15 @@ export default function Home() {
                       </ul>
                     </div>
                   ))}
+
+                  {experienceData.workHistory.length > 5 && (
+                    <button
+                      onClick={() => setShowAllWork(!showAllWork)}
+                      className="w-full py-2.5 mt-2 text-xs font-medium tracking-tight text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors duration-200 active:scale-[0.98] select-none cursor-pointer"
+                    >
+                      {showAllWork ? "Show Less" : `Show More (${experienceData.workHistory.length - 5} hidden)`}
+                    </button>
+                  )}
                 </div>
               </TabsContent>
               <TabsContent

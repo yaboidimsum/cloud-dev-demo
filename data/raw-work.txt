@@ -1,0 +1,367 @@
+Apple Developer Academy @ UC, Jakarta logo
+
+Apple Developer Academy @ UC, Jakarta
+
+Part-time · 6 mos
+
+Central Jakarta, Jakarta, Indonesia · On-site
+
+    Product Development Engineer
+
+    Feb 2026 - Present · 6 mos
+
+    Skills: iOS, Swift (Programming Language), +5 skills
+
+    iOS Developer
+
+    May 2026 - Jun 2026 · 2 mos
+
+    Hitch
+    • Designed and prototyped the application in Sketch using native iOS components.
+    • Implemented advanced state management using Swift 6.2 and iOS 26+ features, including Observable, MainActor, and Bindable.
+    • Built a scalable MVVM architecture with enum-based pagination.
+    • Integrated MapKit and Contacts to support location-based and contact-sharing features.
+    • Improved accessibility by supporting Dynamic Type (Larger Text) and Increased Contrast settings.
+
+    Skills: SwiftUI, iOS Development, +2 skills
+
+    Product Engineer
+
+    Apr 2026 - May 2026 · 2 mos
+
+    OatsnNads (Researcher & iOS Engineer)
+    • Utilizing 3 types of research as guiding activities (Observation, Desk, and User Interviews)
+    • Conducted user interviews using the R.U.J.A.K framework (Rohani, Uang, Jasmani, Asmara, and Keluarga) to uncover user needs and pain points.
+    • Implemented state management using SwiftUI's @State and @Binding
+    • Applied version control best practices using Git and GitHub for collaborative development
+    • Sliced reusable SwiftUI components
+
+    Skills: Design Research, Usability Testing, +3 skills
+
+    iOS Developer
+
+    Mar 2026 - Apr 2026 · 2 mos
+
+    Workit
+    • Learned and applied Apple's Human Interface Guidelines (HIG)
+    • HGained hands-on experience with SwiftUI fundamentals using Apple's native components
+    • Implemented basic navigation using NavigationStack in SwiftUI
+
+    Skills: SwiftUI, Human Computer Interaction
+
+    Researcher
+
+    Feb 2026 - Mar 2026 · 2 mos
+
+    Xplore T9 
+    • Conducted research to identify challenges and opportunities around Autograph Tower.
+    • Developed two innovative solution concepts based on research findings.
+    • Collaborated with team members from diverse backgrounds throughout the ideation and development process.
+
+    Skills: Research Skills, Group Discussions, +1 skill
+
+Glorious Gone
+
+I'm the product · Self-employed
+
+Aug 2003 - Present · 23 yrs
+
+Dema, Trench Continent · Hybrid
+
+Beyond code, I enjoy learning music and art :D I love tweepop, dreampop, and midwest emo!
+Avalon AI Group (PT. Automasi Visi Analitika Optima) logo
+
+Design Engineer
+
+Avalon AI Group (PT. Automasi Visi Analitika Optima) · Part-time
+
+May 2025 - Present · 1 yr 3 mos
+
+Surabaya, Indonesia · Hybrid
+
+• Designed digital products for Avalon’s clients and internal systems. 
+• Engineered digital products in collaboration with the research team.
+
+ Figma, UI/UX and +4 skills
+Engramind logo
+
+Web Designer
+
+Engramind · Part-time
+
+May 2025 - Jul 2025 · 3 mos
+
+Central Jakarta, Jakarta, Indonesia · Remote
+
+• Designed and developed a cohesive visual identity for the Engramind website, including a comprehensive design system.
+• Built and prototyped the Engramind website to ensure a seamless user experience.
+
+ Figma, User Experience (UX) and +2 skills
+Software House TC logo
+
+Web Developer
+
+Software House TC · Contract
+
+May 2024 - Jul 2025 · 1 yr 3 mos
+
+Surabaya, East Java, Indonesia · Remote
+
+• Developed a standard design system to streamline projects.
+• Created visual mockups to fulfill client requests, focusing on technology-related solutions.
+
+ UI/UX, User Experience (UX) and +3 skills
+Asuransi Astra logo
+
+UI/UX Designer (Design System)
+
+Asuransi Astra · Internship
+
+Aug 2024 - Feb 2025 · 7 mos
+
+Surabaya, East Java, Indonesia · Remote
+
+• Enhanced and documented existing design systems of Astra Insurance.
+• Improved consistency and usability across platforms.
+• Created comprehensive guidelines and resources for team-wide reference.
+Thumbnail for Team Documentation
+
+Team Documentation
+
+This is a photo of the Product and UI/UX Team at Astra Insurance, highlighting our collaborative work in enhancing user experience and product design.
+Thumbnail for Daily Design Sharing Session
+
+Daily Design Sharing Session
+
+During my internship at Astra Insurance, I worked with fellow interns under the guidance of Billy and Faishal. We participated in design sharing sessions, contributing ideas and learning advanced concepts, which enhanced my teamwork and collaboration skills.
+
+ User-centered Design, User Interface Design and +4 skills
+Smart City and Cyber Security Laboratory (KCKS) logo
+
+AI Researcher
+
+Smart City and Cyber Security Laboratory (KCKS) · Contract
+
+Aug 2024 - Dec 2024 · 5 mos
+
+Surabaya, East Java, Indonesia · Hybrid
+
+• Researching real-time style transfer techniques to apply artistic styles to real-life images using smaller model sizes than existing models.
+• Working on a research paper detailing the developed model and its applications.
+• Created a Mean Opinion Score (MOS) website for research purposes on image evaluation.
+Thumbnail for NijiGAN: Transform What You See into Anime with Contrastive Semi-Supervised Learning and Neural Ordinary Differential Equations
+
+NijiGAN: Transform What You See into Anime with Contrastive Semi-Supervised Learning and Neural Ordinary Differential Equations
+Thumbnail for Architecture Explain Session
+
+Architecture Explain Session
+
+During an Architecture Explanation Session, Kevin (Our lead) provided updates on the changes and modifications to the models we are developing
+Thumbnail for Loss Function Advancement
+
+Loss Function Advancement
+
+Collaborated with the team to develop a new loss function for our models
+Show all 4 media
+
+ Web Development, PyTorch and +5 skills
+Information Intelligent Management Laboratory logo
+
+Frontend Engineer
+
+Information Intelligent Management Laboratory · Contract
+
+Apr 2024 - Aug 2024 · 5 mos
+
+Surabaya, East Java, Indonesia · Hybrid
+
+• Worked on the migration of ERP ITS from a legacy truncated version to an updated iteration utilizing the Next.js framework.
+• Developed and applied specific logic, while ensuring seamless transition of existing features to the updated platform.
+• Built UI refinement and CSS styling for the enhanced iteration of ERP ITS.
+• Acquired proficiency in Object-Oriented Programming (OOP) principles through React.js implementation.
+• Collaborated with the established backend infrastructure to effectively deploy new functionalities.
+Thumbnail for ERP Dashboard
+
+ERP Dashboard
+
+Visual look of ERP Dashboard
+Thumbnail for ERP Human Resource Management
+
+ERP Human Resource Management
+
+Visual look of Human Resource Management
+
+ Git, Tailwind CSS and +5 skills
+Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka logo
+
+Machine Learning Cohort
+
+Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka · Seasonal
+
+Feb 2024 - Jul 2024 · 6 mos
+
+Surabaya, East Java, Indonesia · Remote
+
+• TensorFlow Application Skills: Mastered TensorFlow for various projects, created Neural Networks, enhanced image tasks with Convolution, processed text with NLP, trained models for original poetry.
+• End-to-End Machine Learning Workflow: Diagnosed ML errors, prioritized directions, compared with human-level performance, applied end-to-end, transfer, and multi-task learning.
+• Advanced Deep Learning Techniques with TensorFlow: Used Functional API, learned distributed training, created computer vision models, explored generative deep learning.
+• Understanding Key Concepts in Generative AI: Learned basic concepts, Large Language Models, responsible AI with Google Cloud.
+• Preparation for TensorFlow Developer Certificate Exam: Created software with TensorFlow, understood ML/DL principles, applied for image, text, and Time Series tasks.
+Thumbnail for English for Business Communication
+
+English for Business Communication
+Thumbnail for [Bangkit 2024 Batch 1] Certificate - M004D4KY2747.pdf
+
+[Bangkit 2024 Batch 1] Certificate - M004D4KY2747.pdf
+
+Certificate of Completion Bangkit Program
+
+ Deep Learning, Python (Programming Language) and +2 skills
+Alpha Academy logo
+
+Frontend Developer
+
+Alpha Academy · Contract
+
+Jan 2024 - Apr 2024 · 4 mos
+
+Surabaya, East Java, Indonesia · Hybrid
+
+• Led frontend implementation of Alpha Academy website, bridging design to code seamlessly.
+• Developed key logic and features vital for the Alpha Academy website's functionality.
+• Collaborated closely with CTO, UI/UX Designer, and Backend Developer to drive cohesive development.
+• Actively engaged in discussions to align development strategies and enhance project outcomes.
+• Expanded frontend expertise, particularly in Next.js and Tailwind CSS, through collaborative learning within the team.
+Thumbnail for Alpha Academy Landing Page
+
+Alpha Academy Landing Page
+
+Visual look of Alpha Academy landing page
+Thumbnail for Alpha Academy Landing Page - 2
+
+Alpha Academy Landing Page - 2
+
+Visual look of Alpha Academy landing page
+Thumbnail for Alpha Academy Landing Page - 3
+
+Alpha Academy Landing Page - 3
+
+Visual look of Alpha Academy Landing Page
+Show all 4 media
+
+ Git, Tailwind CSS and +5 skills
+Skill Academy by Ruangguru logo
+
+Ruangguru Engineering Academy AI Mastery Bootcamp Batch 1 
+
+Skill Academy by Ruangguru · Apprenticeship
+
+Aug 2023 - Oct 2023 · 3 mos
+
+Surabaya, East Java, Indonesia · Remote
+
+• Mastered Python fundamentals for ML/DL, including data wrangling with Pandas
+• Built a solid foundation in Linear Algebra and Calculus for ML/DL
+• Implemented Deep Learning models with PyTorch, gaining hands-on experience
+• Explored Computer Vision techniques like CNNs for image tasks
+• Delved into NLP with Transformers, covering translation, summarization, sentiment analysis, and built a Real-world NLP app
+Thumbnail for Student Report - AI Bootcamp Batch 1 Dimas Prihady Setyawan
+
+Student Report - AI Bootcamp Batch 1 Dimas Prihady Setyawan
+
+Student final report during the bootcamp
+Thumbnail for Certificate of Excellence - Mastering AI Bootcamp Batch 1 Dimas Prihady Setyawan
+
+Certificate of Excellence - Mastering AI Bootcamp Batch 1 Dimas Prihady Setyawan
+
+Certificate that I earned for passing all of the assignments from the bootcamp
+Thumbnail for Certificate of Completion Skill Academy Pro - Mastering AI Bootcamp Batch 1 Dimas Prihady Setyawan
+
+Certificate of Completion Skill Academy Pro - Mastering AI Bootcamp Batch 1 Dimas Prihady Setyawan
+
+Certificate that I earned after completing the program
+
+ Python (Programming Language), Calculus and +7 skills
+Alpha Academy logo
+
+User Experience Designer
+
+Alpha Academy · Contract
+
+Oct 2022 - Jan 2023 · 4 mos
+
+Surabaya, East Java, Indonesia · Hybrid
+
+As a UI/UX Designer at Alpha Academy, I am dedicated to creating innovative and user-friendly experiences for our students. I work closely with our development team to ensure that our technology solutions are not only functional, but also visually appealing and engaging for our users.
+
+At Alpha Academy, I have honed my skills in user-centered design and have the opportunity to make a real impact in the field of education technology. I am proud to be a part of a team that values innovation and is committed to delivering outstanding results.
+
+Responsibilities:
+• Designed the flow and main features of the Alpha Academy website, guiding its conceptualization and implementation process.
+• Crafted a responsive layout capable of adapting seamlessly across various breakpoints thus ensuring optimal user experience.
+• Established and maintained cohesive design systems for the Alpha Academy Website thus fostering brand consistency and usability.
+• Enhanced existing features and design elements of Alpha Academy through continuous improvement efforts.
+• Collaborated closely with the IT team to coordinate the development phases of the Alpha Academy website
+Thumbnail for Alpha Academy Login Page
+
+Alpha Academy Login Page
+
+Visual look of Alpha Academy Login Page
+Thumbnail for Landing Page Alpha Academy
+
+Landing Page Alpha Academy
+
+Visual look of Landing Page Alpha Academy
+Thumbnail for Dashboard User Alpha Academy
+
+Dashboard User Alpha Academy
+
+Visual look of Dashboard User Alpha Academy
+Show all 4 media
+
+ User Interface Design, User Experience (UX) and +3 skills
+Himpunan Mahasiswa Teknik Computer-Informatika ITS logo
+
+Internal Affairs Intern
+
+Himpunan Mahasiswa Teknik Computer-Informatika ITS · Internship
+
+Nov 2022 - Dec 2022 · 2 mos
+
+On-site
+
+As an Internal Affairs Intern at Himpunan Mahasiswa Teknik Computer-Informatika ITS, I am committed to building stronger bonds within the Informatics Family. I work closely with my team to manage various internal events and initiatives, including the Congratulations and Birthday Post, and the annual event that brings the whole family together, known as "C".
+
+At Himpunan Mahasiswa Teknik Computer-Informatika ITS, I have the opportunity to make a real impact in fostering a supportive and inclusive community for students of Informatics. I am proud to be part of a team that values collaboration and is dedicated to delivering outstanding results.
+
+Responsibilities:
+• Manage internal events, including the Congratulations and Birthday Post and the annual event known as "TC Gathering"
+• Collaborate with other interns and student leaders to ensure that events run smoothly and are well-received by the Informatics Family
+• Support the Internal Affairs team in their efforts to build a stronger, more inclusive community for students of Informatics
+• Represent the Informatics Family in a positive and professional manner
+
+ Google Sheets, Figma (Software) and +2 skills
+COMPFEST logo
+
+User Experience Academy
+
+COMPFEST · Apprenticeship
+
+Aug 2022 - Sep 2022 · 2 mos
+
+Jakarta, Indonesia
+
+As a UI/UX Learner at COMPFEST 14 by University of Indonesia, I have had the privilege of discovering the power of user-centered design. Under the guidance of experienced instructors, I have gained hands-on experience in designing and developing user-friendly technology solutions.
+
+At COMPFEST 14, I have been inspired by the dedication of the instructors and their commitment to delivering outstanding results. Their passion for education and their desire to share their knowledge have made a lasting impact on me.
+
+Through this program, I have had the opportunity to:
+• Trained and worked as a team at User Experience Academy, learned about UX research, writing, design, and usability testing for three weeks. Followed by solving a case study as a final project at the end of the training.
+• Collaborated and worked with Data Science, Software Engineering, and Startup teams to solve the final case study at the last event of COMPFEST 14.
+Thumbnail for Libur.On Application
+
+Libur.On Application
+
+Visual look of Libur.On Application
+
+ UX Research, Usability Testing and +4 skills
