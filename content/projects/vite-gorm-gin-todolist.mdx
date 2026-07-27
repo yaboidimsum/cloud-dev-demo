@@ -308,7 +308,8 @@ func DeleteATodo(todo *Todo, id string) (err error){
   `models/todos.go` but controllers use gin context to handle http requests,
   I'll explain more down below.
 </div>
-```go package controllers
+```go
+package controllers
 
 import (
 	"gin-todo-app/models"
@@ -420,7 +421,8 @@ c.JSON(http.StatusOK,todo)
   framework. It also only has one func called `SetupRouter()` that configures
   and returns the `*gin.Engine`.
 </div>
-```go package routes
+```go
+package routes
 
 import (
 	"gin-todo-app/controllers"
@@ -505,7 +507,8 @@ v1 := r.Group("v1/")
   `database.go`, then run the migration from `models/model.go`. Finally setup
   the route from `routes.go` and run it on any port(in this case, 3000).
 </div>
-```go package main
+```go
+package main
 
 import (
 	"fmt"
@@ -579,8 +582,10 @@ src/
   The application is pretty simple, it only has `App.tsx`, which renders
   `CardForm.tsx` & `CardList.tsx` next to each other
 </div>
-```tsx import CardList from "./components/custom/CardList"; import "./App.css"; import
-CardForm from "./components/custom/CardForm";
+```tsx
+import CardList from "./components/custom/CardList";
+import "./App.css";
+import CardForm from "./components/custom/CardForm";
 
 function App() {
 return (
@@ -832,7 +837,8 @@ export default function CardList() {
   the specific data ID. After the response is sent, the window is reloaded to
   update the todo list in the UI.
 </div>
-```tsx import React, {(useState, useEffect)} from "react";
+```tsx
+import React, { useState, useEffect } from "react";
 
 import {
   Card,
