@@ -53,7 +53,7 @@ export default function BottomNavDock() {
           pill.style.width = `${activeTab.offsetWidth}px`;
           
           // Force a reflow to apply values immediately
-          pill.offsetHeight;
+          void pill.offsetHeight;
           
           pill.style.transition = "";
           if (!isResize) {

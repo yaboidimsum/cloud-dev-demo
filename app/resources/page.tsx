@@ -14,6 +14,7 @@ import {
   SiFigma,
   SiLinear,
 } from "react-icons/si";
+import type { IconType } from "react-icons";
 
 interface Resource {
   title: string;
@@ -21,7 +22,7 @@ interface Resource {
   url: string;
   category: "learn" | "use";
   tags: string[];
-  icon: any;
+  icon: IconType;
   color: string;
 }
 

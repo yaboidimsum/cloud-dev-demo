@@ -7,7 +7,6 @@ import ContributionGraph from "@/components/contribution-graph";
 import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
-import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 // import ProjectCard from "@/components/project-card";
 // import { getBlogPostList } from "./helpers/file-helpers";
