@@ -129,7 +129,7 @@ export default function ClientBlogContent({
       <div className="flex w-full items-start gap-4">
         <article
           ref={contentRef}
-          className="prose prose-invert max-w-none flex-1 prose-headings:scroll-mt-20 prose-headings:text-white prose-a:text-blue-400 prose-strong:text-white prose-code:text-white prose-pre:bg-zinc-800" // Added flex-1 and scroll-mt-20
+          className="prose prose-invert max-w-none flex-1 min-w-0 prose-headings:scroll-mt-20 prose-headings:text-white prose-a:text-blue-400 prose-strong:text-white prose-code:text-white prose-pre:bg-zinc-800"
         >
           {children}
         </article>

@@ -140,7 +140,7 @@ export default async function ProjectDetail({
   const { id } = await params;
 
   return (
-    <div className="mx-auto flex max-w-4xl flex-col pl-2 pt-8">
+    <div className="mx-auto flex max-w-4xl w-full min-w-0 flex-col pl-2 pt-8">
       <Link
         href="/blogs"
         className="mb-8 inline-flex items-center text-gray-400 hover:text-zinc-600 dark:hover:text-white"
