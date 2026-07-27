@@ -11,7 +11,7 @@ export default function AvailabilityIndicator({
 }: AvailabilityIndicatorProps) {
   return (
     <motion.div
-      className={`inline-flex items-center rounded-md px-4 py-2 text-sm font-medium tracking-tight transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm ${
+      className={`inline-flex items-center rounded-md px-4 py-2 text-sm font-medium tracking-tight transition-[transform,box-shadow,background-color,color] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm ${
         available
           ? "bg-green-100 text-green-900 dark:bg-green-900/30 dark:text-green-300"
           : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"

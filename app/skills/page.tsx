@@ -23,6 +23,29 @@ import {
   SiSwr,
 } from "react-icons/si";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+    },
+  },
+};
+
+const badgeVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
+
 export default function Skills() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -36,14 +59,12 @@ export default function Skills() {
     return (
       <motion.div
         className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-300 px-3 py-1.5 text-sm tracking-tighter dark:bg-zinc-900"
+        variants={badgeVariants}
         whileHover={{
           y: -5,
           boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
           transition: { type: "spring", stiffness: 300, damping: 15 },
         }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <span className="text-lg">{icon}</span>
         <span>{name}</span>
@@ -111,40 +132,65 @@ export default function Skills() {
 
         <div>
           <SectionTitle title="LANGUAGES" />
-          <div className="flex flex-wrap tracking-tighter">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="flex flex-wrap tracking-tighter"
+          >
             <SkillBadge icon={<SiJavascript />} name="JavaScript" />
             <SkillBadge icon={<SiTypescript />} name="TypeScript" />
             <SkillBadge icon={<SiHtml5 />} name="HTML" />
             <SkillBadge icon={<SiCss3 />} name="CSS" />
             <SkillBadge icon={<SiPython />} name="Python" />
-          </div>
+          </motion.div>
 
           <SectionTitle title="FRAMEWORKS" />
-          <div className="flex flex-wrap">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="flex flex-wrap"
+          >
             <SkillBadge icon={<SiNextdotjs />} name="NextJs" />
             <SkillBadge icon={<SiTailwindcss />} name="TailwindCSS" />
             <SkillBadge icon={<SiPytorch />} name="Pytorch" />
-          </div>
+          </motion.div>
 
           <SectionTitle title="LIBRARIES" />
-          <div className="flex flex-wrap">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="flex flex-wrap"
+          >
             <SkillBadge icon={<SiReact />} name="React" />
             <SkillBadge icon={<SiSwr />} name="SWR" />
-          </div>
+          </motion.div>
 
           <SectionTitle title="TOOLS" />
-          <div className="flex flex-wrap">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="flex flex-wrap"
+          >
             <SkillBadge icon={<SiPostman />} name="Postman" />
             <SkillBadge icon={<SiFramer />} name="Framer Motion" />
             <SkillBadge icon={<SiFigma />} name="Figma" />
-          </div>
+          </motion.div>
 
           <SectionTitle title="PLATFORMS" />
-          <div className="flex flex-wrap">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="flex flex-wrap"
+          >
             <SkillBadge icon={<SiGithub />} name="Github" />
             <SkillBadge icon={<SiNetlify />} name="Netlify" />
             <SkillBadge icon={<SiVercel />} name="Vercel" />
-          </div>
+          </motion.div>
 
           <motion.p
             className="mt-8 text-sm text-zinc-500 dark:text-zinc-400"

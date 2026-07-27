@@ -23,7 +23,7 @@ export default function Toaster() {
       </div>
       <div className="flex gap-4">
         <button
-          className={`${ToastPop.button} ease transform cursor-pointer duration-150 active:scale-95 dark:text-zinc-800`}
+          className={`${ToastPop.button} transition-transform duration-150 ease-out active:scale-95 dark:text-zinc-800 cursor-pointer`}
           onClick={() => {
             setToasts(toasts + 1);
           }}
@@ -31,7 +31,7 @@ export default function Toaster() {
           Add toast
         </button>
         <button
-          className={`${ToastPop.button} ease transform cursor-pointer duration-150 active:scale-95 dark:text-zinc-800`}
+          className={`${ToastPop.button} transition-transform duration-150 ease-out active:scale-95 dark:text-zinc-800 cursor-pointer`}
           onClick={() => {
             setToasts(0);
           }}

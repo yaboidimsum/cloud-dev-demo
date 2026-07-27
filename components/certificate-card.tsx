@@ -13,6 +13,42 @@ interface CertificateCardProps {
   tags: Array<string>;
 }
 
+export const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 22,
+    },
+  },
+};
+
+export function CertificateGrid({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      className="grid grid-cols-1 gap-6 md:grid-cols-2"
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function CertificateCard({
   title,
   publishedOn,
@@ -27,12 +63,10 @@ export default function CertificateCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      variants={cardVariants}
       className="group"
     >
-      <div className="overflow-hidden rounded-lg border border-zinc-300 bg-white transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950 dark:group-hover:border-zinc-700 active:scale-[0.98]">
+      <div className="overflow-hidden rounded-lg border border-zinc-300 bg-white transition-[transform,box-shadow,border-color] duration-200 ease-out group-hover:-translate-y-1.5 group-hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950 dark:group-hover:border-zinc-700 active:scale-[0.98] active:duration-75">
         <div className="relative aspect-video bg-zinc-100 dark:bg-zinc-900">
           <Image
             src={src}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { getBlogPostList } from "@/app/helpers/file-helpers";
 import { ArrowLeft } from "lucide-react";
-import CertificateCard from "@/components/certificate-card";
+import CertificateCard, { CertificateGrid } from "@/components/certificate-card";
 
 export default async function Certificates() {
   const route = `certificate`;
@@ -22,12 +22,7 @@ export default async function Certificates() {
         <h1 className="text-3xl font-medium tracking-tighter">Certificates</h1>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {/* <CertificateCard />
-        <CertificateCard />
-        <CertificateCard />
-        <CertificateCard /> */}
-
+      <CertificateGrid>
         {certificatePost.map(({ slug, ...delegated }) => (
           <CertificateCard
             key={slug}
@@ -36,7 +31,7 @@ export default async function Certificates() {
             {...delegated}
           />
         ))}
-      </div>
+      </CertificateGrid>
     </div>
   );
 }
