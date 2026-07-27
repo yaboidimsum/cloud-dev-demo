@@ -46,6 +46,6 @@
   z-index: 10;
   width: 100%;
   overflow: hidden;
-  transition: clip-path 0.25s ease;
+  transition: clip-path var(--duration-fast) var(--ease-smooth-out);
   clip-path: inset(0px 75% 0px 0% round 17px);
 }

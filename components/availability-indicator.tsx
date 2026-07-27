@@ -13,23 +13,23 @@ export default function AvailabilityIndicator({
     <motion.div
       className={`inline-flex items-center rounded-md px-4 py-2 text-sm font-medium tracking-tight transition-[transform,box-shadow,background-color,color] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm ${
         available
-          ? "bg-green-100 text-green-900 dark:bg-green-900/30 dark:text-green-300"
-          : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"
+          ? "bg-[oklch(0.95_0.03_140)] text-[oklch(0.25_0.04_140)] dark:bg-[oklch(0.25_0.04_140/0.2)] dark:text-[oklch(0.8_0.04_140)]"
+          : "bg-[oklch(0.95_0.03_25)] text-[oklch(0.3_0.05_25)] dark:bg-[oklch(0.3_0.05_25/0.2)] dark:text-[oklch(0.8_0.05_25)]"
       }`}
     >
       <span className="relative mr-2 flex h-2 w-2">
         <span
           className={`absolute inline-flex h-full w-full rounded-full opacity-75 ${
             available
-              ? "animate-ping bg-green-500 dark:bg-green-400"
-              : "bg-red-500 dark:bg-red-400"
+              ? "animate-ping bg-[oklch(0.6_0.15_140)] dark:bg-[oklch(0.7_0.12_140)]"
+              : "bg-[oklch(0.6_0.15_25)] dark:bg-[oklch(0.7_0.12_25)]"
           }`}
         ></span>
         <span
           className={`relative inline-flex h-2 w-2 rounded-full ${
             available
-              ? "bg-green-500 dark:bg-green-400"
-              : "bg-red-500 dark:bg-red-400"
+              ? "bg-[oklch(0.6_0.15_140)] dark:bg-[oklch(0.7_0.12_140)]"
+              : "bg-[oklch(0.6_0.15_25)] dark:bg-[oklch(0.7_0.12_25)]"
           }`}
         ></span>
       </span>

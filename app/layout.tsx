@@ -1,15 +1,13 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import "highlight.js/styles/github-dark.css";
-import Sidebar from "@/components/sidebar";
+import BottomNavDock from "@/components/bottom-nav-dock";
 import { ThemeProvider } from "@/context/theme-context";
-import ThemeSwitcher from "@/components/theme-switcher";
 import { cookies } from "next/headers";
 import LenisProvider from "@/context/LenisProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cloudev.netlify.app/"),
@@ -50,14 +48,15 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <LenisProvider>
-        <body className={inter.className}>
+        <body className="antialiased">
           <ThemeProvider initialTheme={theme}>
-            <div className="flex min-h-screen bg-white text-gray-800 dark:bg-[#08090A] dark:text-gray-200">
-              <Sidebar />
+            <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">
+              <BottomNavDock />
               <main className="flex-1 overflow-auto p-4 pt-0 pb-28 md:p-6 md:pb-28 lg:overflow-visible lg:p-8 lg:pb-28">
-                {children}
+                <div className="mx-auto max-w-[732px] w-full px-4">
+                  {children}
+                </div>
               </main>
-              <ThemeSwitcher />
             </div>
           </ThemeProvider>
         </body>

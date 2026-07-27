@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Github, FileText, Linkedin } from "lucide-react";
+import { Github, FileText, Linkedin, ChevronDown } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 // import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
@@ -12,9 +12,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 // import ProjectCard from "@/components/project-card";
 // import { getBlogPostList } from "./helpers/file-helpers";
 import experienceData from "@/data/experience.json";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const [showAllWork, setShowAllWork] = useState(false);
+  const [expandedJobs, setExpandedJobs] = useState<number[]>([]);
+
+  const toggleJobExpand = (index: number) => {
+    setExpandedJobs((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -65,7 +73,7 @@ export default function Home() {
               damping: 20,
             }}
           >
-            Dimas/Awan/Kumo
+            Awan
           </motion.h1>
           <motion.p
             className="mb-6  text-lg tracking-tighter text-zinc-500 dark:text-zinc-500"
@@ -74,14 +82,7 @@ export default function Home() {
             transition={{ delay: 0.2 }}
           >
             {/* @cloudimss */}
-            Based in Surabaya, Indonesia{" "}
-            <Image
-              src="/indo-flag.png"
-              alt="Indonesia"
-              width={20}
-              height={30}
-              className="ml-1 inline-block"
-            />
+            Based in Surabaya, Indonesia 🇮🇩
           </motion.p>
         </motion.div>
 
@@ -125,7 +126,7 @@ export default function Home() {
             <span className="font-medium tracking-tighter text-zinc-800  dark:text-zinc-50 ">
               I can create beautiful and functional websites
             </span>
-            . I&apos;m always looking for new opportunities to learn and grow.
+            . I&apos;m always looking for new opportunities to learn and grow. Beyond engineering, I love exploring music (especially tweepop, dreampop, and midwest emo) and digital art.
           </motion.p>
 
           <motion.div variants={item} className="mb-12 flex flex-wrap gap-4">
@@ -198,13 +199,13 @@ export default function Home() {
               <TabsList className="grid w-full grid-cols-2 border-zinc-400 bg-zinc-100/70  dark:bg-zinc-900">
                 <TabsTrigger
                   value="work"
-                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-out"
+                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-[var(--ease-smooth-out)]"
                 >
                   Work History
                 </TabsTrigger>
                 <TabsTrigger
                   value="education"
-                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-out"
+                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-[var(--ease-smooth-out)]"
                 >
                   Education
                 </TabsTrigger>
@@ -216,50 +217,81 @@ export default function Home() {
               >
                 <TabsContent
                   value="work"
-                  className="mt-4 transition-[opacity,transform] duration-200 ease-out data-[state=active]:opacity-100 data-[state=active]:translate-y-0 data-[state=inactive]:opacity-0 data-[state=inactive]:translate-y-1"
+                  className="mt-4 transition-[opacity,transform] duration-250 ease-[var(--ease-smooth-out)] data-[state=active]:opacity-100 data-[state=active]:translate-y-0 data-[state=inactive]:opacity-0 data-[state=inactive]:translate-y-1"
                 >
                   <div className="space-y-4">
                     {(showAllWork
                       ? experienceData.workHistory
-                      : experienceData.workHistory.slice(0, 5)
-                    ).map((job, index) => (
-                      <div
-                        key={index}
-                        className="rounded-lg border-[1.5px]  border-zinc-50/100 bg-zinc-50/60 p-4 dark:border-zinc-900 dark:bg-zinc-950"
-                      >
-                        <div className="flex items-center justify-between">
-                          <h3 className="font-medium">{job.title}</h3>
-                          <span className="rounded-full  px-2 py-1 text-xs font-medium tracking-tighter text-zinc-800 dark:bg-zinc-900  dark:text-zinc-200">
-                            {job.workType}
-                          </span>
+                      : experienceData.workHistory.slice(0, 3)
+                    ).map((job, index) => {
+                      const isCompact = index >= 3;
+                      const isExpanded = expandedJobs.includes(index);
+                      return (
+                        <div
+                          key={index}
+                          className={cn(
+                            "rounded-lg border-[1.5px] border-zinc-50/100 bg-zinc-50/60 p-4 dark:border-zinc-900 dark:bg-zinc-950 transition-all duration-150 ease-[var(--ease-smooth-out)] select-none",
+                            isCompact && "cursor-pointer hover:border-zinc-200 dark:hover:border-zinc-800 hover:bg-zinc-100/30 dark:hover:bg-zinc-900/40"
+                          )}
+                          onClick={isCompact ? () => toggleJobExpand(index) : undefined}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-1.5">
+                              <h3 className="font-medium">{job.title}</h3>
+                              {isCompact && (
+                                <span
+                                  className={cn(
+                                    "text-zinc-400 dark:text-zinc-600 transition-transform duration-150 ease-[var(--ease-smooth-out)] inline-block",
+                                    isExpanded ? "rotate-180" : "rotate-0"
+                                  )}
+                                >
+                                  <ChevronDown className="h-4 w-4" />
+                                </span>
+                              )}
+                            </div>
+                            <span className="rounded-full px-2 py-1 text-xs font-medium tracking-tighter text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
+                              {job.workType}
+                            </span>
+                          </div>
+                          <p className="text-sm tracking-tighter text-zinc-500">
+                            {job.company} • {job.period}
+                          </p>
+                          <motion.div
+                            initial={isCompact ? { height: 0, opacity: 0 } : false}
+                            animate={
+                              !isCompact || isExpanded
+                                ? { height: "auto", opacity: 1 }
+                                : { height: 0, opacity: 0 }
+                            }
+                            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <p className="mt-2 text-xs italic tracking-tighter text-zinc-500">
+                              {job.location}
+                            </p>
+                            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm tracking-tighter">
+                              {job.description.map((point, i) => (
+                                <li key={i}>{point}</li>
+                              ))}
+                            </ul>
+                          </motion.div>
                         </div>
-                        <p className="text-sm tracking-tighter  text-zinc-500">
-                          {job.company} • {job.period}
-                        </p>
-                        <p className="text-xs italic tracking-tighter  text-zinc-500">
-                          {job.location}
-                        </p>
-                        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm  tracking-tighter">
-                          {job.description.map((point, i) => (
-                            <li key={i}>{point}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                      );
+                    })}
 
-                    {experienceData.workHistory.length > 5 && (
+                    {experienceData.workHistory.length > 3 && (
                       <button
                         onClick={() => setShowAllWork(!showAllWork)}
-                        className="w-full py-2.5 mt-2 text-xs font-medium tracking-tight text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors duration-200 active:scale-[0.98] select-none cursor-pointer"
+                        className="w-full py-2.5 mt-2 text-xs font-medium tracking-tight text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors duration-150 ease-[var(--ease-smooth-out)] active:scale-[0.98] select-none cursor-pointer"
                       >
-                        {showAllWork ? "Show Less" : `Show More (${experienceData.workHistory.length - 5} hidden)`}
+                        {showAllWork ? "Show Less" : `Show More (${experienceData.workHistory.length - 3} older roles)`}
                       </button>
                     )}
                   </div>
                 </TabsContent>
                 <TabsContent
                   value="education"
-                  className="mt-4 transition-[opacity,transform] duration-200 ease-out data-[state=active]:opacity-100 data-[state=active]:translate-y-0 data-[state=inactive]:opacity-0 data-[state=inactive]:translate-y-1"
+                  className="mt-4 transition-[opacity,transform] duration-250 ease-[var(--ease-smooth-out)] data-[state=active]:opacity-100 data-[state=active]:translate-y-0 data-[state=inactive]:opacity-0 data-[state=inactive]:translate-y-1"
                 >
                   <div className="space-y-4">
                     {experienceData.education.map((edu, index) => (

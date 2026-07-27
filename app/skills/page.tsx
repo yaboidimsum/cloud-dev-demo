@@ -4,11 +4,9 @@ import type React from "react";
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import { Terminal, Sparkles } from "lucide-react";
 import {
-  SiJavascript,
   SiTypescript,
-  SiHtml5,
-  SiCss3,
   SiPytorch,
   SiPython,
   SiReact,
@@ -21,6 +19,8 @@ import {
   SiPostman,
   SiFigma,
   SiSwr,
+  SiSwift,
+  SiSketch,
 } from "react-icons/si";
 
 const containerVariants = {
@@ -58,7 +58,7 @@ export default function Skills() {
   }) => {
     return (
       <motion.div
-        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-300 px-3 py-1.5 text-sm tracking-tighter dark:bg-zinc-900"
+        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium tracking-tighter text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
         variants={badgeVariants}
         whileHover={{
           y: -5,
@@ -112,11 +112,11 @@ export default function Skills() {
           <p className="tracking-tighter text-zinc-700 dark:text-zinc-300">
             My main tech stack is{" "}
             <span className="mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
-              <SiNextdotjs className="mr-1" /> NextJs
+              <SiNextdotjs className="mr-1 text-black dark:text-white" /> NextJs
             </span>{" "}
             framework with{" "}
             <span className="mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
-              <SiTailwindcss className="mr-1" /> TailwindCSS
+              <SiTailwindcss className="mr-1 text-[#06B6D4]" /> TailwindCSS
             </span>{" "}
             CSS as a styling library for Frontend works
           </p>
@@ -124,7 +124,7 @@ export default function Skills() {
           <p className="mt-4 tracking-tighter text-zinc-700 dark:text-zinc-300">
             I also into Deep Learning stuff, I use{" "}
             <span className="mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
-              <SiPytorch className="mr-1" /> Pytorch
+              <SiPytorch className="mr-1 text-[#EE4C2C]" /> Pytorch
             </span>{" "}
             framework for doing research. ❤️
           </p>
@@ -138,11 +138,20 @@ export default function Skills() {
             animate="show"
             className="flex flex-wrap tracking-tighter"
           >
-            <SkillBadge icon={<SiJavascript />} name="JavaScript" />
-            <SkillBadge icon={<SiTypescript />} name="TypeScript" />
-            <SkillBadge icon={<SiHtml5 />} name="HTML" />
-            <SkillBadge icon={<SiCss3 />} name="CSS" />
-            <SkillBadge icon={<SiPython />} name="Python" />
+            <SkillBadge icon={<SiTypescript className="text-[#3178C6]" />} name="TypeScript" />
+            <SkillBadge icon={<SiPython className="text-[#3776AB]" />} name="Python" />
+            <SkillBadge icon={<SiSwift className="text-[#F05138]" />} name="SwiftUI" />
+          </motion.div>
+
+          <SectionTitle title="AI HARNESS TUI" />
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="flex flex-wrap"
+          >
+            <SkillBadge icon={<Terminal className="text-[#00FF66] h-4.5 w-4.5" />} name="OpenCode" />
+            <SkillBadge icon={<Sparkles className="text-[#FF00C5] h-4.5 w-4.5" />} name="Antigravity" />
           </motion.div>
 
           <SectionTitle title="FRAMEWORKS" />
@@ -152,9 +161,9 @@ export default function Skills() {
             animate="show"
             className="flex flex-wrap"
           >
-            <SkillBadge icon={<SiNextdotjs />} name="NextJs" />
-            <SkillBadge icon={<SiTailwindcss />} name="TailwindCSS" />
-            <SkillBadge icon={<SiPytorch />} name="Pytorch" />
+            <SkillBadge icon={<SiNextdotjs className="text-black dark:text-white" />} name="NextJs" />
+            <SkillBadge icon={<SiTailwindcss className="text-[#06B6D4]" />} name="TailwindCSS" />
+            <SkillBadge icon={<SiPytorch className="text-[#EE4C2C]" />} name="Pytorch" />
           </motion.div>
 
           <SectionTitle title="LIBRARIES" />
@@ -164,8 +173,8 @@ export default function Skills() {
             animate="show"
             className="flex flex-wrap"
           >
-            <SkillBadge icon={<SiReact />} name="React" />
-            <SkillBadge icon={<SiSwr />} name="SWR" />
+            <SkillBadge icon={<SiReact className="text-[#61DAFB] animate-[spin_20s_linear_infinite]" />} name="React" />
+            <SkillBadge icon={<SiSwr className="text-[#0070F3]" />} name="SWR" />
           </motion.div>
 
           <SectionTitle title="TOOLS" />
@@ -175,9 +184,10 @@ export default function Skills() {
             animate="show"
             className="flex flex-wrap"
           >
-            <SkillBadge icon={<SiPostman />} name="Postman" />
-            <SkillBadge icon={<SiFramer />} name="Framer Motion" />
-            <SkillBadge icon={<SiFigma />} name="Figma" />
+            <SkillBadge icon={<SiPostman className="text-[#FF6C37]" />} name="Postman" />
+            <SkillBadge icon={<SiFramer className="text-[#0055FF] dark:text-[#FF00C5]" />} name="Framer Motion" />
+            <SkillBadge icon={<SiFigma className="text-[#F24E1E]" />} name="Figma" />
+            <SkillBadge icon={<SiSketch className="text-[#FDD231]" />} name="Sketch" />
           </motion.div>
 
           <SectionTitle title="PLATFORMS" />
@@ -187,9 +197,9 @@ export default function Skills() {
             animate="show"
             className="flex flex-wrap"
           >
-            <SkillBadge icon={<SiGithub />} name="Github" />
-            <SkillBadge icon={<SiNetlify />} name="Netlify" />
-            <SkillBadge icon={<SiVercel />} name="Vercel" />
+            <SkillBadge icon={<SiGithub className="text-[#181717] dark:text-white" />} name="Github" />
+            <SkillBadge icon={<SiNetlify className="text-[#00C896]" />} name="Netlify" />
+            <SkillBadge icon={<SiVercel className="text-black dark:text-white" />} name="Vercel" />
           </motion.div>
 
           <motion.p

@@ -31,7 +31,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.96, y: 15 },
+  hidden: { opacity: 0, scale: 0.96, y: 12 },
   show: {
     opacity: 1,
     scale: 1,
@@ -45,7 +45,7 @@ const itemVariants = {
   exit: {
     opacity: 0,
     scale: 0.96,
-    y: 10,
+    y: 8,
     transition: {
       duration: 0.15,
       ease: "easeIn",
@@ -104,7 +104,7 @@ export default function ProjectsList({ projects, route }: ProjectsListProps) {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search projects..."
-            className="w-full pl-10 pr-10 py-2.5 text-sm rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-950/70 shadow-sm backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-[border-color,box-shadow,background-color] duration-150 ease-out text-zinc-900 dark:text-zinc-50"
+            className="w-full pl-10 pr-10 py-2.5 text-sm rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-950/70 shadow-sm backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-[border-color,box-shadow,background-color] duration-150 ease-[var(--ease-smooth-out)] text-zinc-900 dark:text-zinc-50"
           />
           {searchQuery && (
             <button
@@ -121,7 +121,7 @@ export default function ProjectsList({ projects, route }: ProjectsListProps) {
           <button
             onClick={() => setSelectedTags([])}
             className={cn(
-              "px-3 py-1 text-xs rounded-full border transition-[border-color,background-color,color] duration-150 ease-out cursor-pointer",
+              "px-3 py-1 text-xs rounded-full border transition-[border-color,background-color,color] duration-150 ease-[var(--ease-smooth-out)] cursor-pointer",
               selectedTags.length === 0
                 ? "bg-zinc-900 border-zinc-900 text-white dark:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-950 font-medium"
                 : "border-zinc-200 bg-white text-zinc-650 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:border-zinc-700"
@@ -136,7 +136,7 @@ export default function ProjectsList({ projects, route }: ProjectsListProps) {
                 key={tag}
                 onClick={() => toggleTag(tag)}
                 className={cn(
-                  "px-3 py-1 text-xs rounded-full border transition-[border-color,background-color,color] duration-150 ease-out cursor-pointer",
+                  "px-3 py-1 text-xs rounded-full border transition-[border-color,background-color,color] duration-150 ease-[var(--ease-smooth-out)] cursor-pointer",
                   isSelected
                     ? "bg-zinc-900 border-zinc-900 text-white dark:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-950 font-medium"
                     : "border-zinc-200 bg-white text-zinc-650 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:border-zinc-700"

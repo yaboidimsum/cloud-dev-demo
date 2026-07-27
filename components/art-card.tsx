@@ -55,15 +55,14 @@ export default function ArtCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="h-full"
     >
-      <div>
-        <div className=" overflow-hidden rounded-lg border border-zinc-300 transition duration-150 ease-in-out hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700">
-          <div className=" relative aspect-video bg-zinc-50/50 dark:bg-zinc-900">
-            <div className="flex min-h-full items-center justify-center">
-              {src}
-            </div>
+      <div className="h-full">
+        <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground transition-[border-color] duration-250 ease-[var(--ease-smooth-out)] hover:border-zinc-400 dark:hover:border-zinc-700 h-full flex flex-col">
+          <div className="relative aspect-video bg-zinc-50/50 dark:bg-zinc-900 flex items-center justify-center">
+            {src}
           </div>
-          <div className="p-4">
+          <div className="p-4 flex-grow flex flex-col justify-between">
             <div className="flex flex-col">
               {tags ? (
                 <div className="mb-4 flex flex-wrap gap-2">
@@ -76,15 +75,12 @@ export default function ArtCard({
                     </span>
                   ))}
                 </div>
-              ) : (
-                <></>
-              )}
+              ) : null}
               <h3 className="mb-1 font-medium">{title}</h3>
             </div>
-            <div className="">
+            <div className="mt-auto pt-2">
               <time className="text-sm font-semibold" dateTime={publishedOn}>
-                {" "}
-                {humanizedDate}{" "}
+                {humanizedDate}
               </time>
             </div>
           </div>
