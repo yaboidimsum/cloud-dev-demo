@@ -88,7 +88,7 @@ export default function BottomNavDock() {
     <div className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2">
       <motion.div
         ref={containerRef}
-        className="t-tabs border border-zinc-200/50 p-1 shadow-lg backdrop-blur-md dark:border-zinc-800/50 flex items-center"
+        className="t-tabs border border-zinc-200/50 p-0.5 sm:p-1 shadow-lg backdrop-blur-md dark:border-zinc-800/50 flex items-center"
         initial={{ y: 80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -111,25 +111,25 @@ export default function BottomNavDock() {
               role="tab"
               aria-selected={isActive}
               className={cn(
-                "t-tab relative flex h-11 w-16 flex-col items-center justify-center rounded-full text-[10px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500",
+                "t-tab relative flex h-10 w-11 sm:h-11 sm:w-16 flex-col items-center justify-center rounded-full text-[10px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500",
                 isActive
                   ? "text-zinc-950 dark:text-zinc-50 font-semibold"
                   : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
               )}
             >
-              <item.icon className="h-4 w-4 mb-0.5" />
-              <span className="scale-[0.9]">{item.name}</span>
+              <item.icon className="h-4 w-4 sm:mb-0.5" />
+              <span className="hidden sm:inline scale-[0.9]">{item.name}</span>
             </Link>
           );
         })}
 
         {/* Vertical Divider */}
-        <div className="mx-2 h-6 w-[1.5px] bg-zinc-200/60 dark:bg-zinc-800/60 z-10" />
+        <div className="mx-1 sm:mx-2 h-5 sm:h-6 w-[1.5px] bg-zinc-200/60 dark:bg-zinc-800/60 z-10" />
 
         {/* Unified Theme Toggle Button */}
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="relative flex h-11 w-11 items-center justify-center rounded-full text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 cursor-pointer z-10"
+          className="relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 cursor-pointer z-10"
           title={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
           aria-label={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
         >
