@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Github, FileText, Linkedin, ChevronDown } from "lucide-react";
+import { Github, FileText, Linkedin, ChevronDown, Mail } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 // import ProjectCard from "@/components/project-card";
 import AvailabilityIndicator from "@/components/availability-indicator";
@@ -186,7 +186,7 @@ export default function Home() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="mr-2 tracking-tighter">✉</span> Email Me
+              <Mail className="mr-2 h-4 w-4" /> Email Me
             </motion.a>
             <motion.a
               target="_blank"
