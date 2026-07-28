@@ -126,7 +126,7 @@ async function BlogContent({ id }: { id: string }) {
       <Suspense fallback={<ClientContentSkeleton />}>
         <ClientContent headings={headings}>
           {content ? (
-            <div className="tracking-tighter">
+            <div className="tracking-tighter w-full min-w-0">
               <MDXRemote
                 source={content}
                 components={components}

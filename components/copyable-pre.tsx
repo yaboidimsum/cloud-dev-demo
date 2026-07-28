@@ -21,7 +21,7 @@ export default function CopyablePre({ children, ...props }: React.HTMLAttributes
   };
 
   return (
-    <div className="relative group my-6">
+    <div className="relative group my-6 w-full max-w-full min-w-0 overflow-hidden">
       <pre
         ref={preRef}
         className="overflow-x-auto rounded-lg bg-zinc-950 p-4 border border-zinc-200 dark:border-zinc-800 text-sm font-mono text-zinc-100"
