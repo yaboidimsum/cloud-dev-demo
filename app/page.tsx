@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Github, FileText, Linkedin, ChevronDown } from "lucide-react";
 import ContributionGraph from "@/components/contribution-graph";
 // import ProjectCard from "@/components/project-card";
@@ -8,6 +8,7 @@ import AvailabilityIndicator from "@/components/availability-indicator";
 import { motion } from "framer-motion";
 import AnimatedBeamDemoClient from "@/components/animated-beam-landing-client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
 // import ProjectCard from "@/components/project-card";
 // import { getBlogPostList } from "./helpers/file-helpers";
 import experienceData from "@/data/experience.json";
@@ -22,6 +23,42 @@ export default function Home() {
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
+
+  const [activeTab, setActiveTab] = useState("work");
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const tabsPillRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const updatePill = (isResize = false) => {
+      const container = tabsContainerRef.current;
+      const pill = tabsPillRef.current;
+      if (!container || !pill) return;
+
+      const activeTrigger = container.querySelector('[data-state="active"]') as HTMLElement;
+      if (activeTrigger) {
+        if (isResize) {
+          pill.style.transition = "none";
+          pill.style.transform = `translateX(${activeTrigger.offsetLeft}px)`;
+          pill.style.width = `${activeTrigger.offsetWidth}px`;
+          void pill.offsetHeight;
+          pill.style.transition = "";
+        } else {
+          pill.style.transform = `translateX(${activeTrigger.offsetLeft}px)`;
+          pill.style.width = `${activeTrigger.offsetWidth}px`;
+        }
+      }
+    };
+
+    const timer = setTimeout(() => updatePill(), 0);
+
+    const handleResize = () => updatePill(true);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [activeTab]);
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -61,8 +98,8 @@ export default function Home() {
           >
             Hey! It&apos;s me 👋
           </motion.p>
-          <motion.h1
-            className="mb-2 text-3xl font-medium tracking-tighter"
+          <motion.div
+            className="flex items-center gap-3 mb-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -72,8 +109,13 @@ export default function Home() {
               damping: 20,
             }}
           >
-            Awan
-          </motion.h1>
+            <div className="relative h-12 w-12 overflow-hidden rounded-full border border-zinc-200/80 bg-white shadow-sm dark:border-zinc-800/80 dark:bg-zinc-950 flex items-center justify-center select-none">
+              <Image src="/kumo.svg" alt="Kumo logo" width={48} height={48} className="h-full w-full object-contain rounded-full" />
+            </div>
+            <h1 className="text-3xl font-medium tracking-tighter">
+              Awan
+            </h1>
+          </motion.div>
           <motion.p
             className="mb-6  text-lg tracking-tighter text-zinc-500 dark:text-zinc-500"
             initial={{ opacity: 0 }}
@@ -194,17 +236,24 @@ export default function Home() {
             <h2 className="mb-4 text-2xl font-medium  tracking-tighter">
               Experience
             </h2>
-            <Tabs defaultValue="work" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 border-zinc-400 bg-zinc-100/70  dark:bg-zinc-900">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+              <TabsList 
+                ref={tabsContainerRef}
+                className="relative flex w-full p-1 bg-zinc-100/70 dark:bg-zinc-900 rounded-full border border-zinc-200/50 dark:border-zinc-800/50 select-none"
+              >
+                <span 
+                  ref={tabsPillRef}
+                  className="absolute top-1 bottom-1 left-0 z-0 bg-white dark:bg-zinc-800 rounded-full shadow-sm transition-[transform,width] duration-250 ease-[var(--ease-smooth-out)]"
+                />
                 <TabsTrigger
                   value="work"
-                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-[var(--ease-smooth-out)]"
+                  className="relative z-10 flex-1 py-1.5 text-sm font-medium tracking-tighter text-zinc-500 data-[state=active]:text-zinc-950 dark:text-zinc-400 dark:data-[state=active]:text-zinc-50 rounded-full transition-colors duration-150 focus-visible:outline-none"
                 >
                   Work History
                 </TabsTrigger>
                 <TabsTrigger
                   value="education"
-                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-[var(--ease-smooth-out)]"
+                  className="relative z-10 flex-1 py-1.5 text-sm font-medium tracking-tighter text-zinc-500 data-[state=active]:text-zinc-950 dark:text-zinc-400 dark:data-[state=active]:text-zinc-50 rounded-full transition-colors duration-150 focus-visible:outline-none"
                 >
                   Education
                 </TabsTrigger>
