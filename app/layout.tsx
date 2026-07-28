@@ -8,7 +8,6 @@ import { cookies } from "next/headers";
 import LenisProvider from "@/context/LenisProvider";
 
 
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://cloudev.netlify.app/"),
   title: "Kumo | Portfolio",
