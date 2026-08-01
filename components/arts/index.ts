@@ -15,3 +15,4 @@ export { default as DynamicWaitingList } from "./DynamicWaitingList/dynamic-wait
 export { default as Waveform } from "./WavelengthBar/apple-music-bar";
 export { default as PhoneCall } from "./WavelengthBar/phone-call";
 export { default as DynamicIsland } from "./WavelengthBar/dynamic-island";
+export { default as FireField } from "./FireField/fire-field";

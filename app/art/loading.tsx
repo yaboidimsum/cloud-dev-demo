@@ -1,42 +1,35 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { X } from "lucide-react";
 
 export default function ArtsLoading() {
   return (
-    <div className="mx-auto max-w-4xl pt-8">
-      <Link
-        href="/"
-        className="mb-8 inline-flex items-center text-zinc-400 transition-colors duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
-      >
-        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
-      </Link>
+    <div className="mx-auto max-w-2xl px-6 sm:px-4 pt-12 pb-24">
+      {/* Vault-style Header Skeleton */}
+      <header className="flex items-center justify-between gap-4 mb-8">
+        <h1 className="font-semibold text-base text-zinc-900 dark:text-zinc-50">Arts</h1>
+        <Link
+          href="/"
+          aria-label="Close"
+          className="relative flex items-center justify-center rounded-md p-1.5 transition-[background-color,color,transform] duration-150 ease-out hover:bg-zinc-100 dark:hover:bg-zinc-900 active:scale-[0.96] text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+        >
+          <X className="h-4 w-4" />
+        </Link>
+      </header>
 
-      <div className="mb-8 flex items-center gap-2">
-        <h1 className="text-3xl font-medium ">Arts</h1>
-      </div>
-
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {/* Generate 6 skeleton cards matching ArtCard layout */}
-        {[...Array(6)].map((_, index) => (
+      {/* Single-Column Grid Skeleton */}
+      <div className="grid grid-cols-1 gap-y-6">
+        {[...Array(4)].map((_, index) => (
           <div
             key={index}
-            className="overflow-hidden rounded-lg border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex flex-col justify-between"
+            className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 p-2"
           >
-            {/* Visual content placeholder (aspect-video) */}
-            <div className="relative aspect-video w-full animate-pulse bg-zinc-200 dark:bg-zinc-900/50" />
+            {/* Aspect-video preview skeleton */}
+            <div className="mx-auto w-full overflow-hidden rounded-[12px] border border-zinc-100 dark:border-zinc-900 bg-zinc-200 dark:bg-zinc-900/50 aspect-video animate-pulse" />
 
-            {/* Content area */}
-            <div className="p-4 flex-grow flex flex-col justify-between">
-              <div>
-                {/* Title placeholder */}
-                <div className="mb-2 h-6 w-3/4 animate-pulse rounded bg-zinc-200 dark:bg-zinc-900" />
-              </div>
-
-              {/* Tags placeholder (at the bottom) */}
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                <div className="h-5 w-12 animate-pulse rounded-full bg-zinc-100 dark:bg-zinc-900" />
-                <div className="h-5 w-16 animate-pulse rounded-full bg-zinc-100 dark:bg-zinc-900" />
-              </div>
+            {/* Bottom metadata skeleton */}
+            <div className="flex items-center justify-between gap-3 px-1 pt-2.5 pb-1">
+              <div className="h-4 w-1/3 rounded bg-zinc-200 dark:bg-zinc-900/60 animate-pulse" />
+              <div className="h-3.5 w-1/5 rounded bg-zinc-200 dark:bg-zinc-900/40 animate-pulse" />
             </div>
           </div>
         ))}

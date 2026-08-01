@@ -1,7 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import "highlight.js/styles/github-dark.css";
 import BottomNavDock from "@/components/bottom-nav-dock";
 import { ThemeProvider } from "@/context/theme-context";
 import { cookies } from "next/headers";

@@ -1,31 +1,4 @@
-import Link from "next/link";
-import { X, Trash } from "lucide-react";
-import ArtCard from "@/components/art-card";
-import {
-  ClipPathButton,
-  DivClipPathButton,
-  TextReveal,
-  CardPopHover,
-  SmoothButton,
-  Toaster,
-  DynamicDrawer,
-  FeedbackPopOver,
-  MultiStepCard,
-  InteractiveGraphAlt,
-  TrashAnimation,
-  VaulDrawer,
-  DynamicIsland,
-  FireField,
-} from "@/components/arts";
-import NavSearchBar from "@/components/arts/NavSearchBar/nav-search-bar";
-
-const FIRE_FIELD_PROMPT = `Build this: Minecraft fire on a 2D canvas: a 16x16, 32-frame flipbook drawn as crisp blocks, with a live mutable pixel buffer the cursor can physically edit (shoving lit pixels around and heating them) that heals back toward the animation over time.
-
-The complete, self-contained implementation follows, one file per block. It is framework-agnostic core logic — wire it into your own component and mount it on an element.
-
-### fire-field/engine.ts
-\`\`\`ts
-import { isMuted } from "../../lib/sound";
+import { isMuted } from "../../../lib/sound";
 
 const N = 16;
 const FRAMES = 32;
@@ -60,7 +33,6 @@ function loadImage(url: string): Promise<HTMLImageElement> {
 }
 
 export type FireFieldOptions = {
-
   reduced?: boolean;
 };
 
@@ -134,7 +106,7 @@ export class FireField {
 
     this.resize();
 
-    window.addEventListener("pointermove", this.onMove, { passive: true });
+    this.stage.addEventListener("pointermove", this.onMove, { passive: true });
     this.stage.addEventListener("pointerenter", this.onEnter);
     this.stage.addEventListener("pointerleave", this.onCardLeave);
     this.stage.addEventListener("pointerdown", this.onTap, { passive: true });
@@ -163,7 +135,7 @@ export class FireField {
 
   private stepAudio = (ms: number) => {
     if (!this.fireSnd) return;
-    const target = this.fireWanted && !isMuted() ? 1.0 : 0;
+    const target = this.fireWanted && !isMuted() ? 0.25 : 0;
 
     this.fireSnd.volume += (target - this.fireSnd.volume) * 0.08;
     if (target > 0 && this.fireSnd.paused) this.fireSnd.play().catch(() => {});
@@ -259,7 +231,6 @@ export class FireField {
       const d = dist[i];
 
       if (d < 0.02) {
-
         if (srcLit) {
           grid[p] = src[p];
           grid[p + 1] = src[p + 1];
@@ -282,7 +253,6 @@ export class FireField {
           continue;
         }
       } else if (lit && !srcLit) {
-
         grid[p] = grid[p + 1] = grid[p + 2] = grid[p + 3] = 0;
       }
       dist[i] = d * (1 - distDecay);
@@ -354,9 +324,9 @@ export class FireField {
         }
       }
       grid.set(scratch);
-    }
 
-    if (snuffedNow >= 3) this.playFizz(ms);
+      if (snuffedNow >= 3 && speed > 2.5) this.playFizz(ms);
+    }
   }
 
   private render() {
@@ -364,7 +334,6 @@ export class FireField {
     const { ctx, canvas, box, off } = this;
     const out = this.buf.data;
     for (let y = 0; y < N; y++) {
-
       const leanFrac = 1 - y / (N - 1);
       const shift = Math.round(this.swayX * leanFrac);
       for (let x = 0; x < N; x++) {
@@ -429,7 +398,7 @@ export class FireField {
   destroy() {
     this.dead = true;
     this.stop();
-    window.removeEventListener("pointermove", this.onMove);
+    this.stage.removeEventListener("pointermove", this.onMove);
     this.stage.removeEventListener("pointerenter", this.onEnter);
     this.stage.removeEventListener("pointerleave", this.onCardLeave);
     this.stage.removeEventListener("pointerdown", this.onTap);
@@ -437,139 +406,4 @@ export class FireField {
     if (this.fizzSnd) this.fizzSnd.src = "";
     this.canvas.remove();
   }
-}
-\`\`\``;
-
-export default async function Arts() {
-  return (
-    <div className="mx-auto max-w-2xl px-6 sm:px-4 pt-12 pb-24">
-      {/* Vault-style Header */}
-      <header className="flex items-center justify-between gap-4 mb-8">
-        <h1 className="font-semibold text-base text-zinc-900 dark:text-zinc-50">Arts</h1>
-        <Link
-          href="/"
-          aria-label="Close"
-          className="relative flex items-center justify-center rounded-md p-1.5 transition-[background-color,color,transform] duration-150 ease-out hover:bg-zinc-100 dark:hover:bg-zinc-900 active:scale-[0.96] text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
-        >
-          <X className="h-4 w-4" />
-        </Link>
-      </header>
-
-      {/* Single-Column Grid */}
-      <div className="grid grid-cols-1 gap-y-6">
-        <ArtCard
-          id="minecraft-fire"
-          publishedOn="2026-08-01T12:00:00-0400"
-          title="Minecraft Fire Canvas"
-          src={<FireField />}
-          promptText={FIRE_FIELD_PROMPT}
-        />
-        <ArtCard
-          id="clip-path-delete"
-          publishedOn="2025-09-18T12:00:00-0400"
-          title="Clip-path Animation"
-          src={
-            <ClipPathButton
-              textBefore="Hold to Delete"
-              textAfter="Deleting Stuffs!"
-              logo={<Trash size={16} />}
-              variant="danger"
-            />
-          }
-          tags={["css", "clip-path"]}
-        />
-        <ArtCard
-          id="text-reveal"
-          publishedOn="2025-09-23T12:00:00-0400"
-          title="Text Reveal"
-          src={<TextReveal text="tvcarchase94" placeholder="Animation" />}
-          tags={["css", "keyframes"]}
-        />
-        <ArtCard
-          id="clip-path-transform"
-          publishedOn="2025-09-23T12:00:00-0400"
-          title="Clip-path with Transform"
-          src={<DivClipPathButton text="Peek a Boo! 👻" variant="primary" />}
-          tags={["css", "clip-path"]}
-        />
-        <ArtCard
-          id="card-hover"
-          publishedOn="2025-09-24T12:00:00-0400"
-          title="Card Hover"
-          src={<CardPopHover />}
-          tags={["css", "transitions"]}
-        />
-        <ArtCard
-          id="smooth-toast"
-          publishedOn="2025-09-25T12:00:00-0400"
-          title="Smooth Toast"
-          src={<Toaster />}
-          tags={["css", "transitions"]}
-        />
-        <ArtCard
-          id="smooth-button"
-          publishedOn="2025-09-26T12:00:00-0400"
-          title="Smooth Motion Button"
-          src={<SmoothButton />}
-          tags={["spring-animation", "framer-motion"]}
-        />
-        <ArtCard
-          id="dynamic-drawer"
-          publishedOn="2025-09-27T12:00:00-0400"
-          title="Dynamic Drawer"
-          src={<DynamicDrawer />}
-          tags={["spring-animation", "framer-motion"]}
-        />
-        <ArtCard
-          id="feedback-popover"
-          publishedOn="2025-09-29T12:00:00-0400"
-          title="Feedback Pop Over"
-          src={<FeedbackPopOver />}
-          tags={["spring-animation", "framer-motion", "animate-presence"]}
-        />
-        <ArtCard
-          id="multi-step-card"
-          publishedOn="2025-09-30T12:00:00-0400"
-          title="Dynamic Multi-Step"
-          src={<MultiStepCard />}
-          tags={["spring-animation", "framer-motion"]}
-        />
-        <ArtCard
-          id="interactive-graph"
-          publishedOn="2025-10-01T12:00:00-0400"
-          title="Interactive Graph"
-          src={<InteractiveGraphAlt />}
-          tags={["clip-path", "framer-motion"]}
-        />
-        <ArtCard
-          id="interactable-trash"
-          publishedOn="2025-10-07T12:00:00-0400"
-          title="Interactable Trash"
-          src={<TrashAnimation />}
-          tags={["spring-animation", "framer-motion"]}
-        />
-        <ArtCard
-          id="vaul-drawer"
-          publishedOn="2025-10-08T12:00:00-0400"
-          title="Dynamic Drawer"
-          src={<VaulDrawer />}
-          tags={["spring-animation", "framer-motion"]}
-        />
-        <ArtCard
-          id="dynamic-island"
-          publishedOn="2025-10-29T12:00:00-0400"
-          title="Dynamic Island"
-          src={<DynamicIsland />}
-          tags={["spring-animation", "framer-motion"]}
-        />
-        <ArtCard
-          id="nav-searchbar"
-          publishedOn="2025-10-29T12:00:00-0400"
-          title="NavSearchBar"
-          src={<NavSearchBar />}
-          tags={["spring-animation", "framer-motion"]}
-        />
-      </div>
-    </div>
-  );
 }
