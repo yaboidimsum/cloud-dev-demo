@@ -30,12 +30,27 @@ export default function BottomNavDock() {
   useEffect(() => {
     if (!theme) return;
     const root = document.documentElement;
+
+    // performance skill: disable transitions during theme swap
+    root.classList.add("no-transitions");
+
     if (theme === "dark") {
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");
     }
     Cookie.set("color-theme", theme, { expires: 1000 });
+
+    // performance skill: re-enable after paint
+    const frameId1 = requestAnimationFrame(() => {
+      const frameId2 = requestAnimationFrame(() => {
+        root.classList.remove("no-transitions");
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(frameId1);
+    };
   }, [theme]);
 
   // Wire up the transitions.dev sliding pill
@@ -111,7 +126,7 @@ export default function BottomNavDock() {
               role="tab"
               aria-selected={isActive}
               className={cn(
-                "t-tab relative flex h-10 w-11 sm:h-11 sm:w-16 flex-col items-center justify-center rounded-full text-[10px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500",
+                "t-tab relative flex h-10 w-11 sm:h-11 sm:w-16 flex-col items-center justify-center rounded-full text-[10px] font-medium transition-[color,background-color,transform] duration-150 ease-out active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 before:absolute before:-inset-y-0.5 before:inset-x-0",
                 isActive
                   ? "text-zinc-950 dark:text-zinc-50 font-semibold"
                   : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
@@ -129,7 +144,7 @@ export default function BottomNavDock() {
         {/* Unified Theme Toggle Button */}
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 cursor-pointer z-10"
+          className="relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-[color,background-color,transform] duration-150 ease-out active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 cursor-pointer z-10 before:absolute before:-inset-0.5"
           title={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
           aria-label={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
         >

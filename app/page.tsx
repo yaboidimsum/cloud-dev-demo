@@ -13,10 +13,16 @@ import Image from "next/image";
 // import { getBlogPostList } from "./helpers/file-helpers";
 import experienceData from "@/data/experience.json";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/context/theme-context";
 
 export default function Home() {
   const [showAllWork, setShowAllWork] = useState(false);
   const [expandedJobs, setExpandedJobs] = useState<number[]>([]);
+  const { theme } = useTheme();
+
+  const btnHoverShadow = theme === "dark"
+    ? "0 0 0 1px rgba(255, 255, 255, 0.15)"
+    : "0 2px 4px rgba(0,0,0,0.02), 0 8px 16px rgba(0,0,0,0.06)";
 
   const toggleJobExpand = (index: number) => {
     setExpandedJobs((prev) =>
@@ -91,7 +97,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <motion.p
-            className="mb-1 tracking-tighter text-zinc-500  dark:text-zinc-500"
+            className="mb-1 text-zinc-500  dark:text-zinc-500"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -112,12 +118,12 @@ export default function Home() {
             <div className="relative h-12 w-12 overflow-hidden rounded-full border border-zinc-200/80 bg-white shadow-sm dark:border-zinc-800/80 dark:bg-zinc-950 flex items-center justify-center select-none">
               <Image src="/kumo.svg" alt="Kumo logo" width={48} height={48} className="h-full w-full object-contain rounded-full" />
             </div>
-            <h1 className="text-3xl font-medium tracking-tighter">
+            <h1 className="text-3xl font-medium">
               Awan
             </h1>
           </motion.div>
           <motion.p
-            className="mb-6  text-lg tracking-tighter text-zinc-500 dark:text-zinc-500"
+            className="mb-6  text-lg text-zinc-500 dark:text-zinc-500"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -134,16 +140,15 @@ export default function Home() {
           className="space-y-6"
         >
           <motion.p
-            variants={item}
-            className="mb-2 tracking-tighter text-zinc-400  dark:text-zinc-500"
+            className="mb-2 text-zinc-400  dark:text-zinc-500"
           >
             Yup! I&apos;m a{" "}
-            <span className="font-medium tracking-tighter text-zinc-800  dark:text-zinc-50">
+            <span className="font-medium text-zinc-800  dark:text-zinc-50">
               Frontend Developer
             </span>
             . Big deal, right? But wait, there&apos;s more! I&apos;m not just a
             developer, I&apos;m a{" "}
-            <span className="font-medium tracking-tighter text-zinc-800  dark:text-zinc-50 ">
+            <span className="font-medium text-zinc-800  dark:text-zinc-50 ">
               Design Engineer
             </span>
             {/* . And if that wasn&apos;t enough, guess what? maybe{" "}
@@ -152,19 +157,18 @@ export default function Home() {
           </motion.p>
 
           <motion.p
-            variants={item}
-            className="mb-6 tracking-tighter text-zinc-400  dark:text-zinc-500"
+            className="mb-6 text-zinc-400  dark:text-zinc-500"
           >
             I love both{" "}
-            <span className="font-medium tracking-tighter text-zinc-800  dark:text-zinc-50 ">
+            <span className="font-medium text-zinc-800  dark:text-zinc-50 ">
               Development
             </span>{" "}
             and{" "}
-            <span className="font-medium tracking-tighter text-zinc-800  dark:text-zinc-50 ">
+            <span className="font-medium text-zinc-800  dark:text-zinc-50 ">
               Design
             </span>
             , so. That means{" "}
-            <span className="font-medium tracking-tighter text-zinc-800  dark:text-zinc-50 ">
+            <span className="font-medium text-zinc-800  dark:text-zinc-50 ">
               I can create beautiful and functional websites
             </span>
             . I&apos;m always looking for new opportunities to learn and grow. Beyond engineering, I love exploring music (especially tweepop, dreampop, and midwest emo) and digital art.
@@ -177,14 +181,14 @@ export default function Home() {
               className=" flex items-center rounded-md   px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100/10 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                boxShadow: btnHoverShadow,
                 transition: {
                   type: "spring",
                   stiffness: 300,
                   damping: 15,
                 },
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.96 }}
             >
               <Mail className="mr-2 h-4 w-4" /> Email Me
             </motion.a>
@@ -194,12 +198,12 @@ export default function Home() {
               className=" flex items-center rounded-md   px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100/10 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                boxShadow: btnHoverShadow,
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.96 }}
             >
-              <Github className="mr-2 h-4 w-4  tracking-tighter" /> Github
+              <Github className="mr-2 h-4 w-4" /> Github
             </motion.a>
             <motion.a
               target="_blank"
@@ -207,12 +211,12 @@ export default function Home() {
               className=" flex items-center rounded-md   px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100/10 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                boxShadow: btnHoverShadow,
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.96 }}
             >
-              <Linkedin className="mr-2 h-4 w-4  tracking-tighter" /> Linkedin
+              <Linkedin className="mr-2 h-4 w-4" /> Linkedin
             </motion.a>
             <motion.a
               target="_blank"
@@ -220,12 +224,12 @@ export default function Home() {
               className=" flex items-center rounded-md   px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100/10 dark:border-0 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               whileHover={{
                 y: -5,
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                boxShadow: btnHoverShadow,
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.96 }}
             >
-              <FileText className="mr-2 h-4 w-4  tracking-tighter" /> Resume
+              <FileText className="mr-2 h-4 w-4" /> Resume
             </motion.a>
           </motion.div>
           <motion.div variants={item}>
@@ -233,7 +237,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div variants={item} className="mt-8">
-            <h2 className="mb-4 text-2xl font-medium  tracking-tighter">
+            <h2 className="mb-4 text-2xl font-medium">
               Experience
             </h2>
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -247,13 +251,13 @@ export default function Home() {
                 />
                 <TabsTrigger
                   value="work"
-                  className="relative z-10 flex-1 py-1.5 text-sm font-medium tracking-tighter text-zinc-500 data-[state=active]:text-zinc-950 dark:text-zinc-400 dark:data-[state=active]:text-zinc-50 rounded-full transition-colors duration-150 focus-visible:outline-none"
+                  className="relative z-10 flex-1 py-1.5 text-sm font-medium text-zinc-500 data-[state=active]:text-zinc-950 dark:text-zinc-400 dark:data-[state=active]:text-zinc-50 rounded-full transition-colors duration-150 focus-visible:outline-none"
                 >
                   Work History
                 </TabsTrigger>
                 <TabsTrigger
                   value="education"
-                  className="relative z-10 flex-1 py-1.5 text-sm font-medium tracking-tighter text-zinc-500 data-[state=active]:text-zinc-950 dark:text-zinc-400 dark:data-[state=active]:text-zinc-50 rounded-full transition-colors duration-150 focus-visible:outline-none"
+                  className="relative z-10 flex-1 py-1.5 text-sm font-medium text-zinc-500 data-[state=active]:text-zinc-950 dark:text-zinc-400 dark:data-[state=active]:text-zinc-50 rounded-full transition-colors duration-150 focus-visible:outline-none"
                 >
                   Education
                 </TabsTrigger>
@@ -297,11 +301,11 @@ export default function Home() {
                                 </span>
                               )}
                             </div>
-                            <span className="rounded-full px-2 py-1 text-xs font-medium tracking-tighter text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
+                            <span className="rounded-full px-2 py-1 text-xs font-medium text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
                               {job.workType}
                             </span>
                           </div>
-                          <p className="text-sm tracking-tighter text-zinc-500">
+                          <p className="text-sm text-zinc-500">
                             {job.company} • {job.period}
                           </p>
                           <motion.div
@@ -314,10 +318,10 @@ export default function Home() {
                             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                             className="overflow-hidden"
                           >
-                            <p className="mt-2 text-xs italic tracking-tighter text-zinc-500">
+                            <p className="mt-2 text-xs italic text-zinc-500">
                               {job.location}
                             </p>
-                            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm tracking-tighter">
+                            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                               {job.description.map((point, i) => (
                                 <li key={i}>{point}</li>
                               ))}
@@ -330,7 +334,7 @@ export default function Home() {
                     {experienceData.workHistory.length > 3 && (
                       <button
                         onClick={() => setShowAllWork(!showAllWork)}
-                        className="w-full py-2.5 mt-2 text-xs font-medium tracking-tight text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors duration-150 ease-[var(--ease-smooth-out)] active:scale-[0.98] select-none cursor-pointer"
+                        className="w-full py-2.5 mt-2 text-xs font-medium text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors duration-150 ease-[var(--ease-smooth-out)] active:scale-[0.98] select-none cursor-pointer"
                       >
                         {showAllWork ? "Show Less" : `Show More (${experienceData.workHistory.length - 3} older roles)`}
                       </button>
@@ -365,7 +369,7 @@ export default function Home() {
                 </TabsContent>
               </motion.div>
             </Tabs>
-            <p className="mt-4 text-center text-sm tracking-tighter text-zinc-500">
+            <p className="mt-4 text-center text-sm text-zinc-500">
               You can see more here{" "}
               <a
                 href="https://www.linkedin.com/in/dimas-prihady-setyawan-47a66821a/"

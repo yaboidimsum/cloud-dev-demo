@@ -22,7 +22,7 @@ Verbatim code from `app/skills/page.tsx:29-52`:
   }) => {
     return (
       <motion.div
-        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-300 px-3 py-1.5 text-sm tracking-tighter dark:bg-zinc-900"
+        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-300 px-3 py-1.5 text-sm  dark:bg-zinc-900"
         whileHover={{
           y: -5,
           boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
@@ -73,7 +73,7 @@ const badgeVariants = {
   }) => {
     return (
       <motion.div
-        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-300 px-3 py-1.5 text-sm tracking-tighter dark:bg-zinc-900"
+        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-300 px-3 py-1.5 text-sm  dark:bg-zinc-900"
         variants={badgeVariants}
         whileHover={{
           y: -5,
@@ -95,7 +95,7 @@ And update category flex lists:
             variants={containerVariants} 
             initial="hidden" 
             animate="show" 
-            className="flex flex-wrap tracking-tighter"
+            className="flex flex-wrap "
           >
             <SkillBadge icon={<SiJavascript />} name="JavaScript" />
             ...
@@ -113,7 +113,7 @@ And update category flex lists:
 2. Define `containerVariants` and `badgeVariants` constants outside the `Skills` component definition.
 3. Update `SkillBadge` definition (lines 29-52) by removing `initial`, `animate`, and `transition` props from `<motion.div>`. Add `variants={badgeVariants}` to inherit the animation sequence.
 4. Locate the list containers under each `<SectionTitle>` category:
-   - For **LANGUAGES** (line 114): change `<div className="flex flex-wrap tracking-tighter">` to `<motion.div variants={containerVariants} initial="hidden" animate="show" className="flex flex-wrap tracking-tighter">`. Add corresponding closing `</motion.div>`.
+   - For **LANGUAGES** (line 114): change `<div className="flex flex-wrap ">` to `<motion.div variants={containerVariants} initial="hidden" animate="show" className="flex flex-wrap ">`. Add corresponding closing `</motion.div>`.
    - For **FRAMEWORKS** (line 123): change `<div className="flex flex-wrap">` to `<motion.div variants={containerVariants} initial="hidden" animate="show" className="flex flex-wrap">`. Add corresponding closing `</motion.div>`.
    - For **LIBRARIES** (line 130): change `<div className="flex flex-wrap">` to `<motion.div variants={containerVariants} initial="hidden" animate="show" className="flex flex-wrap">`. Add corresponding closing `</motion.div>`.
    - For **TOOLS** (line 136): change `<div className="flex flex-wrap">` to `<motion.div variants={containerVariants} initial="hidden" animate="show" className="flex flex-wrap">`. Add corresponding closing `</motion.div>`.

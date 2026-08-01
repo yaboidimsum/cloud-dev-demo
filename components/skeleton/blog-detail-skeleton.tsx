@@ -7,7 +7,7 @@ export default function BlogDetailSkeleton() {
       {/* Back link */}
       <Link
         href="/blogs/"
-        className="mb-8 inline-flex items-center tracking-tighter text-zinc-400 hover:text-white"
+        className="mb-8 inline-flex items-center  text-zinc-400 hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
       </Link>

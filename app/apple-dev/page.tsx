@@ -16,13 +16,13 @@ export default async function Projects() {
     <div className="mx-auto max-w-4xl pt-8">
       <Link
         href="/"
-        className="mb-8 inline-flex items-center tracking-tighter text-gray-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center text-gray-400 transition-colors duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
       >
-        <ArrowLeft className="mr-2 h-4 w-4 tracking-tighter" /> Back to Home
+        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
       </Link>
       <div className="flex flex-col gap-2">
         <AppleLocation text="Apple Developer Academy @ Central Jakarta" />
-        <h1 className="mb-8 text-3xl font-medium tracking-tighter">
+        <h1 className="mb-8 text-3xl font-medium  balance">
           Apple Developer Academy Challenge (Cohort 2026)
         </h1>
       </div>

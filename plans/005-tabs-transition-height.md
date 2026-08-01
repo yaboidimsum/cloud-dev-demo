@@ -19,13 +19,13 @@ Verbatim code from `app/page.tsx:197-281`:
               <TabsList className="grid w-full grid-cols-2 border-zinc-400 bg-zinc-100/70  dark:bg-zinc-900">
                 <TabsTrigger
                   value="work"
-                  className="tracking-tighter transition-all duration-300  ease-in-out "
+                  className=" transition-all duration-300  ease-in-out "
                 >
                   Work History
                 </TabsTrigger>
                 <TabsTrigger
                   value="education"
-                  className="tracking-tighter transition-all duration-300  ease-in-out "
+                  className=" transition-all duration-300  ease-in-out "
                 >
                   Education
                 </TabsTrigger>
@@ -47,13 +47,13 @@ Verbatim code from `app/page.tsx:197-281`:
               <TabsList className="grid w-full grid-cols-2 border-zinc-400 bg-zinc-100/70  dark:bg-zinc-900">
                 <TabsTrigger
                   value="work"
-                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-out"
+                  className=" transition-[color,box-shadow,background-color] duration-150 ease-out"
                 >
                   Work History
                 </TabsTrigger>
                 <TabsTrigger
                   value="education"
-                  className="tracking-tighter transition-[color,box-shadow,background-color] duration-150 ease-out"
+                  className=" transition-[color,box-shadow,background-color] duration-150 ease-out"
                 >
                   Education
                 </TabsTrigger>

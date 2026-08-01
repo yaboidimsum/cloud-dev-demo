@@ -163,13 +163,13 @@ export default function MergeCards() {
                     />
                   </g>
                 </svg>
-                <p className="font-semibold tracking-tighter">PayPal</p>
+                <p className="font-semibold ">PayPal</p>
 
                 <div className="flex h-4 w-4"></div>
               </div>
-              <p className="text-xs tracking-tighter text-gray-400">10:07 AM (UTC-8)</p>
+              <p className="text-xs  text-gray-400">10:07 AM (UTC-8)</p>
             </div>
-            <p className="font-semibold tracking-tighter">-$15.00</p>
+            <p className="font-semibold ">-$15.00</p>
           </div>
         </motion.div>
 
@@ -234,12 +234,12 @@ export default function MergeCards() {
                     </g>
                   </g>
                 </svg>
-                <p className="font-semibold tracking-tighter">Gopay</p>
+                <p className="font-semibold ">Gopay</p>
               </div>
 
-              <p className="text-xs tracking-tighter text-gray-400">12:07 AM (UTC+7)</p>
+              <p className="text-xs  text-gray-400">12:07 AM (UTC+7)</p>
             </div>
-            <p className="font-semibold tracking-tighter text-green-600">+Rp249.885,00</p>
+            <p className="font-semibold  text-green-600">+Rp249.885,00</p>
           </div>
         </motion.div>
       </motion.div>

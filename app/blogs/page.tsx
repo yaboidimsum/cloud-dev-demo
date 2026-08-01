@@ -11,15 +11,15 @@ export default async function Projects() {
   // console.log(projectPost);
 
   return (
-    <div className="mx-auto max-w-4xl pt-8 transition duration-300 ease-in-out">
+    <div className="mx-auto max-w-4xl pt-8">
       <Link
         href="/"
-        className="mb-8 inline-flex items-center tracking-tight text-zinc-400  hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center text-zinc-400  hover:text-zinc-600 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4 " /> Back to Home
       </Link>
 
-      <h1 className="mb-8 text-3xl font-bold">Blogs</h1>
+      <h1 className="mb-8 text-3xl font-bold  balance">Blogs</h1>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {projectPost.map(({ slug, ...delegated }) => (

@@ -23,7 +23,7 @@ const buttonVariants = cva(
 )
 
 /* availability-indicator.tsx:14 */
-className={`inline-flex items-center rounded-md px-4 py-2 text-sm font-medium tracking-tight transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm ${ ... }`}
+className={`inline-flex items-center rounded-md px-4 py-2 text-sm font-medium  transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm ${ ... }`}
 
 /* projects-list.tsx:74 */
 className="... focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-all text-zinc-900 dark:text-zinc-50"
@@ -44,7 +44,7 @@ const buttonVariants = cva(
 )
 
 /* availability-indicator.tsx:14 */
-className={`inline-flex items-center rounded-md px-4 py-2 text-sm font-medium tracking-tight transition-[transform,box-shadow,background-color,color] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm ${ ... }`}
+className={`inline-flex items-center rounded-md px-4 py-2 text-sm font-medium  transition-[transform,box-shadow,background-color,color] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm ${ ... }`}
 
 /* projects-list.tsx:74 */
 className="... focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-[border-color,box-shadow,background-color] duration-150 ease-out text-zinc-900 dark:text-zinc-50"

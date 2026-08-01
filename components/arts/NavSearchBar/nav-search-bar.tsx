@@ -103,7 +103,7 @@ export default function NavSearchBar() {
                         }
                         data-tab={tab.name}
                         onClick={() => setActiveTab(tab.name)}
-                        className={`${NavSearchBarStyle.button} cursor-pointer tracking-tighter`}
+                        className={`${NavSearchBarStyle.button} cursor-pointer `}
                       >
                         {tab.icon}
                         {tab.name}
@@ -125,7 +125,7 @@ export default function NavSearchBar() {
                         <button
                           data-tab={tab.name}
                           onClick={() => setActiveTab(tab.name)}
-                          className={`${NavSearchBarStyle.button} ${NavSearchBarStyle.buttonOverlay} cursor-pointer tracking-tighter `}
+                          className={`${NavSearchBarStyle.button} ${NavSearchBarStyle.buttonOverlay} cursor-pointer  `}
                           tabIndex={-1}
                         >
                           {tab.icon}

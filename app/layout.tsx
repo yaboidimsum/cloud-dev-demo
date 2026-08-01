@@ -49,7 +49,7 @@ export default async function RootLayout({
       <LenisProvider>
         <body className="antialiased">
           <ThemeProvider initialTheme={theme}>
-            <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">
+            <div className="flex min-h-screen bg-background text-foreground">
               <BottomNavDock />
               <main className="flex-1 overflow-auto p-4 pt-0 pb-28 md:p-6 md:pb-28 lg:overflow-visible lg:p-8 lg:pb-28">
                 <div className="mx-auto max-w-[732px] w-full px-4">

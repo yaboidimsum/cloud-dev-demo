@@ -126,28 +126,29 @@ export default function ClientBlogContent({
 
   return (
     <>
-      <div className="flex w-full items-start gap-4">
+      <div className="relative w-full">
         <article
           ref={contentRef}
-          className="prose prose-invert max-w-none flex-1 min-w-0 prose-headings:scroll-mt-20 prose-headings:text-white prose-a:text-blue-400 prose-strong:text-white prose-code:text-white prose-pre:bg-zinc-800"
+          className="prose prose-invert max-w-none w-full prose-headings:scroll-mt-20 prose-headings:text-white prose-a:text-blue-400 prose-strong:text-white prose-code:text-white prose-pre:bg-zinc-800"
         >
           {children}
         </article>
         {/* Ensure TOC only renders if there are headings */}
         {headings.length > 0 && (
           <>
-            <div className="hidden w-56 lg:sticky lg:top-24 lg:mt-10 lg:block">
-              {/* Adjusted top offset, hide on smaller screens */}
-              <TableOfContents
-                headings={headings}
-                currentId={currentId} // Pass the current heading ID
-              />
+            <div className="absolute left-full -top-10 ml-12 hidden xl:block w-56 2xl:w-64 h-full pointer-events-none">
+              <div className="sticky top-24 pointer-events-auto mt-10">
+                <TableOfContents
+                  headings={headings}
+                  currentId={currentId} // Pass the current heading ID
+                />
+              </div>
             </div>
 
             <Drawer.Root open={showTOC} onOpenChange={setShowTOC}>
               <Drawer.Trigger asChild>
                 <motion.button
-                  className="fixed bottom-20 right-6 z-40 flex items-center gap-1.5 rounded-full bg-zinc-900/95 px-4 py-2.5 text-xs font-medium tracking-tight text-white shadow-lg backdrop-blur-md border border-zinc-800/80 hover:bg-zinc-800 active:scale-95 lg:hidden"
+                  className="fixed bottom-20 right-6 z-40 flex items-center gap-1.5 rounded-full bg-zinc-900/95 px-4 py-2.5 text-xs font-medium  text-white shadow-lg backdrop-blur-md border border-zinc-800/80 hover:bg-zinc-800 active:scale-95 xl:hidden"
                   whileTap={{ scale: 0.95 }}
                 >
                   📖 Table of Contents

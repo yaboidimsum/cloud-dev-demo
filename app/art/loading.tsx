@@ -6,13 +6,13 @@ export default function ArtsLoading() {
     <div className="mx-auto max-w-4xl pt-8">
       <Link
         href="/"
-        className="mb-8 inline-flex items-center tracking-tighter text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center text-zinc-400 transition-colors duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
       </Link>
 
       <div className="mb-8 flex items-center gap-2">
-        <h1 className="text-3xl font-medium tracking-tighter">Arts</h1>
+        <h1 className="text-3xl font-medium ">Arts</h1>
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

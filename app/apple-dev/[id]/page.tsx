@@ -95,43 +95,41 @@ async function BlogContent({ id }: { id: string }) {
   const headings = extractHeadings(content);
 
   return (
-    <>
-      {/* Cover image */}
-      {frontmatter.src && (
-        <div className=" h-100 relative mb-8 w-full overflow-hidden rounded-lg">
-          <Image
-            src={frontmatter.src || "/placeholder.svg"}
-            alt={frontmatter.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      )}
+    <Suspense fallback={<ClientContentSkeleton />}>
+      <ClientContent headings={headings}>
+        {/* Cover image */}
+        {frontmatter.src && (
+          <div className="h-100 relative mb-8 w-full overflow-hidden rounded-lg">
+            <Image
+              src={frontmatter.src || "/placeholder.svg"}
+              alt={frontmatter.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
 
-      {/* Blog header */}
-      <BlogHeader
-        title={frontmatter.title}
-        publishedOn={frontmatter.publishedOn}
-        abstract={frontmatter.abstract}
-        authorPict={frontmatter.authorPict}
-        slug={id}
-        type="project"
-      />
+        {/* Blog header */}
+        <BlogHeader
+          title={frontmatter.title}
+          publishedOn={frontmatter.publishedOn}
+          abstract={frontmatter.abstract}
+          authorPict={frontmatter.authorPict}
+          slug={id}
+          type="project"
+        />
 
-      <Suspense fallback={<ClientContentSkeleton />}>
-        <ClientContent headings={headings}>
-          {content ? (
-            <div className="tracking-tighter w-full min-w-0">
-              <MDXRemote source={content} components={components} />
-              {/* <ViewCounterTest slug={id} type="project" /> */}
-            </div>
-          ) : (
-            <span className="mt-100">Content will be added soon! ✨</span>
-          )}
-        </ClientContent>
-      </Suspense>
-    </>
+        {content ? (
+          <div className="w-full min-w-0">
+            <MDXRemote source={content} components={components} />
+            {/* <ViewCounterTest slug={id} type="project" /> */}
+          </div>
+        ) : (
+          <span className="mt-100">Content will be added soon! ✨</span>
+        )}
+      </ClientContent>
+    </Suspense>
   );
 }
 
@@ -147,13 +145,13 @@ export default async function ProjectDetail({
   const { id } = await params;
 
   return (
-    <div className="mx-auto flex max-w-4xl w-full min-w-0 flex-col pl-2 pt-8">
+    <div className="mx-auto flex max-w-3xl w-full min-w-0 flex-col pl-2 pt-8 relative">
       {/* Add this line */}
       <ViewTracker slug={id} type="project" />
 
       <Link
         href="/projects"
-        className="mb-8 inline-flex items-center tracking-tighter text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center text-zinc-400 transition-colors duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
       </Link>

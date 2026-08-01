@@ -6,16 +6,16 @@ export default function ResourcesLoading() {
     <div className="mx-auto max-w-4xl pt-8">
       <Link
         href="/"
-        className="mb-8 inline-flex items-center tracking-tighter text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center  text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
       </Link>
 
       <div className="mb-12">
-        <h1 className="mb-2 text-3xl font-medium tracking-tighter text-zinc-900 dark:text-zinc-50">
+        <h1 className="mb-2 text-3xl font-medium  text-zinc-900 dark:text-zinc-50">
           Resources
         </h1>
-        <p className="mb-8 text-sm tracking-tighter text-zinc-500 dark:text-zinc-400">
+        <p className="mb-8 text-sm  text-zinc-500 dark:text-zinc-400">
           A curated collection of design guidelines, courses, and utilities that I learn from and use in daily engineering work.
         </p>
 

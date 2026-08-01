@@ -58,7 +58,7 @@ export default function Skills() {
   }) => {
     return (
       <motion.div
-        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium tracking-tighter text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
+        className="mb-2 mr-2 inline-flex items-center space-x-1.5 rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
         variants={badgeVariants}
         whileHover={{
           y: -5,
@@ -74,7 +74,7 @@ export default function Skills() {
 
   const SectionTitle = ({ title }: { title: string }) => (
     <motion.div
-      className="mb-3 mt-6 text-sm tracking-tighter text-zinc-500 dark:text-zinc-400"
+      className="mb-3 mt-6 text-sm text-zinc-500 dark:text-zinc-400"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -87,7 +87,7 @@ export default function Skills() {
     <div className="mx-auto max-w-4xl pt-8" ref={containerRef}>
       <div className="mb-12">
         <motion.h1
-          className="mb-2 text-center text-3xl font-medium tracking-tighter"
+          className="mb-2 text-center text-3xl font-medium "
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -95,7 +95,7 @@ export default function Skills() {
           Skills
         </motion.h1>
         <motion.p
-          className="mb-12 text-center text-sm tracking-tighter text-zinc-500 dark:text-zinc-400"
+          className="mb-12 text-center text-sm text-zinc-500 dark:text-zinc-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -109,7 +109,7 @@ export default function Skills() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <p className="tracking-tighter text-zinc-700 dark:text-zinc-300">
+          <p className="text-zinc-700 dark:text-zinc-300">
             My main tech stack is{" "}
             <span className="mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiNextdotjs className="mr-1 text-black dark:text-white" /> NextJs
@@ -121,7 +121,7 @@ export default function Skills() {
             CSS as a styling library for Frontend works
           </p>
 
-          <p className="mt-4 tracking-tighter text-zinc-700 dark:text-zinc-300">
+          <p className="mt-4 text-zinc-700 dark:text-zinc-300">
             I also into Deep Learning stuff, I use{" "}
             <span className="mx-1 inline-flex items-center rounded-md bg-zinc-200 px-2 py-0.5 text-sm dark:bg-zinc-900">
               <SiPytorch className="mr-1 text-[#EE4C2C]" /> Pytorch
@@ -136,7 +136,7 @@ export default function Skills() {
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="flex flex-wrap tracking-tighter"
+            className="flex flex-wrap"
           >
             <SkillBadge icon={<SiTypescript className="text-[#3178C6]" />} name="TypeScript" />
             <SkillBadge icon={<SiPython className="text-[#3776AB]" />} name="Python" />

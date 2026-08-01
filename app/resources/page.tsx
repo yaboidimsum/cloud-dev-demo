@@ -16,11 +16,28 @@ import {
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
+const getCategoryLabel = (cat: string) => {
+  switch (cat) {
+    case "all":
+      return "📚 All";
+    case "learn":
+      return "📖 Learn";
+    case "use":
+      return "📝 Docs";
+    case "ui":
+      return "💻 Library";
+    case "interesting-design":
+      return "💡 Design Company";
+    default:
+      return cat;
+  }
+};
+
 interface Resource {
   title: string;
   description: string;
   url: string;
-  category: "learn" | "use";
+  category: "learn" | "use" | "ui" | "interesting-design";
   tags: string[];
   icon: IconType;
   color: string;
@@ -45,6 +62,15 @@ const resources: Resource[] = [
     tags: ["Animations", "React", "Design-Engineer"],
     icon: SiFramer,
     color: "#FF00C5",
+  },
+  {
+    title: "aiforui.dev",
+    description: "Emil Kowalski's interactive course on using AI as a design partner to build high-quality, delightful user interfaces.",
+    url: "https://aiforui.dev/",
+    category: "learn",
+    tags: ["AI-UI", "Aesthetics", "Design-Engineer"],
+    icon: SiFramer,
+    color: "#0082FB",
   },
   {
     title: "Apple Human Interface Guidelines",
@@ -73,17 +99,17 @@ const resources: Resource[] = [
     icon: SiLinear,
     color: "#5E6AD2",
   },
+  {
+    title: "Devanuj Nath",
+    description: "Devanuj Nath's stunning portfolio showcase of sharp logos, brand identity, and clean visual design systems.",
+    url: "https://www.devanujnath.com/",
+    category: "learn",
+    tags: ["Brand-Design", "Aesthetics", "Inspiration"],
+    icon: SiFigma,
+    color: "#FF4B2B",
+  },
 
   // Use Resources
-  {
-    title: "transitions.dev",
-    description: "Production-ready transition timings, easing curves, and duration scales matching human intent.",
-    url: "https://transitions.dev/",
-    category: "use",
-    tags: ["CSS", "Motion-Tokens", "Easing"],
-    icon: SiCss3,
-    color: "#00FF66",
-  },
   {
     title: "Framer Motion Docs",
     description: "Official API reference and spring physics guides for declarative React animations.",
@@ -110,6 +136,127 @@ const resources: Resource[] = [
     tags: ["Fonts", "Typography", "SF-Pro"],
     icon: SiApple,
     color: "#8E8E93",
+  },
+
+  // UI Resources
+  {
+    title: "transitions.dev",
+    description: "Production-ready transition timings, easing curves, and duration scales matching human intent.",
+    url: "https://transitions.dev/",
+    category: "ui",
+    tags: ["CSS", "Motion-Tokens", "Easing"],
+    icon: SiCss3,
+    color: "#00FF66",
+  },
+  {
+    title: "Arlan's Vault",
+    description: "Arlan Marat's curated collection of creative front-end components, squircle corners, and interactive UI experiments.",
+    url: "https://www.arlan.me/vault",
+    category: "ui",
+    tags: ["UI-Design", "Interaction", "Creative-Coding"],
+    icon: SiFramer,
+    color: "#FF3366",
+  },
+  {
+    title: "Canvas UI",
+    description: "Interactive WebGL effects and shader transitions layered seamlessly over live, standard HTML elements.",
+    url: "http://canvasui.dev",
+    category: "ui",
+    tags: ["WebGL", "Shaders", "HTML"],
+    icon: SiThreedotjs,
+    color: "#00FFDD",
+  },
+  {
+    title: "Border Beam",
+    description: "Jakub Antalík's animated border beam and glowing line outline effects for modern cards and container components.",
+    url: "http://beam.jakubantalik.com",
+    category: "ui",
+    tags: ["Border-Beam", "Glow-Effect", "Card"],
+    icon: SiCss3,
+    color: "#FF0077",
+  },
+  {
+    title: "Origin UI",
+    description: "Free, ready-to-copy animated Tailwind CSS and React components built on top of Radix Primitives.",
+    url: "http://originkit.dev",
+    category: "ui",
+    tags: ["React", "TailwindCSS", "Components"],
+    icon: SiTailwindcss,
+    color: "#38BDF8",
+  },
+  {
+    title: "AI CSS",
+    description: "Polished, responsive UI components designed specifically for LLM chat interfaces and AI agent applications.",
+    url: "http://aicss.dev",
+    category: "ui",
+    tags: ["AI-UI", "Chat-UX", "TailwindCSS"],
+    icon: SiCss3,
+    color: "#A855F7",
+  },
+  {
+    title: "Liquid Metal",
+    description: "Jakub Antalík's stunning liquid metal effect and fluid chrome shaders for buttons and microinteractions.",
+    url: "http://metal.jakubantalik.com",
+    category: "ui",
+    tags: ["WebGL", "Button-FX", "Shaders"],
+    icon: SiThreedotjs,
+    color: "#C0C0C0",
+  },
+  {
+    title: "Beautiful UI",
+    description: "Crafted primitive components and aesthetic layout elements tailored for next-generation AI interfaces.",
+    url: "http://beautiful-ui-five.vercel.app",
+    category: "ui",
+    tags: ["AI-UX", "Primitives", "TailwindCSS"],
+    icon: SiFigma,
+    color: "#E11D48",
+  },
+  {
+    title: "Agentation",
+    description: "Annotate your interface design elements and compile comprehensive prompts to brief your coding agents.",
+    url: "http://agentation.com",
+    category: "ui",
+    tags: ["Coding-Agent", "Annotate", "Design-Ops"],
+    icon: SiLinear,
+    color: "#0EA5E9",
+  },
+  {
+    title: "Thinking Orbs",
+    description: "Jakub Antalík's animated, glowing thinking orb graphics and states for conversational AI interfaces.",
+    url: "http://orbs.jakubantalik.com",
+    category: "ui",
+    tags: ["AI-Indicator", "Animation", "Orbs"],
+    icon: SiFramer,
+    color: "#8B5CF6",
+  },
+
+  // Interesting Design Resources
+  {
+    title: "Konvert",
+    description: "Konvert is a creative design studio building B2B SaaS and AI product identities, sharp websites, and layout design systems.",
+    url: "https://konvert.design/",
+    category: "interesting-design",
+    tags: ["Studio", "Aesthetics", "Inspiration"],
+    icon: SiFigma,
+    color: "#8B5CF6",
+  },
+  {
+    title: "Blissful Studio",
+    description: "An outcome-focused design and development studio building SaaS identities, branding, and interactive digital products for ambitious tech companies.",
+    url: "https://blissful-studio.com/",
+    category: "interesting-design",
+    tags: ["Studio", "Branding", "SaaS"],
+    icon: SiFigma,
+    color: "#0D0D0C",
+  },
+  {
+    title: "Kargul Studio",
+    description: "A premium full-stack design and development studio specializing in custom web design, branding, illustration, and interactive frontend development.",
+    url: "https://kargul.studio/",
+    category: "interesting-design",
+    tags: ["Studio", "UI/UX", "Illustration"],
+    icon: SiFigma,
+    color: "#181717",
   },
 ];
 
@@ -147,7 +294,6 @@ function ResourceCard({ res }: { res: Resource }) {
       target="_blank"
       rel="noopener noreferrer"
       variants={cardVariants}
-      layout
       whileHover={{
         y: -10,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
@@ -193,14 +339,14 @@ function ResourceCard({ res }: { res: Resource }) {
           <div>
             {/* Top Meta & Icon */}
             <div className="mb-4 flex items-center justify-between">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-100 dark:bg-zinc-900">
+              {/* <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-100 dark:bg-zinc-900">
                 <IconComp 
                   className="h-5 w-5 transition-colors duration-150" 
                   style={{ color: res.color === "#000000" ? undefined : res.color }} 
                 />
-              </div>
-              <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium capitalize tracking-tighter text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-                {res.category}
+              </div> */}
+              <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
+                {getCategoryLabel(res.category)}
               </span>
             </div>
 
@@ -218,7 +364,7 @@ function ResourceCard({ res }: { res: Resource }) {
             {res.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-zinc-100/50 px-2 py-0.5 text-[10px] font-medium tracking-tighter text-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-300"
+                className="rounded-full bg-zinc-100/50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-300"
               >
                 {tag}
               </span>
@@ -231,7 +377,7 @@ function ResourceCard({ res }: { res: Resource }) {
 }
 
 export default function Resources() {
-  const [filter, setFilter] = useState<"all" | "learn" | "use">("all");
+  const [filter, setFilter] = useState<"all" | "learn" | "use" | "ui" | "interesting-design">("all");
 
   const filteredResources = resources.filter(
     (r) => filter === "all" || r.category === filter
@@ -242,14 +388,14 @@ export default function Resources() {
       {/* Back button */}
       <Link
         href="/"
-        className="mb-8 inline-flex items-center tracking-tighter text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
+        className="mb-8 inline-flex items-center  text-zinc-400 transition duration-150 ease-in-out hover:text-zinc-600 dark:hover:text-white"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
       </Link>
 
       <div className="mb-12">
         <motion.h1
-          className="mb-2 text-3xl font-medium tracking-tighter text-zinc-900 dark:text-zinc-50"
+          className="mb-2 text-3xl font-medium  text-zinc-900 dark:text-zinc-50"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -257,7 +403,7 @@ export default function Resources() {
           Resources
         </motion.h1>
         <motion.p
-          className="mb-8 text-sm tracking-tighter text-zinc-500 dark:text-zinc-400"
+          className="mb-8 text-sm text-zinc-500 dark:text-zinc-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
@@ -266,34 +412,32 @@ export default function Resources() {
         </motion.p>
 
         {/* Filter buttons */}
-        <div className="flex gap-2 mb-8">
-          {(["all", "learn", "use"] as const).map((cat) => (
+        <div className="flex gap-2 mb-8 flex-wrap">
+          {(["all", "learn", "use", "ui", "interesting-design"] as const).map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`rounded-md px-3.5 py-1.5 text-xs font-medium tracking-tighter capitalize transition-all active:scale-[0.98] cursor-pointer ${
+              className={`rounded-md px-3.5 py-1.5 text-xs font-medium transition-all active:scale-[0.98] cursor-pointer ${
                 filter === cat
                   ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900"
                   : "bg-zinc-100/70 text-zinc-600 hover:bg-zinc-200/70 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800"
               }`}
             >
-              {cat === "all" ? "All resources" : `${cat} section`}
+              {getCategoryLabel(cat)}
             </button>
           ))}
         </div>
 
         <motion.div
+          key={filter}
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          layout
           className="grid grid-cols-1 gap-6 sm:grid-cols-2"
         >
-          <AnimatePresence mode="popLayout">
-            {filteredResources.map((res) => (
-              <ResourceCard res={res} key={res.title} />
-            ))}
-          </AnimatePresence>
+          {filteredResources.map((res) => (
+            <ResourceCard res={res} key={res.title} />
+          ))}
         </motion.div>
       </div>
     </div>

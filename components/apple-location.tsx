@@ -9,7 +9,7 @@ interface AppleLocationProps {
 export default function AppleLocation({ text }: AppleLocationProps) {
   return (
     <motion.a
-      className="text-medium flex w-fit items-center rounded-md bg-yellow-100 px-4 py-2 text-sm tracking-tighter text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
+      className="text-medium flex w-fit items-center rounded-md bg-yellow-100 px-4 py-2 text-sm  text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
       whileHover={{
         y: -5,
         boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",

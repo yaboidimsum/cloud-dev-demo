@@ -61,7 +61,7 @@ export default function DynamicWaitingList() {
       >
         <motion.span
           layoutId="title"
-          className="font-semibold tracking-tight text-zinc-800"
+          className="font-semibold  text-zinc-800"
         >
           Join Early Access
         </motion.span>
@@ -83,7 +83,7 @@ export default function DynamicWaitingList() {
               transition={{ duration: 0.25, ease: [0.19, 1, 0.22, 1] }}
               className={`${
                 formState == "success" ? "absolute text-white" : "text-zinc-800"
-              } pl-2 font-semibold tracking-tight`}
+              } pl-2 font-semibold `}
               layoutId="title"
             >
               Save Me a Spot
@@ -148,7 +148,7 @@ export default function DynamicWaitingList() {
                     >
                       <label
                         htmlFor="user-email"
-                        className="text-md w-20 tracking-tight"
+                        className="text-md w-20 "
                       >
                         From
                       </label>
@@ -157,7 +157,7 @@ export default function DynamicWaitingList() {
                         id="user-email"
                         name="user-email"
                         placeholder="you@company.com"
-                        className="flex-1 border-none bg-transparent tracking-tight text-zinc-800 placeholder-zinc-400 focus:outline-none"
+                        className="flex-1 border-none bg-transparent  text-zinc-800 placeholder-zinc-400 focus:outline-none"
                       />
                     </motion.div>
 
@@ -171,7 +171,7 @@ export default function DynamicWaitingList() {
                     >
                       <label
                         htmlFor="company-email"
-                        className="text-md w-20 tracking-tight"
+                        className="text-md w-20 "
                       >
                         To
                       </label>
@@ -181,7 +181,7 @@ export default function DynamicWaitingList() {
                         name="company-email"
                         defaultValue="awan@streamlitfy"
                         readOnly
-                        className="flex-1 border-none bg-transparent font-medium tracking-tight text-zinc-900 focus:outline-none"
+                        className="flex-1 border-none bg-transparent font-medium  text-zinc-900 focus:outline-none"
                       />
                     </motion.div>
 
@@ -195,7 +195,7 @@ export default function DynamicWaitingList() {
                     >
                       <label
                         htmlFor="subject"
-                        className="text-md w-20 tracking-tight"
+                        className="text-md w-20 "
                       >
                         Subject
                       </label>
@@ -205,7 +205,7 @@ export default function DynamicWaitingList() {
                         name="subject"
                         defaultValue="Add me to the Streamlitfy waitlist!"
                         readOnly
-                        className="flex-1 border-none bg-transparent font-medium tracking-tight text-zinc-900 focus:outline-none"
+                        className="flex-1 border-none bg-transparent font-medium  text-zinc-900 focus:outline-none"
                       />
                     </motion.div>
 
