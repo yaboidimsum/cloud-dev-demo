@@ -42,14 +42,16 @@ export default function BottomNavDock() {
     Cookie.set("color-theme", theme, { expires: 1000 });
 
     // performance skill: re-enable after paint
+    let frameId2: number;
     const frameId1 = requestAnimationFrame(() => {
-      const frameId2 = requestAnimationFrame(() => {
+      frameId2 = requestAnimationFrame(() => {
         root.classList.remove("no-transitions");
       });
     });
 
     return () => {
       cancelAnimationFrame(frameId1);
+      if (frameId2) cancelAnimationFrame(frameId2);
     };
   }, [theme]);
 

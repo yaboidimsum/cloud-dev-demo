@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
-import { Eye, Heart } from "lucide-react";
+import { Eye } from "lucide-react";
 import { useViewCounter } from "@/hooks/useViewCounter";
 import { motion } from "framer-motion";
 

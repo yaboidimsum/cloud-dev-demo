@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 // ▶️ Play SVG
 function PlayIcon({ className }: { className?: string }) {
@@ -79,9 +80,11 @@ export default function AppleMusicBar() {
       {/* Top Section */}
       <div className="flex items-center justify-between gap-8">
         <div className="flex items-center gap-3">
-          <img
+          <Image
             src="https://i.scdn.co/image/ab67616d0000b2732c375e0d057495f0cc6711a5"
             alt="Album Art"
+            width={40}
+            height={40}
             className="h-10 w-10 rounded-md object-cover"
           />
           <div className="flex flex-col leading-tight">
