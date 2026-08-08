@@ -14,6 +14,7 @@ type BlogPostFrontmatter = {
   authorPict: string;
   authorName: string;
   tags: Array<string>;
+  category?: string;
 };
 
 type BlogPost = BlogPostFrontmatter & {

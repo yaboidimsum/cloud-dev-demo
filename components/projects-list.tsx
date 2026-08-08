@@ -4,7 +4,6 @@ import React, { useState, useMemo } from "react";
 import { Search, X } from "lucide-react";
 import ProjectCard from "@/components/project-card";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 interface Project {
   slug: string;
@@ -13,12 +12,28 @@ interface Project {
   abstract: string;
   src: string;
   tags: string[];
+  category?: string;
 }
 
 interface ProjectsListProps {
   projects: Project[];
   route: string;
 }
+
+const getCategoryLabel = (cat: string) => {
+  switch (cat) {
+    case "all":
+      return "📚 All";
+    case "software-engineer":
+      return "💻 Software Engineer";
+    case "web":
+      return "🌐 Web";
+    case "mobile":
+      return "📱 Mobile";
+    default:
+      return cat;
+  }
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -54,108 +69,118 @@ const itemVariants = {
 };
 
 export default function ProjectsList({ projects, route }: ProjectsListProps) {
+  const [filter, setFilter] = useState<"all" | "software-engineer" | "web" | "mobile">("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  // Extract all unique tags dynamically
-  const allTags = useMemo(() => {
-    const tags = new Set<string>();
-    projects.forEach((p) => {
-      if (p.tags) p.tags.forEach((t) => tags.add(t));
-    });
-    return Array.from(tags).sort();
-  }, [projects]);
-
-  // Toggle selected tags
-  const toggleTag = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
-  };
-
-  // Filter projects based on query and selected tags (matches all selected tags)
   const filteredProjects = useMemo(() => {
     return projects.filter((p) => {
+      // 1. Category Matching Logic
+      let matchesCategory = false;
+      if (filter === "all") {
+        matchesCategory = true;
+      } else if (p.category === filter) {
+        matchesCategory = true;
+      } else {
+        // Fallback matching by tags or keywords if explicit category is unassigned
+        const pTags = (p.tags || []).map((t) => t.toLowerCase());
+        if (filter === "software-engineer") {
+          matchesCategory = pTags.some(
+            (t) =>
+              t.includes("software engineer") ||
+              t.includes("computer vision") ||
+              t.includes("generative ai") ||
+              t.includes("research") ||
+              t.includes("gin") ||
+              t.includes("gorm") ||
+              t.includes("backend") ||
+              t.includes("mysql")
+          );
+        } else if (filter === "web") {
+          matchesCategory =
+            pTags.some(
+              (t) =>
+                t.includes("web") ||
+                t.includes("frontend") ||
+                t.includes("react") ||
+                t.includes("nextjs") ||
+                t.includes("ui/ux") ||
+                t.includes("3d") ||
+                t.includes("user experience") ||
+                t.includes("user interface")
+            ) || !p.category;
+        } else if (filter === "mobile") {
+          matchesCategory = pTags.some(
+            (t) =>
+              t.includes("mobile") ||
+              t.includes("ios") ||
+              t.includes("swift") ||
+              t.includes("react native") ||
+              t.includes("android") ||
+              t.includes("flutter")
+          );
+        }
+      }
+
+      // 2. Search Query Matching Logic
       const matchesSearch =
+        searchQuery === "" ||
         p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.abstract.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (p.tags && p.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase())));
 
-      const matchesTags =
-        selectedTags.length === 0 ||
-        (p.tags && selectedTags.every((t) => p.tags.includes(t)));
-
-      return matchesSearch && matchesTags;
+      return matchesCategory && matchesSearch;
     });
-  }, [projects, searchQuery, selectedTags]);
+  }, [projects, filter, searchQuery]);
 
   return (
-    <div className="space-y-8">
-      {/* Search & Tag filter layout */}
-      <div className="space-y-4">
-        {/* Search Input */}
-        <div className="relative w-full">
-          {/* z-10 and pointer-events-none overlay fixed the covered icon bug */}
-          <span className="absolute inset-y-0 left-3.5 z-10 flex items-center text-zinc-400 pointer-events-none">
-            <Search size={16} />
-          </span>
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search projects..."
-            className="w-full pl-10 pr-10 py-2.5 text-sm rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-950/70 shadow-sm backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-[border-color,box-shadow,background-color] duration-150 ease-[var(--ease-smooth-out)] text-zinc-900 dark:text-zinc-50"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute inset-y-0 right-3.5 z-10 flex items-center text-zinc-450 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 cursor-pointer"
-            >
-              <X size={16} />
-            </button>
-          )}
-        </div>
-
-        {/* Tags badges */}
-        <div className="flex flex-wrap gap-2 items-center select-none">
+    <div className="space-y-6">
+      {/* Search Input */}
+      <div className="relative w-full">
+        <span className="absolute inset-y-0 left-3.5 z-10 flex items-center text-zinc-400 pointer-events-none">
+          <Search size={16} />
+        </span>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search projects..."
+          className="w-full pl-10 pr-10 py-2.5 text-sm rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-950/70 shadow-sm backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-[border-color,box-shadow,background-color] duration-150 ease-[var(--ease-smooth-out)] text-zinc-900 dark:text-zinc-50"
+        />
+        {searchQuery && (
           <button
-            onClick={() => setSelectedTags([])}
-            className={cn(
-              "px-3 py-1 text-xs rounded-full border transition-[border-color,background-color,color] duration-150 ease-[var(--ease-smooth-out)] cursor-pointer",
-              selectedTags.length === 0
-                ? "bg-zinc-900 border-zinc-900 text-white dark:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-950 font-medium"
-                : "border-zinc-200 bg-white text-zinc-650 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:border-zinc-700"
-            )}
+            onClick={() => setSearchQuery("")}
+            className="absolute inset-y-0 right-3.5 z-10 flex items-center text-zinc-450 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 cursor-pointer"
           >
-            All
+            <X size={16} />
           </button>
-          {allTags.map((tag) => {
-            const isSelected = selectedTags.includes(tag);
-            return (
-              <button
-                key={tag}
-                onClick={() => toggleTag(tag)}
-                className={cn(
-                  "px-3 py-1 text-xs rounded-full border transition-[border-color,background-color,color] duration-150 ease-[var(--ease-smooth-out)] cursor-pointer",
-                  isSelected
-                    ? "bg-zinc-900 border-zinc-900 text-white dark:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-950 font-medium"
-                    : "border-zinc-200 bg-white text-zinc-650 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:border-zinc-700"
-                )}
-              >
-                {tag}
-              </button>
-            );
-          })}
-        </div>
+        )}
+      </div>
+
+      {/* Category Filter Buttons (Resources Style) */}
+      <div className="flex gap-2 mb-8 flex-wrap">
+        {(["all", "software-engineer", "web", "mobile"] as const).map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setFilter(cat)}
+            className={`rounded-md px-3.5 py-1.5 text-xs font-medium transition-all active:scale-[0.98] cursor-pointer ${
+              filter === cat
+                ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900"
+                : "bg-zinc-100/70 text-zinc-600 hover:bg-zinc-200/70 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800"
+            }`}
+          >
+            {getCategoryLabel(cat)}
+          </button>
+        ))}
       </div>
 
       {/* Grid of Projects */}
       <motion.div
+        key={filter}
         layout
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 gap-6 md:grid-cols-2"
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2"
       >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
@@ -180,7 +205,7 @@ export default function ProjectsList({ projects, route }: ProjectsListProps) {
           animate={{ opacity: 1 }}
           className="text-center py-12 text-zinc-500 dark:text-zinc-400 font-sans"
         >
-          No projects found matching current queries. 🔍
+          No projects found matching current filter or search queries. 🔍
         </motion.div>
       )}
     </div>
