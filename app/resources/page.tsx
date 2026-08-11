@@ -108,6 +108,24 @@ const resources: Resource[] = [
     icon: SiFigma,
     color: "#FF4B2B",
   },
+  {
+    title: "Interface Craft",
+    description: "Crafted UI interactions, micro-animations, and interactive components built with Framer Motion and Tailwind CSS.",
+    url: "http://interfacecraft.dev",
+    category: "learn",
+    tags: ["Interactions", "Motion", "Components"],
+    icon: SiFramer,
+    color: "#6366F1",
+  },
+  {
+    title: "Devouring Details",
+    description: "A collection of subtle UI micro-interactions, delightful design details, and polished web animation patterns.",
+    url: "http://devouringdetails.com",
+    category: "learn",
+    tags: ["Microinteractions", "UI-Details", "Aesthetics"],
+    icon: SiCss3,
+    color: "#F59E0B",
+  },
 
   // Use Resources
   {
@@ -228,6 +246,42 @@ const resources: Resource[] = [
     tags: ["AI-Indicator", "Animation", "Orbs"],
     icon: SiFramer,
     color: "#8B5CF6",
+  },
+  {
+    title: "Motion Primitives",
+    description: "UI components and animated primitives crafted with Framer Motion and Tailwind CSS for smooth interface interactions.",
+    url: "http://motion-primitives.com",
+    category: "ui",
+    tags: ["Primitives", "Motion", "React"],
+    icon: SiFramer,
+    color: "#EC4899",
+  },
+  {
+    title: "React Bits",
+    description: "An open-source library of customizable, lightweight React animations, background shaders, and interactive components.",
+    url: "http://reactbits.dev",
+    category: "ui",
+    tags: ["React", "Animations", "Shaders"],
+    icon: SiFramer,
+    color: "#10B981",
+  },
+  {
+    title: "Motion",
+    description: "The production-ready animation library for JavaScript, React, and Vue (formerly Framer Motion).",
+    url: "http://motion.dev",
+    category: "ui",
+    tags: ["Animations", "JavaScript", "React"],
+    icon: SiFramer,
+    color: "#FF0055",
+  },
+  {
+    title: "Backgrounds Supply",
+    description: "Curated collection of SVG, canvas, and CSS ambient background patterns, gradients, and subtle visual textures.",
+    url: "https://backgrounds.supply",
+    category: "ui",
+    tags: ["Backgrounds", "SVG", "Textures"],
+    icon: SiCss3,
+    color: "#3B82F6",
   },
 
   // Interesting Design Resources
