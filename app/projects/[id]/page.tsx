@@ -50,6 +50,9 @@ const components = {
       {...props}
     />
   ),
+  div: ({ align, ...props }: React.HTMLAttributes<HTMLDivElement> & { align?: string }) => (
+    <div className={align === "justify" ? "text-justify mb-4" : ""} {...props} />
+  ),
   pre: CopyablePre,
   Image,
   Link,

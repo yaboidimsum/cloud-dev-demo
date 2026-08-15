@@ -1,0 +1,123 @@
+---
+title: "Hitch: Ride Proposal iOS App"
+abstract: "Sending Seamless Ride Proposals via iMessage & WhatsApp with MapKit, Contacts, & Modern SwiftUI"
+publishedOn: "2026-02-16T12:00:00-0400"
+src: "/portfolio/projects/hitch/image-1.jpg"
+authorPict: "/kumo.png"
+authorName: "Dimas Prihady Setyawan"
+tags: ["mobile", "apple developer academy", "swiftui", "mapkit", "ios", "testflight"]
+category: "mobile"
+---
+
+# Link to LinkedIn & TestFlight
+
+- [View Original LinkedIn Post](https://www.linkedin.com/posts/dimas-prihady-setyawan-47a66821a_after-4-months-at-the-apple-developer-academy-activity-7474650685104410624-2obR)
+- 🚀 [Try Hitch on TestFlight](https://testflight.apple.com/join/gqKF4j4C)
+
+# Storytelling: Hitch
+
+After 4 months at the Apple Developer Academy, I was given a chance to work on an individual project. I reflected: I can manage state, design an app, and slice up components in SwiftUI. But I wanted to connect state to my own components in a way that feels useful and reliable — closer to a real-world app than a basic counter.
+
+So I built **Hitch**. 
+
+Hitch is an app that lets you send a ride proposal to a friend. You pick the driver from your contacts, the app calculates the route distance, you set a price per kilometer in your local currency (IDR, USD, AUD, etc.), and Hitch sends the proposal straight to your friend via iMessage or WhatsApp. Under the hood, it uses **MapKit** to figure out the route and **Contacts** to pull in your friends, but to the user it just feels like a quick text message with a price tag.
+
+## 🛠️ Architecture & Learning Wins
+
+- **Modern SwiftUI State**: Leveraged `@Observable`, `@MainActor`, and `@Bindable` to handle data reactivity cleanly and maintain thread safety.
+- **MVVM Pattern**: Kept view logic separate from data models, learning how views pass information to each other.
+- **Framework Integration**: Integrated MapKit for route distance calculations and Contacts framework for seamless friend selection.
+- **Accessibility & Contrast**: Built with accessibility in mind — supporting **Dynamic Type** (Large Text) and High Contrast mode.
+
+# 📸 Gallery & Project Photos
+
+<div className="my-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-1.jpg" 
+      alt="Hitch App Hero Overview" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      📱 Hitch iOS ride proposal main screen
+    </span>
+  </div>
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-2.jpg" 
+      alt="MapKit Route & Distance Calculation" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      🗺️ MapKit distance calculation & price per kilometer setup
+    </span>
+  </div>
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-3.jpg" 
+      alt="Contacts Picker & Driver Selection" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      👥 Contacts framework integration for driver selection
+    </span>
+  </div>
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-4.jpg" 
+      alt="iMessage & WhatsApp Proposal Sharing" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      💬 Direct message dispatch via iMessage & WhatsApp
+    </span>
+  </div>
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-5.jpg" 
+      alt="Dynamic Type & Contrast Accessibility" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      ♿ Dynamic Type (Large Text) & High Contrast accessibility support
+    </span>
+  </div>
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-6.jpg" 
+      alt="SwiftUI MVVM State Architecture" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      ⚙️ MVVM state architecture & data flow structure
+    </span>
+  </div>
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-7.jpg" 
+      alt="TestFlight Beta Release" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      🚀 TestFlight beta deployment & user testing
+    </span>
+  </div>
+  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+    <img 
+      src="/portfolio/projects/hitch/image-8.jpg" 
+      alt="Academy Mentorship Session" 
+      className="w-full h-56 object-cover"
+    />
+    <span className="block p-3 text-xs text-zinc-500 dark:text-zinc-400">
+      🌟 Academy mentorship review & feedback session
+    </span>
+  </div>
+</div>
+
+# 👥 Mentors & Guidance
+
+Special thanks to our academy mentors for guiding me through this individual project:
+
+- 🎯 [Daniel Aditya Istyana](https://id.linkedin.com/in/danielistyana) — Tech Guidance & Code Architecture
+- 🎯 [Dimas Ackyl Mohamad](https://id.linkedin.com/in/ackyl) — Design & User Experience
+- 🎯 [Anita Michiko Tamala](https://id.linkedin.com/in/anitamichiko) — Project Direction & Feedback
