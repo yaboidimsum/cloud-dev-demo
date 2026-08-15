@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
   // Add the experimental section for outputFileTracingIncludes
 
   outputFileTracingIncludes: {
-    "/**/*": ["./content/**/*"], // Include all files under ./content for all pages/routes
+    "/**/*": ["./content/blogs", "./content/projects", "./content/certificate"],
   },
 };
 

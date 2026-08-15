@@ -63,6 +63,7 @@ export default function ProjectCard({
               src={src}
               alt={title || "Project thumbnail"}
               fill
+              sizes="(min-width: 768px) 50vw, 100vw"
               onLoad={() => setIsLoaded(true)}
               className="object-cover -outline-offset-1 outline-1 outline-black/10 dark:outline-white/10"
             />

@@ -1,10 +1,17 @@
 import type React from "react";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import BottomNavDock from "@/components/bottom-nav-dock";
 import { ThemeProvider } from "@/context/theme-context";
 import { cookies } from "next/headers";
 import LenisProvider from "@/context/LenisProvider";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 
 export const metadata: Metadata = {
@@ -42,7 +49,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${theme === "dark" ? "dark" : "light"}`}
+      className={`scroll-smooth ${inter.variable} ${theme === "dark" ? "dark" : "light"}`}
       suppressHydrationWarning
     >
       <LenisProvider>

@@ -6,7 +6,6 @@ export function useViewCounter(slug: string, type: "project" | "blog") {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Only fetch the current view count
     const fetchViews = async () => {
       try {
         const response = await fetch(`/api/views?slug=${slug}&type=${type}`);
@@ -20,12 +19,26 @@ export function useViewCounter(slug: string, type: "project" | "blog") {
       }
     };
 
-    fetchViews();
+    // Defer to idle time so hydration isn't blocked by the view-count request.
+    const ric = (
+      window as Window & {
+        requestIdleCallback?: (cb: () => void) => number;
+      }
+    ).requestIdleCallback;
+    const schedule = ric
+      ? (cb: () => void) => ric(cb)
+      : (cb: () => void) => setTimeout(cb, 1) as unknown as number;
+    const id = schedule(fetchViews);
 
-    // Set up a polling interval to refresh the count periodically
-    const interval = setInterval(fetchViews, 60000); // Refresh every minute
-    
-    return () => clearInterval(interval);
+    return () => {
+      const cancelRic = (
+        window as Window & {
+          cancelIdleCallback?: (id: number) => void;
+        }
+      ).cancelIdleCallback;
+      if (cancelRic) cancelRic(id);
+      else clearTimeout(id);
+    };
   }, [slug, type]);
 
   return { views, error };

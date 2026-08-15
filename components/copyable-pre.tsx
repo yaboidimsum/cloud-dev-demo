@@ -3,7 +3,6 @@
 import React, { useState, useRef } from "react";
 import { Copy, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import hljs from "highlight.js";
 
 interface CopyablePreProps extends React.HTMLAttributes<HTMLPreElement> {
   language?: string;
@@ -11,7 +10,6 @@ interface CopyablePreProps extends React.HTMLAttributes<HTMLPreElement> {
 
 export default function CopyablePre({
   children,
-  language,
   className = "",
   ...props
 }: CopyablePreProps) {
@@ -31,45 +29,6 @@ export default function CopyablePre({
 
   const rawCode = extractText(children);
 
-  // Highlight syntax using highlight.js
-  const highlightedCode = React.useMemo(() => {
-    if (!rawCode.trim()) return "";
-
-    let targetLang = language;
-    if (!targetLang) {
-      const codeTrim = rawCode.trim();
-      if (
-        codeTrim.includes("export default") ||
-        codeTrim.includes("import ") ||
-        codeTrim.includes("return (") ||
-        codeTrim.includes("<div") ||
-        codeTrim.includes("interface ") ||
-        codeTrim.includes("const ")
-      ) {
-        targetLang = "typescript";
-      } else if (
-        codeTrim.includes("{") &&
-        (codeTrim.includes("clip-path") ||
-          codeTrim.includes("margin") ||
-          codeTrim.includes("transform:") ||
-          codeTrim.includes("color:"))
-      ) {
-        targetLang = "css";
-      }
-    }
-
-    try {
-      const validLang =
-        targetLang && hljs.getLanguage(targetLang) ? targetLang : null;
-      if (validLang) {
-        return hljs.highlight(rawCode.trim(), { language: validLang }).value;
-      }
-      return hljs.highlightAuto(rawCode.trim()).value;
-    } catch {
-      return rawCode.trim();
-    }
-  }, [rawCode, language]);
-
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(rawCode.trim());
@@ -85,9 +44,10 @@ export default function CopyablePre({
       <pre
         ref={preRef}
         className={`overflow-x-auto p-4 text-[13px] font-mono leading-relaxed whitespace-pre-wrap break-words hljs ${className}`}
-        dangerouslySetInnerHTML={{ __html: highlightedCode }}
         {...props}
-      />
+      >
+        {children}
+      </pre>
       <div className="absolute right-3 top-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 focus-within:opacity-100">
         <motion.button
           type="button"
